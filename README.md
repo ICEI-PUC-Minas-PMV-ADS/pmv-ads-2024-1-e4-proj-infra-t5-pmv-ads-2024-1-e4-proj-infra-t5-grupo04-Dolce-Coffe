@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Dolce Coffe
 
 `CURSO`
 
