@@ -1,19 +1,20 @@
 # Dolce Coffe
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Eixo 4 - Projeto: Desenvolvimento de uma Aplicação Distribuída - Turma 06 - 2024/1`
 
-`SEMESTRE`
+`Quarto Semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Dolce Coffe é um cardápio virtual de cafés e alimentos de alta qualidade, acessível a partir de qualquer dispositivo com conexão à internet. Oferece uma variedade de bebidas e comidas inspiradas na cozinha italiana, com opções para todos os gostos e ocasiões. 
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Roberta Gomes de Freitas
+* Lucas Marcelo dias Souza
+* Marlon César de Almeida dos Santos
+* Geison Amorim
+* Victor Kingma
 
 ## Orientador
 
