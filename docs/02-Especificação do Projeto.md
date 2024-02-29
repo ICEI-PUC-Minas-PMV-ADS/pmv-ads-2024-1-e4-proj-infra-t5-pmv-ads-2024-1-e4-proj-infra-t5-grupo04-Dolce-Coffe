@@ -193,9 +193,9 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 ## Gerenciamento de Equipe
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/899b31bc-a03c-47f8-99fc-57103f528f1e)
 
-![Simple Project Timeline](img/02-project-timeline.png)
+
 
 
 ## Gestão de Orçamento
