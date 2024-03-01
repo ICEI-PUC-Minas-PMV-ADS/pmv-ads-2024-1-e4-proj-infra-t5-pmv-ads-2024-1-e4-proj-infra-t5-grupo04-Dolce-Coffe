@@ -106,7 +106,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-009 | O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega | ALTA |
 | RF-010 | O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas | MÉDIA |
 |RF-011| O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento | MÉDIA |
-|RF-021| O sistema deve permitir que os clientes visualizem o histórico de compras anteriores, facilitando a repetição de pedidos ou a identificação de produtos favoritos | BAIXA |
+|RF-012| O sistema deve permitir que os clientes visualizem o histórico de compras anteriores, facilitando a repetição de pedidos ou a identificação de produtos favoritos | BAIXA |
 
 
 ### Requisitos Funcionais API
