@@ -14,11 +14,13 @@ Contextualizado, a dependência generalizada de café na sociedade moderna pode 
 
 ## Objetivos
 
-Oferecer uma experiência única e acolhedora para os clientes, promovendo a cultura do café e proporcionando um cardápio diversificado de bebidas e alimentos, além de incentivar práticas sustentáveis e responsáveis em toda a cadeia de produção e consumo.
+Proporcionar uma experiência única e acolhedora aos nossos clientes, promovendo a cultura do café e oferecendo uma ampla variedade de bebidas e alimentos. Além disso, incentivamos práticas sustentáveis e responsáveis em toda a cadeia de produção e consumo. Queremos trazer a experiência de uma cafeteria online, com um design agradável para todos os públicos e produtos de alta qualidade. Acreditamos em tornar o processo de pedido o mais fácil possível para os nossos clientes, garantindo que eles recebam seus pedidos com conforto e segurança em suas casas.
+
 
 ## Justificativa
 
-A Dolce Coffe, um site de cafeteria, é uma resposta à demanda global por uma experiência autêntica e acolhedora com café. Combinando a tradição e a cultura do café com uma abordagem moderna e sustentável, a Dolce Coffe oferece um cardápio diversificado de bebidas e alimentos, proporcionando uma experiência única e enriquecedora para os amantes do café
+A Dolce Coffe, um site de cardapio de uma cafeteria, com isso, acreditamos que um café de qualidade pode ser um momento de relaxamento, de pausa na rotina, e até mesmo um ponto de encontro para amigos e família.
+Queremos ser uma empresa que se preocupa com a comunidade e com o bem-estar dos nossos clientes, proporcionando momentos de prazer e de conexão.
 
 ## Público-Alvo
 
