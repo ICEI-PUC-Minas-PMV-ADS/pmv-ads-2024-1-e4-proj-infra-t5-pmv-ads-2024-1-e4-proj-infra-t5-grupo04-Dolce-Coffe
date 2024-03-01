@@ -100,8 +100,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-003| O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras | Alta |
 | RF-004| O sistema deve permitir que os clientes concluam a compra quando direcionado para o carrinho | Alta |
 | RF-005| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, gerenciar cardápio, histórico de pedidos, meu perfil | Alta|
-| RF-006| O sistema deve permitir inciar o pedido ou cancelar na própria tela de pedidos pendentes na home | Alta| 
+| RF-006| O sistema deve permitir iniciar o pedido ou cancelar na própria tela de pedidos pendentes na home | Alta| 
 | RF-007| O sistema deve permitir excluir pedidos do carrinho |
+| RF-008 | O sistema deve possibilitar aos clientes a visualização completa dos produtos incluindo informações detalhadas dos ingredientes | ALTA |
+| RF-009 | O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega | ALTA |
+| RF-010 | O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas | MÉDIA |
+|RF-011| O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento | MÉDIA |
+|RF-021| O sistema deve permitir que os clientes visualizem o histórico de compras anteriores, facilitando a repetição de pedidos ou a identificação de produtos favoritos | BAIXA |
+
 
 ### Requisitos Funcionais API
 
@@ -135,7 +141,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
 |RNF-001| O sistema deve criptografar a senha do usuário | Alta| 
-|RNF-002| O sistema deve web ser compatível com os principais navegadores da web, como Chrome e Edge | Média|
+|RNF-002| O sistema web ser compatível com os principais navegadores da web, como Chrome e Edge | Média|
 |RNF-003| O sistema web deve ter interface responsiva, adaptando-se automaticamente a diferentes tamanhos de tela | Alta|
 |RNF-004| O sistema deve listar os pedidos organizados em blocos com as informações dos pedidos | Média |
 |RNF-005| O sistema front-end Web deve ser desenvolvido na linguagem JavaScript com utilização do framework React.js | Alta|
@@ -165,20 +171,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ![Diagrama de Caso de Uso-3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-dist-t4-time4-Dolce-Coffe/assets/89558202/32d7070b-5f80-410e-8bd3-57cc46df4b01)
 
-# Matriz de Rastreabilidade
-
-A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio. 
-
-A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
-
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
-
-
 # Gerenciamento de Projeto
 
 De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicação, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos, um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque.
@@ -194,8 +186,6 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 ## Gerenciamento de Equipe
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/899b31bc-a03c-47f8-99fc-57103f528f1e)
-
-
 
 
 ## Gestão de Orçamento
