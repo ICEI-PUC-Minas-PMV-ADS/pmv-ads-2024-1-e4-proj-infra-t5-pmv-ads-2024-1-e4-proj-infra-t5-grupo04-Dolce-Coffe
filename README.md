@@ -2,7 +2,7 @@
 
 `Análise e Desenvolvimento de Sistemas`
 
-`Eixo 4 - Projeto: Desenvolvimento de uma Aplicação Distribuída - Turma 06 - 2024/1`
+`Eixo 4 - Projeto: Desenvolvimento de uma Aplicação Distribuída - Turma 05 - 2024/1`
 
 `Quarto Semestre`
 
