@@ -169,7 +169,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ## Diagrama de Casos de Uso
 
-![Diagrama de Caso de Uso-3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-dist-t4-time4-Dolce-Coffe/assets/89558202/32d7070b-5f80-410e-8bd3-57cc46df4b01)
+![casodeuso](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/56d4a099-c62e-4421-ac3c-3f02edd59c15)
+
 
 # Gerenciamento de Projeto
 
