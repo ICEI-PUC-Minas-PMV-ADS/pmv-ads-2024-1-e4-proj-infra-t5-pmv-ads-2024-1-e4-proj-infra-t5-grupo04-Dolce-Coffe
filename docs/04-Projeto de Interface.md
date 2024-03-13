@@ -30,7 +30,8 @@ Na tela de produtos, o usuário poderá conhecer os produtos e colocar no carrin
 
 Na tela carrinho de compras o usuário poderá visualizar os produtos esccolhidos e finalizar as compras esconlhend. o uma forma de pagamento por dinheiro ou cartão de crédito/débito. Lembrando que a forma de pagamento deverá ser realizada apenas na entrega.
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/73bb5db0-0dc9-4998-84f6-739d52f2ebe8)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/2dbb2521-e9a4-4015-92ea-32b579041b1f)
+
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/d2d02eda-8698-4103-b8e0-de9f19a73aa2)
 
