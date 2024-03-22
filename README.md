@@ -15,6 +15,7 @@ Dolce Coffe é um cardápio virtual de cafés e alimentos de alta qualidade, ace
 * Marlon César de Almeida dos Santos
 * Geison Amorim
 * Victor Kingma
+* Vinicio Muniz
 
 ## Orientador
 
