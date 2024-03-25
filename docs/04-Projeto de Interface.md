@@ -49,4 +49,19 @@ A Tela de cadastro deve conter os campos para as informações necessárias para
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/f0a875db-bdd9-4841-aaa7-24dcd82f2af6)
 
 
+## MOBILE
+
+## Tela - Home-Page e  Tela - Menu
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/6e1cd24a-909c-441c-857e-fb2b12a53629)
+
+## Tela - Carrinho de Compra e Tela - Finalizar Pedido
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/86c82daf-d813-4f4e-ac50-6c4025a9d61e)
+
+## Tela - Tela de Login e Tela - Cadastro
+
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/59ea2cf8-af53-45e7-b17f-f958ebd46bd1)
+
+
 
