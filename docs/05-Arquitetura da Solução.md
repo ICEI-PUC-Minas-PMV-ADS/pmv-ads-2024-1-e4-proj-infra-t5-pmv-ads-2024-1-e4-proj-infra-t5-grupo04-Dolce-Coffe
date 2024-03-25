@@ -2,7 +2,7 @@
 
 A Arquitetura da Solução é a disciplina que define a estrutura e o funcionamento de um sistema completo, abrangendo desde os componentes técnicos até os processos de negócio. Ela traduz as necessidades do cliente em uma solução viável, alinhando tecnologia, recursos e habilidades com os objetivos de negócio.
 
-blob:https://web.whatsapp.com/ad4d188f-1714-4c91-ad97-157a7ca090b0
+https://web.whatsapp.com/ad4d188f-1714-4c91-ad97-157a7ca090b0
 
 ## Diagrama de Classes
 
