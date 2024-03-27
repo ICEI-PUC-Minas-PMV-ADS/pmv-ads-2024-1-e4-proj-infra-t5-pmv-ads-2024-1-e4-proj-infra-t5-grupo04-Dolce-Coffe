@@ -1,0 +1,80 @@
+# Documentação do Modelo de Dados NoSQL
+
+## 1. Introdução ao MongoDB
+
+O MongoDB é um banco de dados NoSQL de código aberto, orientado a documentos, altamente escalável e flexível. Ele é adequado para uma ampla variedade de aplicativos, incluindo aqueles que exigem armazenamento de dados semiestruturados, como um site de cardápio online.
+
+## 2. Justificativa da Escolha do MongoDB
+
+O MongoDB foi escolhido para este projeto devido às suas vantagens específicas para o contexto da aplicaçao:
+
+- **Flexibilidade de Esquema:** Como o cardápio pode incluir uma variedade de itens com diferentes campos e atributos, a flexibilidade de esquema do MongoDB permite modelar os dados de forma mais natural e eficiente.
+  
+- **Escalabilidade Horizontal:** À medida que o número de usuários e itens do cardápio aumenta, o MongoDB oferece a capacidade de escalar horizontalmente, distribuindo dados em vários servidores para lidar com cargas de trabalho crescentes.
+  
+- **Integração com Aplicativos Web:** O MongoDB é frequentemente utilizado em conjunto com aplicativos web devido à sua facilidade de integração com linguagens de programação populares e frameworks de desenvolvimento.
+
+## 3. Avaliação do Modelo de Dados
+
+Para este projeto, o modelo de dados no MongoDB será composto por várias coleções para armazenar informações relacionadas a usuários, itens do cardápio, pedidos e detalhes do carrinho de compras. A seguir está uma descrição geral do modelo de dados proposto:
+
+- **Coleção de Usuários:** Armazenará informações como nome de usuário, senha (criptografada), endereço de e-mail e detalhes de contato.
+  
+- **Coleção de Itens do Cardápio:** Cada documento nesta coleção representará um item do cardápio e incluirá campos como nome do item, descrição, preço e categoria.
+  
+- **Coleção de Pedidos:** Cada pedido será representado por um documento nesta coleção, contendo informações como ID do usuário, itens pedidos e total do pedido.
+  
+- **Coleção de Carrinho de Compras:** Será utilizada para armazenar temporariamente os itens selecionados pelo usuário antes de confirmar o pedido.
+
+A desnormalização será empregada para melhorar o desempenho das consultas, reduzindo a necessidade de realizar junções complexas entre diferentes coleções.
+
+## 4. Comparação com Modelo Relacional
+
+Em comparação com um modelo de banco de dados relacional, o modelo de dados NoSQL proposto oferece as seguintes vantagens:
+
+- **Flexibilidade de Esquema:** No MongoDB, não há necessidade de definir um esquema rígido à frente do tempo, permitindo uma adaptação mais fácil a mudanças nos requisitos do aplicativo.
+  
+- **Escalabilidade Horizontal:** O MongoDB oferece melhor escalabilidade horizontal, permitindo que o sistema cresça mais facilmente com o aumento do número de usuários e itens do cardápio.
+  
+- **Desempenho Melhorado:** A desnormalização e a capacidade de armazenar documentos relacionados juntos no MongoDB podem resultar em consultas mais rápidas e eficientes, especialmente para operações de leitura de dados.
+
+## 5. Considerações de Desempenho e Escalabilidade
+
+O modelo de dados NoSQL proposto oferece várias vantagens em termos de desempenho e escalabilidade:
+
+- **Consulta de Dados Eficiente:** O MongoDB suporta índices para otimizar a consulta de dados, permitindo pesquisas rápidas mesmo em grandes conjuntos de dados.
+  
+- **Inserção e Atualização de Dados Rápidas:** A estrutura de documentos do MongoDB simplifica a inserção e atualização de dados, sem a necessidade de transações complexas.
+  
+- **Distribuição de Carga em Clusters:** O MongoDB pode ser implantado em um cluster distribuído para distribuir a carga entre vários servidores, garantindo alta disponibilidade e desempenho.
+
+## 6. Codigos de Criaçao de Collections para configuraçao do banco de dados
+
+use cardapio_online_db  // Cria ou seleciona o banco de dados "cardapio_online_db"
+
+// Criação da coleção de Usuários
+db.createCollection("usuarios")
+
+// Adiciona um índice único no campo "email" para garantir que cada usuário tenha um e-mail único
+db.usuarios.createIndex({ "email": 1 }, { unique: true })
+
+// Criação da coleção de Itens do Cardápio
+db.createCollection("itens_cardapio")
+
+// Criação de um índice composto no campo "categoria" e "nome" para facilitar as consultas por categoria e nome do item
+db.itens_cardapio.createIndex({ "categoria": 1, "nome": 1 })
+
+// Criação da coleção de Pedidos
+db.createCollection("pedidos")
+
+// Criação de um índice no campo "id_usuario" para facilitar a consulta de pedidos por usuário
+db.pedidos.createIndex({ "id_usuario": 1 })
+
+// Criação da coleção de Carrinho de Compras
+db.createCollection("carrinho_compras")
+
+// Criação de um índice no campo "id_usuario" para facilitar a consulta do carrinho de compras por usuário
+db.carrinho_compras.createIndex({ "id_usuario": 1 })
+
+
+
