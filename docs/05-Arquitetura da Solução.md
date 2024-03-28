@@ -21,7 +21,7 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 ## Modelo Físico
 
-# Documentação do Modelo de Dados NoSQL
+Documentação do Modelo de Dados NoSQL
 
 ## 1. Introdução ao MongoDB
 
@@ -112,16 +112,13 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 
 ### API
 
-- [Node.js](https://nodejs.dev) - Ambiente de execução Javascript server-side.
-- [Typescript](https://typescriptlang.org) - Superset do Javascript que adiciona tipagem estática e outros recursos.
-- [Next.js 13](https://nextjs.org) - Framework para React.js que conta com um backend embutido, podendo ser utilizado também como uma API.
-- [Prisma](https://prisma.io) - ORM para Node.js compatível com Typescript, que facilita a interação com o banco de dados.
+- [ASP.Net](https://dotnet.microsoft.com/pt-br) - Criação da API
 - [MOngoDB](https://www.mongodb.com/pt-br) - Banco de dados principal da aplicação.
 - [Swagger UI](https://swagger.io) - Ferramenta para documentação de APIs REST.
 
 ### Web
 
-- [React.js](https://reactjs.dev) - Biblioteca para criação de interfaces de usuário.
+- [BootStrap](https://getbootstrap.com) - Biblioteca para criação de interfaces de usuário.
 - [Next.js 13](https://nextjs.org) - Framework para React.js que permite criar aplicações web rápidas e seguras.
 - [NativeWind](https://nativewind.dev) - Framework CSS que permite criar interfaces de usuário de forma rápida e consistente.
 
