@@ -7,8 +7,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 O Diagrama de fluxo traz um modelo de como o usuário pode fluir através do sistema pelas telas de acordo com o planejamento da aplicação interativa, seguindo os requisitos funcionais, não funcionais, restrições e histórias das personas.
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/867199a9-515f-4278-87da-2782579b31d7)
-
+![Coofe drawio](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/0ad14da8-c2f8-4b77-a7f7-6967fb8a0884)
 
 ## Wireframes
 
