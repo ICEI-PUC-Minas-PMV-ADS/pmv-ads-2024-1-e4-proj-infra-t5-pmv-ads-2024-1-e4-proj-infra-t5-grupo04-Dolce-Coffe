@@ -15,6 +15,8 @@ Contextualizado, a dependência generalizada de café na sociedade moderna pode 
 ## Objetivos
 
 Proporcionar uma experiência única e acolhedora aos nossos clientes, promovendo a cultura do café e oferecendo uma ampla variedade de bebidas e alimentos. Além disso, incentivamos práticas sustentáveis e responsáveis em toda a cadeia de produção e consumo. Queremos trazer a experiência de uma cafeteria online, com um design agradável para todos os públicos e produtos de alta qualidade. Acreditamos em tornar o processo de pedido o mais fácil possível para os nossos clientes, garantindo que eles recebam seus pedidos com conforto e segurança em suas casas.
+Buscamos entregar um cardápio interativo, prático e completo, tornando a escolha do café um processo agradável e acolhedor para nosso público.
+
 
 
 ## Justificativa
