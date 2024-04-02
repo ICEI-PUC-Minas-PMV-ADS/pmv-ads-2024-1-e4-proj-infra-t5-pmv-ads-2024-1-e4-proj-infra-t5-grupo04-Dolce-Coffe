@@ -110,14 +110,13 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 
 ### API
 
-- [ASP.Net](https://dotnet.microsoft.com/pt-br) - Criação da API
+- [Express JS](https://expressjs.com/pt-br/) - Criação da API
 - [MOngoDB](https://www.mongodb.com/pt-br) - Banco de dados principal da aplicação.
 - [Swagger UI](https://swagger.io) - Ferramenta para documentação de APIs REST.
 
 ### Web / App
-
-- [Express JS](https://expressjs.com/pt-br/) - Biblioteca para criação de interfaces de usuário.
 - [Bootstrap](https://getbootstrap.com) - Framework para React.js que permite criar aplicações web rápidas e seguras.
+- [React](https://react.dev) - 
 
 > Uma relação completa das tecnologias utilizadas pode ser encontrada no arquivo [package.json](../src/web/package.json) dentro do diretório do projeto.
 
