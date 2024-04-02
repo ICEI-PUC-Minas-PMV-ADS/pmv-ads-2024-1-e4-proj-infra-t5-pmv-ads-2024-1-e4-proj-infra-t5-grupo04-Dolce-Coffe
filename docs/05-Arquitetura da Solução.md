@@ -118,13 +118,12 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 - [Bootstrap](https://getbootstrap.com) - Framework para estrutura do CSS que permite criar aplicações web responsivas rápidas e seguras.
 - [React](https://react.dev) - Framework para JavaScript que permite criar aplicações web rápidas e seguras.
 
-> Uma relação completa das tecnologias utilizadas pode ser encontrada no arquivo [package.json](../src/web/package.json) dentro do diretório do projeto.
 
 ## Hospedagem
 
-A hospedagem foi feita na plataforma [Vercel](https://vercel.com/) utilizando o GitHub Actions para fazer build e deploy da aplicação. Para isso, foi necessário criar um access token na Vercel, permitindo que o comando de deploy fosse utilizado na pipeline.
+A hospedagem será feita na plataforma [GitHub](https://github.com).
 
-Caso a build seja um sucesso, e não haja falhas nos testes unitários, o deploy ocorre automáticamente quando um pull request é concluído para a branch main, ou quando um commit é feito diretamente nela.
+
 
 ## Qualidade de Software
 
