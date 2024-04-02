@@ -115,8 +115,8 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 - [Swagger UI](https://swagger.io) - Ferramenta para documentação de APIs REST.
 
 ### Web / App
-- [Bootstrap](https://getbootstrap.com) - Framework para React.js que permite criar aplicações web rápidas e seguras.
-- [React](https://react.dev) - 
+- [Bootstrap](https://getbootstrap.com) - Framework para estrutura do CSS que permite criar aplicações web responsivas rápidas e seguras.
+- [React](https://react.dev) - Framework para JavaScript que permite criar aplicações web rápidas e seguras.
 
 > Uma relação completa das tecnologias utilizadas pode ser encontrada no arquivo [package.json](../src/web/package.json) dentro do diretório do projeto.
 
