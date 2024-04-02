@@ -107,8 +107,6 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 - [Postman](https://taskit-pucminas.postman.co/) - Ferramenta para testar APIs REST.
 - [Docker](https://www.docker.com/) - Plataforma para criação e execução de containers.
 - [GitHub](https://github.com) - Plataforma de hospedagem de código fonte e controle de versão.
-- [GitHub Actions](https://github.com/actions) - Ferramenta de integração contínua do GitHub.
-- [Vercel](https://vercel.com/) - Plataforma de hospedagem de aplicações web serverless e bancos de dados.
 
 ### API
 
@@ -116,16 +114,10 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 - [MOngoDB](https://www.mongodb.com/pt-br) - Banco de dados principal da aplicação.
 - [Swagger UI](https://swagger.io) - Ferramenta para documentação de APIs REST.
 
-### Web
+### Web / App
 
-- [BootStrap](https://getbootstrap.com) - Biblioteca para criação de interfaces de usuário.
-- [Next.js 13](https://nextjs.org) - Framework para React.js que permite criar aplicações web rápidas e seguras.
-- [NativeWind](https://nativewind.dev) - Framework CSS que permite criar interfaces de usuário de forma rápida e consistente.
-
-### App
-
-- [React Native](https://reactnative.dev) - Biblioteca para criação de interfaces de usuário.
-- [Tailwind CSS](https://tailwindcss.com) - Framework CSS que permite criar interfaces de usuário de forma rápida e consistente.
+- [Express JS](https://expressjs.com/pt-br/) - Biblioteca para criação de interfaces de usuário.
+- [Bootstrap](https://getbootstrap.com) - Framework para React.js que permite criar aplicações web rápidas e seguras.
 
 > Uma relação completa das tecnologias utilizadas pode ser encontrada no arquivo [package.json](../src/web/package.json) dentro do diretório do projeto.
 
