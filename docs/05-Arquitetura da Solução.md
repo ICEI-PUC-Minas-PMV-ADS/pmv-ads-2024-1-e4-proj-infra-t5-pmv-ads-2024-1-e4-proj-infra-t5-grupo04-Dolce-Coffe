@@ -123,8 +123,6 @@ db.carrinho_compras.createIndex({ "id_usuario": 1 })
 
 A hospedagem será feita na plataforma [GitHub](https://github.com).
 
-
-
 ## Qualidade de Software
 
 Escolhemos trabalhar contemplando as principais características de qualidade que podem ser atribuídas ao sistema. Entre elas:
