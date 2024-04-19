@@ -43,5 +43,5 @@
 |:---:	|:---:	|
 |Requisito Associado | RF-07 - O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega	| Verificar se o usuário *Cliente* obtém êxito para acompanhar seu pedido. |
 | Passos 	| - Acessar o navegador <br> - Informar o endereço do site (link a ser disponibilizado) <br> Escolher o produto do Cárdapio <br> Adicionar  no carrinho de compras e finalizar o pedido, e ir para tela de status da compra.   |
-|Critério de Êxito | - O cliente conseguiu cancelar pedido. |
+|Critério de Êxito | - O cliente conseguiu aacommpanhar o pedido. |
 |  	|  	|
