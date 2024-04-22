@@ -1,39 +1,26 @@
+require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-
-class Database{
-  constructor(url,dbName){
-    this.url =  'mongodb://127.0.0.1:27017';
-    this.dbName = 'ortopura_db';
-    this.client = new MongoClient(this.url)
+class Database {
+  constructor(dbName) {
+    this.dbName = 'dolce_db';
+    this.client = new MongoClient(process.env.MONGO_URI);
   }
 
-  
-  
   async connect() {
-    try{
+    try {
       await this.client.connect();
-      console.log("Conectado ao mongoDB")
-      this.db = this.client.db(this.dbName)
-    } 
-    catch (error) {
-      console.error("Erro ao conectar:", error)
+      console.log("Conectado ao MongoDB");
+      this.db = this.client.db(this.dbName);
+    } catch (error) {
+      console.error("Erro ao conectar:", error);
     }
   }
-  
 
-async close(){
-  await this.client.close()
-  console.log("Conexao encerrada")
+  async close() {
+    await this.client.close();
+    console.log("Conexão encerrada");
+  }
 }
-
-
-
-
-
-
-
-}
-
 
 module.exports = Database;
