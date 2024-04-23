@@ -15,7 +15,7 @@ header{
     display: flex;
 }
 main{
-    background: #FFFFFF;
+    background: #FFF0F0F0;
     margin: 0% 3% 0% 3%;
 }
 main .content{
@@ -40,7 +40,6 @@ thead tr th{
     padding-bottom: 10px;
     text-transform: uppercase;
     color: #666;
-
 }
 tbody tr{
 
@@ -63,4 +62,54 @@ img{
 }
 .descricao{
     color: #666;
+}
+
+
+footer {
+    background-color: #F0F0F0;
+    color: #000;
+    padding: 10px 15px;
+    text-align: center;
+    position: fixed;
+    width: 93; /* Reduzindo a largura para 94% para deixar espaço para as margens */
+    left: 3%; /* Definindo a margem esquerda para 3% */
+    right: 3%; /* Definindo a margem direita para 3% */
+    bottom: 0;
+    font-size: 30px;
+    margin: 0 auto; /* Centralizando horizontalmente */
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+    background-color: #FE7E47;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #FF8484;
+}
+
+table th {
+    padding: 10px 15px;
+}
+
+table th:first-child {
+    text-align: left;
+}
+
+table th:last-child {
+    text-align: right;
 }
