@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: #1B1D1E;
+
+}
+header{
+    color: #FFFFFF;
+    font-size: 30px;
+    padding: 20px 0;
+    margin-left: 10%;
+    display: flex;
+}
+main{
+    background: #FFFFFF;
+    margin: 0% 3% 0% 3%;
+}
+main .content{
+    display: flex;
+}
+section{
+    flex: 1;
+}
+aside{
+    background: red;
+    min-width: 258px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+thead tr{
+    border-bottom: 3px solid #eec;
+}
+thead tr th{
+    text-align: left;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: #666;
+
+}
+tbody tr{
+
+}
+tbody tr td{
+    padding:10px 15px;
+}
+.product{
+    display: flex;
+    align-items: center;
+}
+img{
+    border-radius: 6px;
+}
+.info{
+    margin-left: 20px;
+}
+.title{
+    font-size: 15px;
+}
+.descricao{
+    color: #666;
+}
