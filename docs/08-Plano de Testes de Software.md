@@ -39,9 +39,30 @@
 |Critério de Êxito | - O cliente conseguiu cancelar pedido. |
 |  	|  	|
 
-| **Caso de Teste** 	| **CT-06 – Status do pedido **	|
+| **Caso de Teste** 	| **CT-06 – Excluir produto do carrinho **	|
 |:---:	|:---:	|
-|Requisito Associado | RF-07 - O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega	| Verificar se o usuário *Cliente* obtém êxito para acompanhar seu pedido. |
+|Requisito Associado | RF-07 -O sistema deve permitir excluir pedidos do carrinho	| Verificar se o usuário *Cliente* obtém êxito para excluir produto do carrinho. |
+| Passos 	| - Acessar o navegador <br> - Informar o endereço do site (link a ser disponibilizado) <br> Escolher o produto do Cárdapio <br> Adicionar  no carrinho de compras e clicar no icone "-" para retirar o produto do carrinho. |
+|Critério de Êxito | - O cliente conseguiu excluir o produto. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-07 – Status do pedido **	|
+|:---:	|:---:	|
+|Requisito Associado | RF-08 - O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega	| Verificar se o usuário *Cliente* obtém êxito para acompanhar seu pedido. |
 | Passos 	| - Acessar o navegador <br> - Informar o endereço do site (link a ser disponibilizado) <br> Escolher o produto do Cárdapio <br> Adicionar  no carrinho de compras e finalizar o pedido, e ir para tela de status da compra.   |
-|Critério de Êxito | - O cliente conseguiu aacommpanhar o pedido. |
+|Critério de Êxito | - O cliente conseguiu acommpanhar o pedido. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-08 – Gerenciar cardápio **	|
+|:---:	|:---:	|
+|Requisito Associado | RF-09 - O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas	| Verificar se o usuário *Administrador* obtém êxito para editar o cardápio. |
+| Passos 	| - Acessar o navegador <br> - Informar o endereço do site (link a ser disponibilizado) <br> Logar com a conta Admin <br> Gerenciar o cardápio.   |
+|Critério de Êxito | - O gerente conseguiu gerenciar o cardápio. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-09 – Horário de funcionamento **	|
+|:---:	|:---:	|
+|Requisito Associado | RF-010 - O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento	| Verificar se o usuário *Cliente* obtém êxito para visualizar horário de funcionamento. |
+| Passos 	| - Acessar o navegador <br> - Informar o endereço do site (link a ser disponibilizado) <br> Acessar tela Home Page <br> Verificar horário de funcionamento   |
+|Critério de Êxito | - O cliente conseguiu ver o horário. |
 |  	|  	|
