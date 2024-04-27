@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 * {
@@ -22,7 +23,7 @@ body {
     height: 100vh;
     background-image: linear-gradient(rgba(29, 29, 29, 0.8), rgba(29, 29, 29, 0.8)), url(https://images.pexels.com/photos/10500378/pexels-photo-10500378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg);
     background-position: center center;
-    background-size: 65%; 
+    background-size: 100%; 
     background-repeat: no-repeat;
     width: 100vw;
     display: flex;
@@ -82,16 +83,6 @@ body {
 
 .cadastro-perfil button:hover {
     background-color: #0056b3;
-}
-
-a {
-    color: #ccc;
-    padding: 10px;
-    transition: color 0.3s ease; 
-}
-
-a:hover {
-    color: #4487d4; 
 }
 
 

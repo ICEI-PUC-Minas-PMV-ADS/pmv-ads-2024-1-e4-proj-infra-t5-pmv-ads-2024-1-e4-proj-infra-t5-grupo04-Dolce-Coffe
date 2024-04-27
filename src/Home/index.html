@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+ 
     <header class="content">
         <div class="logo">
             <img src="/src/img/logo.png" alt="logo">
@@ -21,7 +21,7 @@
             <ul class="list-menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Cárdapio</a></li>
-                <li><a href="#" id="cartButton"><i class="bi bi-cart"></i></a></li>
+                <li><a href="#"><i class="bi bi-cart"></i></a></li>
                 <li><a href="#" id="perfilButton"><i class="bi bi-person-circle"></i></a></li>
             </ul>
         </nav>
@@ -35,7 +35,7 @@
 
     <section class="first-section">
         <div class="conteudo-principal">
-            <h1><span>Confira nosso</span></h1>
+           <h1><span>Confira nosso</span></h1>
             <h2>Cárdapio Completo </h2>
         </div>
     </section>
@@ -46,10 +46,15 @@
         <button class="Para Comer">Para Comer</button>
     </div>
 
-    <script src="/src/Perfil/tela-de-login.js"></script>
-    <script src="/src/Cart/cart.js"></script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+             const perfilButton = document.getElementById('perfilButton');
+             perfilButton.addEventListener('click', function() {
+                 window.open('/src/Perfil/perfil.html', '_blank');
+             });
+         });
+     </script>
+     
 
 </body>
-
 </html>
