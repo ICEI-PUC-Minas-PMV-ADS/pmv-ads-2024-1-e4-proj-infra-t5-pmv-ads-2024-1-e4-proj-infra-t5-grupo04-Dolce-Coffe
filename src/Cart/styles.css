@@ -41,9 +41,7 @@ thead tr th{
     text-transform: uppercase;
     color: #666;
 }
-tbody tr{
 
-}
 tbody tr td{
     padding:10px 15px;
 }
@@ -82,25 +80,36 @@ footer {
 footer p {
     margin-bottom: 10px;
 }
+
 .footer-buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.confirm-button,
-.cancel-button {
-    background-color: #FE7E47;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
+.confirm-button {
+    background-color: #FE7E47; 
+    color: #1B1D1E; 
+    border: 2px solid transparent; 
+    border-radius: 20px; 
+    padding: 15px 80px; 
     margin-right: 10px;
     cursor: pointer;
 }
 
 .cancel-button {
-    background-color: #FF8484;
+    background-color: #D9D9D9;
+    color: #1B1D1E; 
+    border: 2px solid transparent; 
+    border-radius: 20px; 
+    padding: 15px 80px; 
+    cursor: pointer;
 }
+
+.confirm-button:hover, .cancel-button:hover {
+    background-color: transparent; 
+}
+
 
 table th {
     padding: 10px 15px;
