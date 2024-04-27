@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #1f1e1f;
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(29, 29, 29, 0.8), rgba(29, 29, 29, 0.8)), url(https://images.pexels.com/photos/10500378/pexels-photo-10500378.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg);
+    background-position: center center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela-de-login {
+    background-color: transparent;
+    color: #fff;
+    padding-top: 10px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+    font-size: 2.5vh;
+    text-align: center; 
+}
+
+
+.tela-de-login h2 {
+    text-align: center;
+    font-size: 5vh;
+    padding: 5vh;
+
+}
+
+.tela-de-login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.tela-de-login .campo {
+    margin-bottom: 20px;
+}
+
+.tela-de-login label {
+    font-weight: bold;
+}
+
+.tela-de-login input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+
+}
+
+.tela-de-login button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.tela-de-login button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    color: #ccc;
+    padding: 10px;
+    transition: color 0.3s ease; 
+}
+
+a:hover {
+    color: #4487d4; 
+}
+
+

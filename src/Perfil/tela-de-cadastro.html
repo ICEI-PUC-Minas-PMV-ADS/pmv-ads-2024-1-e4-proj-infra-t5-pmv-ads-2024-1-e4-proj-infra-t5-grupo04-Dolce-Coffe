@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/src/Perfil/tela-de-cadastro.css">
+    <title>Criação de Perfil</title>
+
+</head>
+
+<body>
+
+    <section class="cadastro-perfil">
+        <h2>Cadastro de Perfil</h2>
+        <form id="form-cadastro">
+            <div class="campo">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="campo">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="campo">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <div class="campo">
+                <label for="confirmar-senha">Confirmar Senha:</label>
+                <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+            </div>
+            <div class="campo">
+                <button type="submit">Cadastrar</button>
+            </div>
+
+            <a href="/src/Perfil/tela-de-login.html">Voltar para o Login</a>
+
+        </form>
+    </section>
+
+    
+    <script src="/src/Perfil/tela-de-cadastro.js"></script>
+
+</body>
+
+</html>
