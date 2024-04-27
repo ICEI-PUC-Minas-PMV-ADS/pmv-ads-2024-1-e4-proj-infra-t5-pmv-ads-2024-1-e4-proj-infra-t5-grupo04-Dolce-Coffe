@@ -102,11 +102,10 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-005| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, gerenciar cardápio, histórico de pedidos, meu perfil | Alta|
 | RF-006| O sistema deve permitir iniciar o pedido ou cancelar na própria tela de pedidos pendentes na home | Alta| 
 | RF-007| O sistema deve permitir excluir pedidos do carrinho |
-| RF-008 | O sistema deve possibilitar aos clientes a visualização completa dos produtos incluindo informações detalhadas dos ingredientes | ALTA |
-| RF-009 | O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega | ALTA |
-| RF-010 | O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas | MÉDIA |
-|RF-011| O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento | MÉDIA |
-|RF-012| O sistema deve permitir que os clientes visualizem o histórico de compras anteriores, facilitando a repetição de pedidos ou a identificação de produtos favoritos | BAIXA |
+| RF-008 | O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega | ALTA |
+| RF-009 | O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas | MÉDIA |
+|RF-010| O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento | MÉDIA |
+|RF-011| O sistema deve permitir que os clientes visualizem o histórico de compras anteriores, facilitando a repetição de pedidos ou a identificação de produtos favoritos | BAIXA |
 
 
 ### Requisitos Funcionais API
