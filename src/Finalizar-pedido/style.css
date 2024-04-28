@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f1e1f;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ebe5e5;
+}
+
+.summary table {
+    width: 100%;
+}
+
+.summary table th,
+.summary table td {
+    text-align: left;
+    padding: 8px 0;
+}
+
+.summary table th {
+    width: 50%;
+}
+
+.summary .total {
+    font-weight: bold;
+}
+
+.payment-methods {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.payment-methods p {
+    margin-bottom: 40px;
+}
+
+.payment-methods button i {
+    margin-right: 10px;
+}
+
+.payment-methods button {
+    padding: 10px 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #45a049;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.payment-methods button:hover {
+    opacity: 0.8;
+}
+
+
+.order-finalization {
+    text-align: center;
+}
+
+.finalize-order {
+    background-color: #FE7E47;
+    color: #1B1D1E;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 15px 80px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.finalize-order:hover {
+    opacity: 0.5;
+}
+
+.return-home {
+    background-color: #D9D9D9;
+    color: #1B1D1E;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 15px 80px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.return-home:hover {
+    opacity: 0.5;
+}

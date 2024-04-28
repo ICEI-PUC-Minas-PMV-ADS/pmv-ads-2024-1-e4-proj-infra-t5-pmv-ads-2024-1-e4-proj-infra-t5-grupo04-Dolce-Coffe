@@ -25,7 +25,7 @@ class CRUD {
         throw new Error('Senha incorreta');
       }
 
-      const token = jwt.sign({ id: usuario._id, email: usuario.email, role: usuario.role }, 'your-secret-key', {
+      const token = jwt.sign({ id: usuario._id, email: usuario.email, role: usuario.role }, 'dolce-token', {
         expiresIn: '1d'
       });
 
