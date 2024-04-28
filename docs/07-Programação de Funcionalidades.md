@@ -5,3 +5,5 @@ Implementação do sistema descritas por meio dos requisitos funcionais e/ou nã
 |ID    | Descrição do Requisito  | Artefato(s) produzido(s) |
 |------|-----------------------------------------|----|
 |RF-001| Os usuários devem poder fazer cadastro e login usando suas credenciais | Home / Perfil / Login/Cadastro /  | 
+|RF-004| O sistema deve permitir que os clientes concluam a compra quando direcionado para o carrinho | Home / Carrinho / Resumo do Pedido/Finalizar | 
+|RF-006| O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho | Home / Carrinho / Excluir| 
