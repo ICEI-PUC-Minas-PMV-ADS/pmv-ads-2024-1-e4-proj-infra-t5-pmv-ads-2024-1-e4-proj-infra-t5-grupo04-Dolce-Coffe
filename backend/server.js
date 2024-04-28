@@ -8,9 +8,7 @@ const port = process.env.PORT || 5000;
 
 
 const Database = require('./database/bancodedados')
-
-
-//const CRUD = require('../database/dataControl');
+const CRUD = require('./database/dataControl');
 
 
 app.use(cors({
@@ -32,9 +30,8 @@ app.listen(port, async() => {
   console.log("Servidor iniciado na porta:", port)
   await db.connect()
 
-  //login = new CRUD(db, 'usuarios');
-
- // produtos = new CRUD(db,'produtos')
+  login = new CRUD(db, 'usuarios');
+  produtos = new CRUD(db,'produtos')
 
 })
 
@@ -57,18 +54,17 @@ app.post('/login', async (req, res) => {
 
 
 
-
-app.get('/cardapio', verificaAutenticacao, async (req, res) => {
+app.get('/home', /*verificaAutenticacao,*/ async (req, res) => {
   try {
-    const userId = req.usuario.id;
-    const userName = req.usuario.nome;
-    const userRole = req.usuario.role.toUpperCase();
-    //const result = await database.findAll(); // Colocar o find dos produtos
- 
-    const agendamentos = await agenda.getAgenda()
-    res.json({ userId, userName, userRole, agendamentos });
+  //  const userId = req.usuario.id;
+  //  const userName = req.usuario.nome;
+  //  const userRole = req.usuario.role.toUpperCase();
+    
+
+    const arrayProdutos = await produtos.getProdutos();
+    res.json({ /*userId, userName, userRole,*/ arrayProdutos });
   } catch (error) {
-    res.status(401).json({ error: 'Erro interno do servidor' });
+    res.status(500).json({ error: 'Erro interno do servidor' });
   }
 });
 
@@ -76,3 +72,16 @@ app.get('/cardapio', verificaAutenticacao, async (req, res) => {
 
 
 
+app.get('/pedidos',verificaAutenticacao, async (req, res) => {
+  try {
+   const userId = req.usuario.id;
+   const userName = req.usuario.nome;
+   const userRole = req.usuario.role.toUpperCase();
+    
+
+    const arrayProdutos = await produtos.getProdutos();
+    res.json({ userId, userName, userRole, arrayProdutos });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+});
