@@ -1,69 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="/src/Cart/styles.css"/>
+    <title>Carrinho de Compras</title>
 </head>
+
 <body>
     <header>
-        <span class="bi bi-cart"><b>&nbsp Carrinho</b></span>
+        <span class="bi bi-cart"><b>Carrinho</b></span>
     </header>
     <main>
-        <div class="content">
-            <section>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Produto</th>
-                            <th>Preço</th>
-                            <th>Quantidade</th>
-                            <th>Total</th>
-                            <th>-</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="product">
-                                    <img src="https://picsum.photos/90/90">
-                                    <div class="info">
-                                        <div class="title">nome do produto</div>
-                                        <div class="descricao">descrição do produto</div>
-                                    </div>
+        <section class="summary">
+            <h2>Itens no Carrinho</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="product">
+                                <img src="https://picsum.photos/90/90">
+                                <div class="info">
+                                    <div class="title">Nome do Produto</div>
+                                    <div class="price">R$ 120</div>
                                 </div>
-                            </td>
-                            <td>R$ 120</td>
-                            <td>
-                                <div class="qty">
-                                    <button>-</button>
-                                    <span>2</span>
-                                    <button>+</button>
-                                </div>
-                            </td>
-                            <td>R$ 240</td>
-                            <td><button><i class="bi bi-x"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            <aside>resumo das compras </aside>
-        </div>
-    </main>
-    <footer>
-        <table>
-            <thead>
-                <tr>
-                    <th>Total</th>
-                    <th>R$ 120,00</th>
-                </tr>
-            </thead>
-        </table>
-        <div class="footer-buttons">
-            <button class="confirm-button">Continuar</button>
-            <button class="cancel-button">Cancelar</button>
-        </div>
-    </footer>
+                            </div>
+                        </td>
+                        <td>R$ 120</td>
+                        <td>
+                            <div class="qty">
+                                <button><i class="bi bi-trash3-fill"></i></button>
+                                <span>2</span>
+                                <button><i class="bi bi-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <hr>
+        <section class="total-section">
+            <h2>Total:</h2>
+            <div class="total-price">R$ 240,00</div>
+        </section>
+
+        <section class="order-finalization">
+            <a href="/src/Finalizar-pedido/index.html" class="confirm-button">Continuar</a>
+            <a href="/src/Home/index.html" class="cancel-button">Cancelar</a>
+        </section>
+        
 </body>
+
 </html>

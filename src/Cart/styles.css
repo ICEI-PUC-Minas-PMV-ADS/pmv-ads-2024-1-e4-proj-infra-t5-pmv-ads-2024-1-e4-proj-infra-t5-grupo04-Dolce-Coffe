@@ -1,124 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-}
 body {
-    background: #1B1D1E;
-
-}
-header{
-    color: #FFFFFF;
-    font-size: 30px;
-    padding: 20px 0;
-    margin-left: 10%;
-    display: flex;
-}
-main{
-    background: #FFF0F0F0;
-    margin: 0% 3% 0% 3%;
-}
-main .content{
-    display: flex;
-}
-section{
-    flex: 1;
-}
-aside{
-    background: red;
-    min-width: 258px;
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-thead tr{
-    border-bottom: 3px solid #eec;
-}
-thead tr th{
-    text-align: left;
-    padding-bottom: 10px;
-    text-transform: uppercase;
-    color: #666;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1f1e1f;
 }
 
-tbody tr td{
-    padding:10px 15px;
-}
-.product{
-    display: flex;
-    align-items: center;
-}
-img{
-    border-radius: 6px;
-}
-.info{
-    margin-left: 20px;
-}
-.title{
-    font-size: 15px;
-}
-.descricao{
-    color: #666;
-}
-
-
-footer {
-    background-color: #F0F0F0;
-    color: #000;
-    padding: 10px 15px;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
     text-align: center;
-    position: fixed;
-    width: 93; /* Reduzindo a largura para 94% para deixar espaço para as margens */
-    left: 3%; /* Definindo a margem esquerda para 3% */
-    right: 3%; /* Definindo a margem direita para 3% */
-    bottom: 0;
-    font-size: 30px;
-    margin: 0 auto; /* Centralizando horizontalmente */
 }
 
-footer p {
+main {
+    padding: 20px;
+}
+
+.summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ebe5e5;
+}
+
+.summary table {
+    width: 100%;
+}
+
+.summary table th,
+.summary table td {
+    text-align: left;
+    padding: 8px 0;
+}
+
+.summary table th {
+    width: 50%;
+}
+
+.summary .total {
+    font-weight: bold;
+    color: #333; /* Alteração para cor dos itens do produto */
+}
+
+.payment-methods {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.payment-methods p {
+    margin-bottom: 40px;
+}
+
+.payment-methods button i {
+    margin-right: 10px;
+}
+
+.payment-methods button {
+    padding: 10px 20px;
+    margin-right: 20px;
     margin-bottom: 10px;
+    background-color: #45a049;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
 }
 
-.footer-buttons {
-    display: flex;
-    justify-content: center;
+.payment-methods button:hover {
+    opacity: 0.8;
+}
+
+.order-finalization {
+    text-align: center;
     margin-top: 20px;
 }
 
-.confirm-button {
+.confirm-button,
+.cancel-button {
     background-color: #FE7E47; 
-    color: #1B1D1E; 
-    border: 2px solid transparent; 
-    border-radius: 20px; 
-    padding: 15px 80px; 
+    color: #1B1D1E;
+    border: 2px solid #FE7E47; 
+    border-radius: 20px;
+    padding: 15px 80px;
     margin-right: 10px;
     cursor: pointer;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
 }
 
 .cancel-button {
-    background-color: #D9D9D9;
-    color: #1B1D1E; 
-    border: 2px solid transparent; 
-    border-radius: 20px; 
-    padding: 15px 80px; 
+    background-color: #D9D9D9; 
+    border: 2px solid #D9D9D9; 
+}
+
+.confirm-button:hover,
+.cancel-button:hover {
+    opacity: 0.5;
+}
+
+
+.product {
+    display: flex;
+    align-items: center;
+}
+
+.product img {
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.product .info {
+    flex: 1;
+}
+
+.product .title {
+    font-weight: bold;
+}
+
+.product .price {
+    font-size: 16px;
+    color: #666;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+}
+
+.qty button {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 }
 
-.confirm-button:hover, .cancel-button:hover {
-    background-color: transparent; 
+.qty button i {
+    font-size: 20px;
+    color: #333;
 }
 
-
-table th {
-    padding: 10px 15px;
+.qty span {
+    margin: 0 10px;
+    font-size: 16px;
 }
 
-table th:first-child {
-    text-align: left;
+.total-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ebe5e5; /* Cor de fundo da seção total */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-table th:last-child {
-    text-align: right;
+.total-section h2 {
+    margin: 0; /* Remova a margem para evitar espaçamento adicional */
+}
+
+.total-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Cor do texto do preço total */
 }
