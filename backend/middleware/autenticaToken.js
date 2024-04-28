@@ -22,7 +22,7 @@ function verificaAutenticacao(req, res, next) {
     }
 
     try {
-        const decoded = jwt.verify(token, 'your-secret-key');
+        const decoded = jwt.verify(token, 'dolce-token');
         req.usuario = {
             id: decoded.id,
             nome: decoded.email,
