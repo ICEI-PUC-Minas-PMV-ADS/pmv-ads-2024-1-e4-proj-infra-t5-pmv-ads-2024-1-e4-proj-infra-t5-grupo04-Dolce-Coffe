@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+
+.bg-secundario{
+  background-color: #EADDD1;
+}
+
+
+.bg-terciario{
+  background-color: #FFF7E1;
+}
