@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../App.css';
+import '../App.css'
 
 
 function Menu() {
@@ -20,15 +20,11 @@ function Menu() {
               <li className="nav-item">
                 <a className="nav-link" href="#">Histórico</a>
               </li>
-  
+
               <li className="nav-item">
                 <a className="nav-link" href="#">Carrinho(ico)</a>
               </li>
 
-              <li className="nav-item">
-                <a className="nav-link" href="#">Cardapio(ico)</a>
-              </li>
-  
               <li className="nav-item">
                 <a className="nav-link" href="#">Perfil(ico)</a>
               </li>
@@ -38,7 +34,7 @@ function Menu() {
       </nav>
     );
   }
-  
+
   function MainSection() {
     return (
       <section className="main-section">
@@ -55,9 +51,74 @@ function Menu() {
       </section >
     );
   }
-  
-  
-  
+
+
+
+
+  function QuartaSec() {
+
+    const [produtos, setProdutos] = useState([]);
+
+    useEffect(() => {
+      async function fetchProdutos() {
+        try {
+          const response = await axios.get('https://dolce-coffee-api.onrender.com/home');
+          setProdutos(response.data.arrayProdutos)
+        } catch (error) {
+          console.error('Erro ao buscar produtos', error)
+        }
+      }
+
+
+      fetchProdutos();
+
+    }, []);
+
+    return (
+      <section className="blue-section bg-primary text-white">
+        <div className="container">
+          <div>
+            <h2>Cafés Quentes</h2>
+            <ul className='row align-items-start'>
+              {produtos
+                .filter(produto => produto.tipo === 'quente')
+                .map(produto => (
+                  <li key={produto._id} className="col-md-3">
+                    <div className="card">
+                      <div className="card-body">
+                        <h3 className="card-title">{produto.nome}</h3>
+                        <p className="card-text">Valor: R$ {produto.valor}</p>
+                        <p className="card-text">{produto.desc}</p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2>Cafés Gelados</h2>
+            <ul className='row align-items-start'>
+              {produtos
+                .filter(produto => produto.tipo === 'frio')
+                .map(produto => (
+                  <li key={produto._id} className="col-md-3">
+                    <div className="card">
+                      <div className="card-body">
+                        <h3 className="card-title">{produto.nome}</h3>
+                        <p className="card-text">Valor: R$ {produto.valor}</p>
+                        <p className="card-text">{produto.desc}</p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    );
+
+  }
 
 
 
@@ -68,6 +129,7 @@ function Menu() {
         <div>
           <Menu />
           <MainSection />
+          <QuartaSec />
         </div>
       );
   }
