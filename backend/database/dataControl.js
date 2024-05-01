@@ -40,12 +40,12 @@ class CRUD {
 
 
 
-async getAgenda(){
+async getProdutos(){
   try{
     const cursor = await this.collection.find()
 
-    const agendamentos = await cursor.toArray();
-    return agendamentos
+    const produtos = await cursor.toArray();
+    return produtos
   }
   catch(error){
     throw error;
