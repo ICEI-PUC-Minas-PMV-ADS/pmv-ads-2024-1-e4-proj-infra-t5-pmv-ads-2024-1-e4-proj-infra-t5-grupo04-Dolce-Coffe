@@ -5,14 +5,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import './App.css'
+import Modal from './components/Modal'; 
 import axios from 'axios';
 
-
-function Menu() {
+function Menu({ openCartModal }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
       <div className="container">
-        <div class="logo">
+        <div className="logo">
           <img src="./logo.png" alt="logo" />
           <h3><span>Dolce</span>Coffe</h3>
         </div>
@@ -22,23 +22,41 @@ function Menu() {
               <a className="nav-link text-white" href="#">Histórico</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="#">
+              <a className="nav-link text-white" href="#" onClick={openCartModal}>
                 Carrinho <i className="bi bi-cart3"></i>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-white" href="#">
-                Perfil <i className="bi bi-person-circle"></i>
-              </a>
+              <a className="nav-link text-white" href="#">Perfil <i className="bi bi-person-circle"></i></a>
             </li>
           </ul>
         </div>
-
       </div>
     </nav>
   );
 }
 
+function ShoppingCartApp() { 
+  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+
+  const openCartModal = () => {
+    setIsCartModalOpen(true);
+  };
+
+  const closeCartModal = () => {
+    setIsCartModalOpen(false);
+  };
+
+  return (
+    <div>
+      <Menu openCartModal={openCartModal} /> 
+      <MainSection />
+      <QuartaSec />
+      <Footer />
+      <Modal isOpen={isCartModalOpen} onClose={closeCartModal} /> 
+    </div>
+  );
+}
 
 function MainSection() {
   return (
@@ -154,7 +172,6 @@ function QuartaSec() {
   );
 }
 
-
 function Footer() {
   return (
     <footer className="footer mt-auto py-3 bg-light">
@@ -166,12 +183,14 @@ function Footer() {
 }
 
 
+
 function App() {
   return (
     <div>
       <Menu />
       <MainSection />
       <QuartaSec />
+      <openCartModal/>
       <Footer />
     </div>
   );
