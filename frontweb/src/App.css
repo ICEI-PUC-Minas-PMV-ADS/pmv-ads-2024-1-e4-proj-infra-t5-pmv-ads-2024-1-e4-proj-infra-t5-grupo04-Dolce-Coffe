@@ -28,7 +28,6 @@
   color: #61dafb;
 }
 
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,7 +37,6 @@
     transform: rotate(360deg);
   }
 }
-
 
 .content {
   width: 100vw;
@@ -50,7 +48,6 @@
   padding-left: 5rem;
   box-shadow: 0 0.1rem 0.5rem #6D4613;
 }
-
 
 .logo {
   width: 40px;
@@ -76,8 +73,6 @@
   height: 100%;
 }
 
-
-
 .bg-overlay-dark::after {
   content: '';
   position: absolute;
@@ -98,7 +93,6 @@ h2 {
   padding: 10px 20px; 
   border-radius: 10px; 
   margin-top: 3rem;
-
 }
 
 .main-section {
@@ -116,6 +110,14 @@ h2 {
   color: #fff;
 }
 
-.Footer{
-  margin-top: 5rem;
+.btn-primary {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: fff; 
+}
+
+.btn-primary:hover {
+  background-color: #6D4613;
+  border-color: #000000;
+  color: #000000; 
 }

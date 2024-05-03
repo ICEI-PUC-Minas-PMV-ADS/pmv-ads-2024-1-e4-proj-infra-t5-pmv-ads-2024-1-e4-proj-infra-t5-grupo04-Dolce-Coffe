@@ -8,10 +8,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import './App.css'
-import Modal from './components/Modal'; 
+import Modal from './components/Modal';
 
 
 import Home from './components/Home'
+import Cardapio from './components/Cardapio'
 
 // function ShoppingCartApp() { 
 
@@ -23,18 +24,18 @@ import Home from './components/Home'
 //   };
 
 //   // const closeCartModal = () => {
-  //   setIsCartModalOpen(false);
-  // };
+//   setIsCartModalOpen(false);
+// };
 
-  // return (
-  //   <div>
-  //     <Menu openCartModal={openCartModal} /> 
-  //     <MainSection />
-  //     <QuartaSec />
-  //     <Footer />
-  //     <Modal isOpen={isCartModalOpen} onClose={closeCartModal} /> 
-  //   </div>
-  // );
+// return (
+//   <div>
+//     <Menu openCartModal={openCartModal} /> 
+//     <MainSection />
+//     <QuartaSec />
+//     <Footer />
+//     <Modal isOpen={isCartModalOpen} onClose={closeCartModal} /> 
+//   </div>
+// );
 //}
 
 
@@ -44,6 +45,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/cardapio" element={<Cardapio />} />
         </Routes>
       </div>
     </Router>
