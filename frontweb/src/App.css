@@ -113,11 +113,14 @@ h2 {
 .btn-primary {
   background-color: #6D4613;
   border-color: #fff;
-  color: fff; 
+  color: #fff;
+  padding: 15px 30px; /* Ajuste o padding conforme necessário */
+  border-radius: 25px; /* Valor do raio para deixar os botões mais arredondados */
 }
 
 .btn-primary:hover {
   background-color: #6D4613;
-  border-color: #000000;
-  color: #000000; 
+  border-color: #000;
+  color: #000;
 }
+
