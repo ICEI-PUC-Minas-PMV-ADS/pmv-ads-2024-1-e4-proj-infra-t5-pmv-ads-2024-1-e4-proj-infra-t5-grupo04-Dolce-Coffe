@@ -10,6 +10,8 @@ function CustomModal({ isOpen, onClose }) {
     // Lógica para fazer checkout
   };
 
+
+
   return (
     <div className={`modal ${isOpen ? 'show' : ''}`}>
       <div className="modal-dialog">

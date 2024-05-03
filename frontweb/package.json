@@ -13,7 +13,13 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "bootstrap-icons": "^1.11.3",
+    "react-bootstrap": "^2.9.0-beta.1",
+    "react-modal": "^3.16.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.9"
   },
   "scripts": {
     "start": "react-scripts start",
