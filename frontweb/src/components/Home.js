@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Slider from 'react-slick';
 
 function Menu() {
   return (
@@ -42,7 +41,6 @@ function MainSection() {
             <h3>Confira Nosso</h3>
             <h1>Cardápio Completo</h1>
             <p>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, cada xícara oferece uma experiência única. Explore conosco e desfrute de uma jornada de café incomparável.</p>
-            <Link to="/cardapio" className="btn btn-primary custom-btn">Ver Cardápio</Link>
           </div>
         </div>
       </div>
@@ -70,7 +68,7 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
     fetchProdutos();
   }, []);
 
-    const handleClickCategoria = (categoria) => {
+  const handleClickCategoria = (categoria) => {
     if (categoriaAtiva === categoria) {
       setCategoriaAtiva(null);
       setCategoria(null);
@@ -80,10 +78,6 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
     }
   };
 
-  if (loading) {
-    return <div>Carregando...</div>;
-  }
-
   return (
     <section className="bg-secondary bg-light text-dark">
       <div className="container">
@@ -91,8 +85,7 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
           <div className="col-md-4 text-center">
             <button
               type="button"
-              className="btn btn-primary"
-              style={{ backgroundColor: categoriaAtiva === 'quente' ? '#6D4613' : '' }}
+              className={`btn btn-primary ${categoriaAtiva === 'quente' ? 'active' : ''}`}
               onClick={() => handleClickCategoria('quente')}
             >
               Cafés Quentes
@@ -101,8 +94,7 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
           <div className="col-md-4 text-center">
             <button
               type="button"
-              className="btn btn-primary"
-              style={{ backgroundColor: categoriaAtiva === 'gelado' ? '#6D4613' : '' }}
+              className={`btn btn-primary ${categoriaAtiva === 'gelado' ? 'active' : ''}`}
               onClick={() => handleClickCategoria('gelado')}
             >
               Cafés Gelados
@@ -111,8 +103,7 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
           <div className="col-md-4 text-center">
             <button
               type="button"
-              className="btn btn-primary"
-              style={{ backgroundColor: categoriaAtiva === 'comida' ? '#6D4613' : '' }}
+              className={`btn btn-primary ${categoriaAtiva === 'comida' ? 'active' : ''}`}
               onClick={() => handleClickCategoria('comida')}
             >
               Para Comer
@@ -134,16 +125,13 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
                         <p className="card-text">{produto.desc}</p>
                       </div>
                       <div className="icon-container">
-                          <button onClick={() => handleAddToCart(produto)} className="btn btn-secundary">
-                            <i className="bi bi-bag-heart-fill"></i> 
-                          </button>
-                        </div>
+                        <button onClick={() => handleAddToCart(produto)} className="btn btn-secondary">
+                          <i className="bi bi-bag-heart-fill"></i> 
+                        </button>
+                      </div>
                     </div>
-                    
                   </div>
-
                 </div>
-                
               ))}
           </div>
         )}

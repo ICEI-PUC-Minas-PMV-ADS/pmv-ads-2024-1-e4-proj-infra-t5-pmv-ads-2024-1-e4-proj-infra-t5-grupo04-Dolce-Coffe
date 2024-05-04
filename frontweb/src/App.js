@@ -12,7 +12,7 @@ import Modal from './components/Modal';
 
 
 import Home from './components/Home'
-import Cardapio from './components/Cardapio'
+
 
 // function ShoppingCartApp() { 
 
@@ -45,7 +45,6 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cardapio" element={<Cardapio />} />
         </Routes>
       </div>
     </Router>

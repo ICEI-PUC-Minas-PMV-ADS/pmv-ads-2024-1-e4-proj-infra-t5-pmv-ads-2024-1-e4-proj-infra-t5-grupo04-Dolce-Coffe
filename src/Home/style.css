@@ -146,7 +146,6 @@
 
 .btnOpcao button:hover {
     border-bottom: 5px solid #c57d56;
-    /* background-color: transparent; */
     background-color: black;
     color: #D9D9D9;
 }

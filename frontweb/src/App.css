@@ -111,6 +111,119 @@ h2 {
   color: #fff;
 }
 
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*cabeçalho*/
+.content { 
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position:absolute;
+  padding-left: 5rem;
+  box-shadow: 0 0.1rem 0.5rem #6D4613;
+}
+/*Logo da xícara - Dolce Coffee*/
+.logo {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+/* Escrita do Dolce em marrom*/
+.logo span {
+  color: #6D4613;
+  font-size: 1rem;
+  font-weight: 00;
+}
+/* Escrita do Coffee em branco*/
+.logo h3 {
+  color: #ffff;
+  font-size: 1rem;
+}
+/*Tamanho da Logo da xícara - Dolce Coffee*/
+.logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-overlay-dark::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  box-shadow: 0 0.1rem 0.5rem #6D4613;
+}
+
+h2 {
+  font-size: 30px;
+  display: inline-block;
+  border: none;
+  background-color: #fff; 
+  color: #1f1e1f; 
+  padding: 10px 20px; 
+  border-radius: 10px; 
+  margin-top: 3rem;
+}
+/*imagem central- Dolce Coffee*/
+.main-section {
+  height: 80vh;
+  background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), url('https://images.pexels.com/photos/15076694/pexels-photo-15076694/free-photo-of-coffee.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.pnj');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  color: #fff;
+}
+
 .btn-primary {
   background-color: #6D4613;
   border-color: #fff;
@@ -125,22 +238,40 @@ h2 {
   color: #000;
 }
 
-.btn-secundary {
-  background-color: #FF8484;
+.btn-primary.active,
+.btn-primary.active:hover {
+  background-color: #cccccc; /* Cor mais neutra */
   border-color: #fff;
-  color: #fff;
-  padding: 3px 10px;
-  border-radius: 15px;
-  margin-top: 80px; 
+  color: #000; /* Cor do texto */
 }
 
-
-
-.btn-secundary:hover {
-  background-color: #FF8484;
-  border-color: #000;
+.btn-primary:not(.active):hover {
+  background-color: #6D4613;
+  border-color: #fff;
   color: #000;
 }
+
+.btn-primary:not(.active) {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn.custom-btn.active {
+  background-color: pink;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn.custom-btn.active:hover {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #000;
+}
+
+.btn-secundary {
+  background-color: #FF8484}
+
 
 .container {
   max-width: 1140px; /* Defina a largura máxima do contêiner */
