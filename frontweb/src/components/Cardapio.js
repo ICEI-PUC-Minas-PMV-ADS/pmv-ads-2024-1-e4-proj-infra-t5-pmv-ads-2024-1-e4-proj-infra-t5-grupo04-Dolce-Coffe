@@ -79,7 +79,13 @@ function QuartaSec() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    nextArrow: <button className="slick-next"><i className="bi bi-chevron-right"></i></button>,
+    prevArrow: <button className="slick-prev"><i className="bi bi-chevron-left"></i></button>,
+    
+    
+    afterChange: current => console.log(current),
   };
+
 
   return (
     <section className="bg-secondary .bg-light text-dark">

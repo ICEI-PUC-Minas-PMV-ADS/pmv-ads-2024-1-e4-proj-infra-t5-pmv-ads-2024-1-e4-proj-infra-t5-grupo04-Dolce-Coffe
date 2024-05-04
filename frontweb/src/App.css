@@ -38,7 +38,8 @@
   }
 }
 
-.content {
+/*cabeçalho*/
+.content { 
   width: 100vw;
   height: 60px;
   display: flex;
@@ -48,7 +49,7 @@
   padding-left: 5rem;
   box-shadow: 0 0.1rem 0.5rem #6D4613;
 }
-
+/*Logo da xícara - Dolce Coffee*/
 .logo {
   width: 40px;
   height: auto;
@@ -56,18 +57,18 @@
   display: flex;
   align-items: center;
 }
-
+/* Escrita do Dolce em marrom*/
 .logo span {
   color: #6D4613;
   font-size: 1rem;
   font-weight: 00;
 }
-
+/* Escrita do Coffee em branco*/
 .logo h3 {
   color: #ffff;
   font-size: 1rem;
 }
-
+/*Tamanho da Logo da xícara - Dolce Coffee*/
 .logo img {
   width: 100%;
   height: 100%;
@@ -88,13 +89,13 @@ h2 {
   font-size: 30px;
   display: inline-block;
   border: none;
-  background-color: #ccc; 
+  background-color: #fff; 
   color: #1f1e1f; 
   padding: 10px 20px; 
   border-radius: 10px; 
   margin-top: 3rem;
 }
-
+/*imagem central- Dolce Coffee*/
 .main-section {
   height: 80vh;
   background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), url('https://images.pexels.com/photos/15076694/pexels-photo-15076694/free-photo-of-coffee.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.pnj');
@@ -120,7 +121,77 @@ h2 {
 
 .btn-primary:hover {
   background-color: #6D4613;
+  border-color: #fff;
+  color: #000;
+}
+
+.btn-secundary {
+  background-color: #FF8484;
+  border-color: #fff;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin-top: 80px; 
+}
+
+
+
+.btn-secundary:hover {
+  background-color: #FF8484;
   border-color: #000;
   color: #000;
 }
+
+.container {
+  max-width: 1140px; /* Defina a largura máxima do contêiner */
+  margin-right: auto; /* Alinhar à direita automaticamente */
+  margin-left: auto; /* Alinhar à esquerda automaticamente */
+  padding-right: 15px; /* Adicionar preenchimento à direita */
+  padding-left: 15px; /* Adicionar preenchimento à esquerda */
+}
+.row.justify-content-between {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 20px; /* Adicionando uma margem superior de 20 pixels */
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #D9D9D9;
+  color: #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  max-width: 18rem; /* Corrigi a sintaxe para "max-width" */
+  margin-top: 60px;
+}
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 24px;
+  color: black;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: #6D4613; /* Cor de destaque ao passar o mouse sobre os botões */
+}
+
+
+
+
+
 

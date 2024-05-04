@@ -50,7 +50,7 @@ function MainSection() {
   );
 }
 
-function QuartaSec({ categoria, setCategoria }) {
+function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
@@ -70,10 +70,10 @@ function QuartaSec({ categoria, setCategoria }) {
     fetchProdutos();
   }, []);
 
-  const handleClickCategoria = (categoria) => {
+    const handleClickCategoria = (categoria) => {
     if (categoriaAtiva === categoria) {
-      setCategoriaAtiva(null); // Se a categoria clicada já estiver ativa, desativa ela
-      setCategoria(null); // Limpa a categoria ativa no componente pai
+      setCategoriaAtiva(null);
+      setCategoria(null);
     } else {
       setCategoriaAtiva(categoria);
       setCategoria(categoria);
@@ -119,24 +119,31 @@ function QuartaSec({ categoria, setCategoria }) {
             </button>
           </div>
         </div>
-        {categoriaAtiva && ( // Renderizar somente se houver uma categoria ativa
+        {categoriaAtiva && (
           <div className="row mt-4">
             {produtos
               .filter((produto) => produto.tipo === categoriaAtiva)
               .map((produto) => (
                 <div key={produto._id} className="col-md-4 mb-4">
-                  <div className="card" style={{ maxWidth: '18rem' }}>
+                  <div className="card">
                     <img src={produto.imagem} className="card-img-top" alt={produto.nome} />
-                    <div className="card-body d-flex justify-content-between align-items-center">
+                    <div className="card-body">
                       <div>
                         <h5 className="card-title">{produto.nome}</h5>
                         <p className="card-text">Valor: R$ {produto.valor}</p>
                         <p className="card-text">{produto.desc}</p>
                       </div>
-                      <i className="bi bi-bag-heart-fill"></i>
+                      <div className="icon-container">
+                          <button onClick={() => handleAddToCart(produto)} className="btn btn-secundary">
+                            <i className="bi bi-bag-heart-fill"></i> 
+                          </button>
+                        </div>
                     </div>
+                    
                   </div>
+
                 </div>
+                
               ))}
           </div>
         )}
@@ -145,25 +152,19 @@ function QuartaSec({ categoria, setCategoria }) {
   );
 }
 
-/*function Footer() {
-  return (
-    <footer className="footer mt-auto py-3 bg-light">
-      <div className="container">
-        <span className="text-muted">© 2024 Dolce Coffe. Todos os direitos reservados.</span>
-      </div>
-    </footer>
-  );
-}
-*/
 function Home() {
   const [categoria, setCategoria] = useState('quente');
+
+  const handleAddToCart = (produto) => {
+    // Implemente a lógica para adicionar o produto ao carrinho aqui
+    console.log('Produto adicionado ao carrinho:', produto);
+  };
 
   return (
     <div>
       <Menu />
       <MainSection />
-      <QuartaSec categoria={categoria} setCategoria={setCategoria} />
-
+      <QuartaSec categoria={categoria} setCategoria={setCategoria} handleAddToCart={handleAddToCart} />
     </div>
   );
 }
