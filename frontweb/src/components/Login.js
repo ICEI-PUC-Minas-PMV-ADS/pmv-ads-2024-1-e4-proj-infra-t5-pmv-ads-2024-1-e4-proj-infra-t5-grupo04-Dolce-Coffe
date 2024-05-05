@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom';
 
-const imagePath = process.env.PUBLIC_URL + '/images/banner-login.jpg';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const navigate = useNavigate(); 
+
+  const handleRedirect = () => {
+    navigate('/home')
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,8 +24,9 @@ function Login() {
         senha
       });
       
-      // Lógica adicional para tratar a resposta, redirecionar o usuário, etc.
-      console.log('Resposta do servidor:', response.data);
+      Cookies.set('token', response.data.token)
+      handleRedirect()
+
     } catch (error) {
       console.error('Erro ao fazer login:', error);
     }
@@ -31,15 +38,15 @@ function Login() {
         <div className="row justify-content-center align-items-center" style={{ height: '100vh' }}>
           {/* Div com a imagem */}
           <div className="col-md-4">
-            <img src={imagePath} alt="Imagem" className="img-fluid rounded-5" />
+            <img src="./assets/images/banner-login.jpg" alt="Imagem" className="img-fluid rounded-5" />
           </div>
-
+  
           {/* Div com o formulário de login */}
-          <div className="col-md-4 bg-terciario">
+          <div className="col-md-4  rounded-4">
             <div className="text-center mb-4">
-              <h2>Login</h2>
+              <h1 className='text-secundario'>Login</h1>
             </div>
-
+  
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <input
@@ -59,13 +66,22 @@ function Login() {
                   onChange={(e) => setSenha(e.target.value)}
                 />
               </div>
+            <div className="d-flex justify-content-between">
               <button type="submit" className="btn btn-primary btn-block">Entrar</button>
+              <button type="button"  className="btn btn-primary btn-block">Cadastrar</button>
+          
+            </div>
             </form>
+            
+        
+            
           </div>
         </div>
       </div>
     </div>
-  );
+  )
+  
+  
 }
 
 export default Login;

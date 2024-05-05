@@ -28,7 +28,6 @@
   color: #61dafb;
 }
 
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,8 +38,8 @@
   }
 }
 
-
-.content {
+/*cabeçalho*/
+.content { 
   width: 100vw;
   height: 60px;
   display: flex;
@@ -50,8 +49,6 @@
   padding-left: 5rem;
   box-shadow: 0 0.1rem 0.5rem #6D4613;
 }
-
-
 .logo {
   width: 40px;
   height: auto;
@@ -59,46 +56,36 @@
   display: flex;
   align-items: center;
 }
-
 .logo span {
   color: #6D4613;
   font-size: 1rem;
   font-weight: 00;
 }
-
 .logo h3 {
   color: #ffff;
   font-size: 1rem;
 }
-
 .logo img {
   width: 100%;
   height: 100%;
 }
 
-
-
-.bg-overlay-dark::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  box-shadow: 0 0.1rem 0.5rem #6D4613;
+.nav-link{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 30px;
+  margin: 0;
 }
 
-h2 {
-  font-size: 30px;
-  display: inline-block;
-  border: none;
-  background-color: #ccc; 
-  color: #1f1e1f; 
-  padding: 10px 20px; 
-  border-radius: 10px; 
-  margin-top: 3rem;
+.nav-link li {
+  margin-right: 10px; 
+  cursor: pointer;
+}
 
+.nav-link li:last-child {
+  margin-right: 5px; 
 }
 
 .main-section {
@@ -116,6 +103,176 @@ h2 {
   color: #fff;
 }
 
-.Footer{
-  margin-top: 5rem;
+.btn-primary {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #fff;
+  padding: 15px 30px; 
+  border-radius: 25px; 
 }
+
+.btn-primary:hover {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #000;
+}
+
+.btn-primary.active,
+.btn-primary.active:hover {
+  background-color: #cccccc;
+  border-color: #fff;
+  color: #000;
+}
+
+.btn-primary:not(.active):hover {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #000;
+}
+
+.btn-primary:not(.active) {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn.custom-btn.active {
+  background-color: pink;
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn.custom-btn.active:hover {
+  background-color: #6D4613;
+  border-color: #fff;
+  color: #000;
+}
+
+.btn-secondary {
+  background-color: #FF8484;
+  border-color: #fff;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin-top: 80px; 
+}
+
+.btn-secondary:hover {
+  background-color: #FF8484;
+  border-color: #000;
+  color: #000;
+}
+
+.container {
+  max-width: 1500px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.row.justify-content-between {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  
+}
+
+
+.card {
+  border: 50px solid #ccc;
+  border-radius: 90px;
+  background-color: #D9D9D9;
+  color: #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  max-width: 50rem; 
+  margin-top: 10px;
+}
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-img {
+  height: 250px;
+  width: 100%; 
+  object-fit: cover; 
+  object-position: center;
+}
+
+.slick-slider {
+  background-color: #D9D9D9;
+}
+
+.slick-prev, .slick-next {
+  background-color: #D9D9D9;
+  color: #D9D9D9; 
+}
+.slick-prev:hover, .slick-next:hover {
+  background-color: #FF8484;
+  color: #FF8484; 
+}
+
+.bg-secundario{
+  background-color: #EADDD1;
+}
+
+
+.bg-card{
+  background-color: #FFF7E1;
+}
+
+.text-secundario{
+  color: #402913;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #333;
+  color: #fff;
+}
+
+.pedido-confirmado {
+  background-color: #e6ffe6;
+}
+
+.pedido-cancelado {
+  background-color: #ffe6e6;
+}
+

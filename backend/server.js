@@ -4,7 +4,10 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 //const path = require('path');
 const verificaAutenticacao = require('./middleware/autenticaToken');
+const jwt = require('jsonwebtoken');
+
 const port = process.env.PORT || 5000;
+app.use(cookieParser());
 
 
 const Database = require('./database/bancodedados')
@@ -16,7 +19,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(cookieParser());
 app.use(express.json());
 
 const db = new Database()
@@ -24,6 +26,7 @@ const db = new Database()
 
 let login
 let produtos
+let pedidos
 
 
 app.listen(port, async() => {
@@ -32,7 +35,7 @@ app.listen(port, async() => {
 
   login = new CRUD(db, 'usuarios');
   produtos = new CRUD(db,'produtos')
-
+  pedidos = new CRUD(db,'pedidos')
 })
 
 
@@ -54,15 +57,10 @@ app.post('/login', async (req, res) => {
 
 
 
-app.get('/home', /*verificaAutenticacao,*/ async (req, res) => {
+app.get('/home', verificaAutenticacao, async (req, res) => {
   try {
-  //  const userId = req.usuario.id;
-  //  const userName = req.usuario.nome;
-  //  const userRole = req.usuario.role.toUpperCase();
-    
-
     const arrayProdutos = await produtos.getProdutos();
-    res.json({ /*userId, userName, userRole,*/ arrayProdutos });
+    res.json({ arrayProdutos });
   } catch (error) {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
@@ -71,16 +69,13 @@ app.get('/home', /*verificaAutenticacao,*/ async (req, res) => {
 
 
 
-
-app.get('/pedidos',verificaAutenticacao, async (req, res) => {
+app.get('/pedidos',verificaAutenticacao,async (req, res) => {
   try {
-   const userId = req.usuario.id;
-   const userName = req.usuario.nome;
-   const userRole = req.usuario.role.toUpperCase();
+    const token = req.cookies.token
+    const userId = jwt.verify(token,'dolce-token')
+    const arrayPedidos = await pedidos.getPedidos(userId.id);
+    res.json({ arrayPedidos });
     
-
-    const arrayProdutos = await produtos.getProdutos();
-    res.json({ userId, userName, userRole, arrayProdutos });
   } catch (error) {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }

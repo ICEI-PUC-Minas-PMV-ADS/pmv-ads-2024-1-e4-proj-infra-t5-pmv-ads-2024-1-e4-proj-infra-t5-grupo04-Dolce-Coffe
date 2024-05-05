@@ -53,6 +53,19 @@ async getProdutos(){
 }
 
 
+async getPedidos(userId){
+  try{
+   const cursor = await this.collection.find({user_id: userId})
+
+   const pedidos = await cursor.toArray();
+   return pedidos
+  }
+  catch(error){
+    throw error;
+  }
+}
+
+
 
 
 }
