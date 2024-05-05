@@ -71,8 +71,6 @@ function QuartaSec({ handleAddToCart }) {
     navigate('/login')
   };
 
->>>>>>> 3890a1fa643fe7fb4fbee59896c0ac96c866c9a5
-
   useEffect(() => {
     async function fetchProdutos() {
       try {
