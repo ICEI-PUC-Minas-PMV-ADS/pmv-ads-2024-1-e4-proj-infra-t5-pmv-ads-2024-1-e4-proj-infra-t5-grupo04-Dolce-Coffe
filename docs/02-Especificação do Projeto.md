@@ -104,30 +104,28 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-007| O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização da compra até a entrega | ALTA |
 |RF-008| O sistema deve exibir informações detalhadas sobre cada produto, incluindo preço, descrição e imagem | Alta |
 |RF-009| O sistema deve oferecer a opção de entrega em domicílio ou retirada na loja | Alta |
-|RF-010| O sistema deve ser responsivo, garantindo uma experiência de usuário consistente em dispositivos móveis e desktops | Alta |
-
 
 ### Requisitos Funcionais API
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-| RF-011| A API deverá fornecer um endpoint GET para retornar detalhes de um pedido | Alta|
-| RF-012| A API deverá fornecer um endpoint POST para criar um novo pedido | Alta|
-| RF-013| A API deverá fornecer um endpoint GET para retornar dados do usuário | Alta|
-| RF-014| A API deverá fornecer um endpoint PUT para atualizar dados do usuário |Alta| 
-| RF-015| A API deverá fornecer um endpoint POST para autenticar o login do usuário | Alta|
-| RF-016| A API deverá fornecer um endpoint POST para cadastrar um usuário no banco | Alta|
+| RF-010| A API deverá fornecer um endpoint GET para retornar detalhes de um pedido | Alta|
+| RF-011| A API deverá fornecer um endpoint POST para criar um novo pedido | Alta|
+| RF-012| A API deverá fornecer um endpoint GET para retornar dados do usuário | Alta|
+| RF-013| A API deverá fornecer um endpoint PUT para atualizar dados do usuário |Alta| 
+| RF-014| A API deverá fornecer um endpoint POST para autenticar o login do usuário | Alta|
+| RF-015| A API deverá fornecer um endpoint POST para cadastrar um usuário no banco | Alta|
 
 ### Requisitos Funcionais Aplicação Mobile
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-| RF-017| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
-| RF-018| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
-| RF-019| Os usuários devem poder adicionar produtos ao carrinho | Alta |
-| RF-020| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
-| RF-021| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
-| RF-022| Os usuários devem poder finalizar os pedidos | Alta |
+| RF-016| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
+| RF-017| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
+| RF-018| Os usuários devem poder adicionar produtos ao carrinho | Alta |
+| RF-019| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
+| RF-020| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
+| RF-021| Os usuários devem poder finalizar os pedidos | Alta |
 
 ### Requisitos não Funcionais Web e Mobile
 
