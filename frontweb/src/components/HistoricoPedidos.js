@@ -1,7 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
-function HistoricoPedidos({ pedidos }) {
+
+
+function HistoricoPedidos() {
+  const [pedidos,setPedidos] = useState([])
+
+  const navigate = useNavigate()
+
+  const handleRedirect = () => {
+    navigate('/login')
+  };
+
+  useEffect(() => {
+    async function fetchPedidos() {
+      try {
+        const token = Cookies.get('token');
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        };
+    
+        //const response = await axios.get('https://dolce-coffee-api.onrender.com/pedidos', config);
+        const response = await axios.get('http://localhost:5000/historico', config);
+        setPedidos(response.data.arrayPedidos);
+
+      } catch (error) {
+        if(error.response && error.response.status === 401){
+          handleRedirect()
+        } else {
+          console.error('Erro ao buscar produtos', error);
+
+        }
+     
+      }
+    }
+
+    fetchPedidos();
+  }, []);
+
   return (
     <div>
       <header>
@@ -18,8 +59,8 @@ function HistoricoPedidos({ pedidos }) {
             </tr>
           </thead>
           <tbody>
-            {pedidos.map((pedido, index) => (
-              <tr key={index} className={pedido.status === 'Confirmado' ? 'pedido-confirmado' : 'pedido-cancelado'}>
+            {pedidos.map((pedido) => (
+              <tr className={pedido.status === 'Confirmado' ? 'pedido-confirmado' : 'pedido-cancelado'}>
                 <td>{pedido.numero}</td>
                 <td>{pedido.data}</td>
                 <td>{pedido.produtos}</td>
