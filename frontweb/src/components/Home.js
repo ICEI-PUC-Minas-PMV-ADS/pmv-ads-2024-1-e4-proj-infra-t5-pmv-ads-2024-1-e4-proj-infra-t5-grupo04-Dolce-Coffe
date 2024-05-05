@@ -7,6 +7,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+
+
 function Menu() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
@@ -83,8 +85,7 @@ function QuartaSec({ handleAddToCart }) {
     slidesToScroll: 1,
 
   };
-  
-  
+
 
   return (
     <section className="bg-secondary bg-light text-dark">
@@ -125,7 +126,7 @@ function QuartaSec({ handleAddToCart }) {
               .map((produto) => (
                 <div key={produto._id} className="col-md-4 mb-4">
                   <div className="card">
-                    <img src={produto.imagem} className="card-img-top" alt={produto.nome} />
+                     <img src={produto.url_foto} className="card-img" alt={produto.nome} /> 
                     <div className="card-body">
                       <div>
                         <h5 className="card-title">{produto.nome}</h5>
