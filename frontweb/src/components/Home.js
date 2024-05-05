@@ -6,6 +6,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function Menu() {
   return (
@@ -59,17 +61,39 @@ function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
+<<<<<<< HEAD
   const [sliderIndex, setSliderIndex] = useState(0); 
+=======
+  const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
+  const navigate = useNavigate()
+
+  const handleRedirect = () => {
+    navigate('/login')
+  };
+
+>>>>>>> 3890a1fa643fe7fb4fbee59896c0ac96c866c9a5
 
   useEffect(() => {
     async function fetchProdutos() {
       try {
-        const response = await axios.get('https://dolce-coffee-api.onrender.com/home');
+        const token = Cookies.get('token');
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        };
+    
+        const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
         setProdutos(response.data.arrayProdutos);
         setLoading(false);
       } catch (error) {
-        console.error('Erro ao buscar produtos', error);
-        setLoading(false);
+        if(error.response && error.response.status === 401){
+          handleRedirect()
+        } else {
+          console.error('Erro ao buscar produtos', error);
+          setLoading(false);
+        }
+     
       }
     }
 
