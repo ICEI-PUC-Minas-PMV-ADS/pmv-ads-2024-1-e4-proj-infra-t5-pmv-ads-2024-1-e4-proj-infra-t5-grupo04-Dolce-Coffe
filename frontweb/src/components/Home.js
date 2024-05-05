@@ -12,27 +12,31 @@ function Menu() {
     <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
       <div className="container">
         <div className="logo">
-          <img src="./logo.png" alt="logo" />
+          <img src="./logo192.png" alt="logo" />
           <h3><span>Dolce</span>Coffee</h3>
         </div>
-        <div className="collapse navbar-collapse list-menu justify-content-end" id="navbarNav">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to="/historico" className="nav-link text-white">Histórico</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/carrinho" className="nav-link text-white">
-                Carrinho <i className="bi bi-cart3"></i>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/perfil" className="nav-link text-white">Perfil <i className="bi bi-person-circle"></i></Link>
-            </li>
-          </ul>
-        </div>
+        <ul className="list-menu">
+          <li>
+            <Link to="/historico" className="nav-link text-white" href="/pedidos">
+              Pedidos
+            </Link>
+          </li>
+          <li>
+            <Link to="/carrinho" className="nav-link text-white" href="/carrinho">
+              Carrinho
+              <i className="bi bi-cart3" onClick={() => window.location.href = '/carrinho'}></i>
+            </Link>
+          </li>
+          <li>
+            <Link to="/perfil" className="nav-link text-white" href="/perfil">
+              Perfil
+              <i className="bi bi-person-circle" onClick={() => window.location.href = '/perfil'}></i>
+            </Link>
+          </li>
+        </ul>
       </div>
-    </nav>
-  );
+    </nav >
+  )
 }
 
 function MainSection() {
@@ -55,7 +59,7 @@ function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
-  const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
+  const [sliderIndex, setSliderIndex] = useState(0); 
 
   useEffect(() => {
     async function fetchProdutos() {
@@ -74,7 +78,7 @@ function QuartaSec({ handleAddToCart }) {
 
   const handleClickCategoria = (categoria) => {
     setCategoriaAtiva(categoria);
-    setSliderIndex(0); // Define o slide de volta para 0 ao mudar de categoria
+    setSliderIndex(0); 
   };
 
   const sliderSettings = {
@@ -83,7 +87,7 @@ function QuartaSec({ handleAddToCart }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    afterChange: (index) => setSliderIndex(index), // Atualiza o slide ativo
+    afterChange: (index) => setSliderIndex(index), 
   };
 
   return (
