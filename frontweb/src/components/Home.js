@@ -8,8 +8,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Cookies from 'js-cookie';
 
-
-
 function Menu() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
@@ -58,6 +56,7 @@ function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
+  const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
 
   useEffect(() => {
     async function fetchProdutos() {
@@ -82,18 +81,18 @@ function QuartaSec({ handleAddToCart }) {
   }, []);
 
   const handleClickCategoria = (categoria) => {
-    setCategoriaAtiva(categoria); // Apenas seta a categoria ativa
+    setCategoriaAtiva(categoria);
+    setSliderIndex(0); // Define o slide de volta para 0 ao mudar de categoria
   };
 
   const sliderSettings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-
+    afterChange: (index) => setSliderIndex(index), // Atualiza o slide ativo
   };
-
 
   return (
     <section className="bg-secondary bg-light text-dark">
@@ -128,13 +127,13 @@ function QuartaSec({ handleAddToCart }) {
           </div>
         </div>
         {categoriaAtiva && (
-          <Slider {...sliderSettings}>
+          <Slider {...sliderSettings} initialSlide={sliderIndex}>
             {produtos
               .filter((produto) => produto.tipo === categoriaAtiva)
               .map((produto) => (
                 <div key={produto._id} className="col-md-4 mb-4">
                   <div className="card">
-                     <img src={produto.url_foto} className="card-img" alt={produto.nome} /> 
+                    <img src={produto.url_foto} className="card-img" alt={produto.nome} />
                     <div className="card-body">
                       <div>
                         <h5 className="card-title">{produto.nome}</h5>
@@ -158,8 +157,6 @@ function QuartaSec({ handleAddToCart }) {
 }
 
 function Home() {
-  const [categoria, setCategoria] = useState('quente');
-
   const handleAddToCart = (produto) => {
     // Implemente a lógica para adicionar o produto ao carrinho aqui
     console.log('Produto adicionado ao carrinho:', produto);
@@ -169,7 +166,7 @@ function Home() {
     <div>
       <Menu />
       <MainSection />
-      <QuartaSec categoria={categoria} setCategoria={setCategoria} handleAddToCart={handleAddToCart} />
+      <QuartaSec handleAddToCart={handleAddToCart} />
     </div>
   );
 }
