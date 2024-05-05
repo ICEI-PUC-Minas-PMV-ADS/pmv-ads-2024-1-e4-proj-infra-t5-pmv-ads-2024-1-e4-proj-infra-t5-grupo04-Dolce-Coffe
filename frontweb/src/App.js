@@ -49,6 +49,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/historico" element={< HistoricoPedidos />} />
+          <Route path="/carrinho" element={< Modal />} />
         </Routes>
       </div>
     </Router>

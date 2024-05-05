@@ -23,17 +23,17 @@ function Menu() {
     </button>
     <ul className="nav-link">
       <li>
-        <Link to="https://dolce-coffee-api.onrender.com/pedidos" className="nav-link text-white">
+        <Link to="/historico" className="nav-link text-white">
           Pedidos
         </Link>
       </li>
       <li>
-        <Link to="https://dolce-coffee-api.onrender.com/carrinho" className="nav-link text-white" onClick={() => window.location.href = '/carrinho'}>
+        <Link to="/carrinho" className="nav-link text-white" onClick={() => window.location.href = '/carrinho'}>
           <i className="bi bi-cart3"></i>
         </Link>
       </li>
       <li>
-        <Link to="https://dolce-coffee-api.onrender.com/login" className="nav-link text-white" onClick={() => window.location.href = '/login'}>
+        <Link to="/login" className="nav-link text-white" onClick={() => window.location.href = '/login'}>
           <i className="bi bi-person-circle"></i>
         </Link>
       </li>
@@ -63,13 +63,8 @@ function MainSection() {
 function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
-<<<<<<< HEAD
-  const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
-  const [sliderIndex, setSliderIndex] = useState(0);
-=======
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
   const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
->>>>>>> 247e7ac46bfe3bd2492214983f948306968d8c33
   const navigate = useNavigate()
 
   const handleRedirect = () => {
