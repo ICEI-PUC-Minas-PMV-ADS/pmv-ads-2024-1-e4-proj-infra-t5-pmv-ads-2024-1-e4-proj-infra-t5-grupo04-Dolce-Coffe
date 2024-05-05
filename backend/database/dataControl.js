@@ -55,7 +55,6 @@ async getProdutos(){
 
 async getPedidos(userId){
   try{
-    console.log(userId)
    const cursor = await this.collection.find({user_id: userId})
 
    const pedidos = await cursor.toArray();

@@ -7,6 +7,7 @@ const verificaAutenticacao = require('./middleware/autenticaToken');
 const jwt = require('jsonwebtoken');
 
 const port = process.env.PORT || 5000;
+app.use(cookieParser());
 
 
 const Database = require('./database/bancodedados')
@@ -18,7 +19,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(cookieParser());
 app.use(express.json());
 
 const db = new Database()
@@ -59,11 +59,8 @@ app.post('/login', async (req, res) => {
 
 app.get('/home', verificaAutenticacao, async (req, res) => {
   try {
-  //  const userId = req.usuario.id;
-  //  const userName = req.usuario.nome;
-  //  const userRole = req.usuario.role.toUpperCase();
     const arrayProdutos = await produtos.getProdutos();
-    res.json({ /*userId, userName, userRole,*/ arrayProdutos });
+    res.json({ arrayProdutos });
   } catch (error) {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
@@ -72,15 +69,13 @@ app.get('/home', verificaAutenticacao, async (req, res) => {
 
 
 
-
-app.get('/pedidos',verificaAutenticacao, async (req, res) => {
+app.get('/pedidos',verificaAutenticacao,async (req, res) => {
   try {
     const token = req.cookies.token
-
     const userId = jwt.verify(token,'dolce-token')
-
     const arrayPedidos = await pedidos.getPedidos(userId.id);
     res.json({ arrayPedidos });
+    
   } catch (error) {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }

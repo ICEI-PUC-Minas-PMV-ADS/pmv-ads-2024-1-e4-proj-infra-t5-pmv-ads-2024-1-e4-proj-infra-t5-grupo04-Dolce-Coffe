@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 
 function HistoricoPedidos() {
-  const [pedidos,setPedidos] = useState([])
+  const [pedidos, setPedidos] = useState([])
 
   const navigate = useNavigate()
 
@@ -20,23 +20,24 @@ function HistoricoPedidos() {
       try {
         const token = Cookies.get('token');
         const config = {
+          withCredentials: true,
           headers: {
             Authorization: `Bearer ${token}`
           }
         };
-    
+
         //const response = await axios.get('https://dolce-coffee-api.onrender.com/pedidos', config);
-        const response = await axios.get('http://localhost:5000/historico', config);
+        const response = await axios.get('http://localhost:5000/pedidos', config);
         setPedidos(response.data.arrayPedidos);
 
       } catch (error) {
-        if(error.response && error.response.status === 401){
+        if (error.response && error.response.status === 401) {
           handleRedirect()
         } else {
-          console.error('Erro ao buscar produtos', error);
+          console.error('Erro ao buscar pedidos', error);
 
         }
-     
+
       }
     }
 
@@ -46,7 +47,7 @@ function HistoricoPedidos() {
   return (
     <div>
       <header>
-        <h1>Histórico de Pedidos - @name/usuario</h1>
+        <h1>Seus Pedidos</h1>
       </header>
       <main>
         <table>
@@ -59,12 +60,24 @@ function HistoricoPedidos() {
             </tr>
           </thead>
           <tbody>
-            {pedidos.map((pedido) => (
-              <tr className={pedido.status === 'Confirmado' ? 'pedido-confirmado' : 'pedido-cancelado'}>
-                <td>{pedido.numero}</td>
+            {pedidos.map((pedido, index) => (
+              <tr key={index} className={pedido.status ? 'pedido-confirmado' : 'pedido-cancelado'}>
+                <td>{pedido._id}</td>
                 <td>{pedido.data}</td>
-                <td>{pedido.produtos}</td>
-                <td>{pedido.status}</td>
+                <td>
+                  <ul>
+                    {pedido.produtos.map((produto, i) => (
+                      <li key={i}>
+                        <span>{produto.nome}</span>
+                        <span> - </span>
+                        <span>{produto.valor}</span>
+                        <span> - </span>
+                        <span>{produto.qtd}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+                <td>{pedido.status ? 'Confirmado' : 'Cancelado'}</td>
               </tr>
             ))}
           </tbody>
