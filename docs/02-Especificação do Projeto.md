@@ -96,42 +96,38 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
 |RF-001| O sistema deve permitir que os clientes criem uma conta | ALTA | 
-|RF-002| O sistema deve permitir que os gerentes cadastrem e atualizem informações de produtos, como descrições, preços e imagens | MÉDIA |
-| RF-003| O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras | Alta |
-| RF-004| O sistema deve permitir que os clientes concluam a compra quando direcionado para o carrinho | Alta |
-| RF-005| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, gerenciar cardápio, histórico de pedidos, meu perfil | Alta|
-| RF-006| O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho | Alta| 
-| RF-007| O sistema deve permitir excluir pedidos do carrinho |
-| RF-008 | O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega | ALTA |
-| RF-009 | O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas | MÉDIA |
-|RF-010| O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento | MÉDIA |
+|RF-002| O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras | Alta |
+|RF-003| O sistema deve permitir que os clientes concluam a partir do carrinho | Alta |
+|RF-004| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, cardápio, histórico de pedidos, meu perfil | Alta|
+|RF-005| O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho | Alta| 
+|RF-006| O sistema deve permitir excluir produtos do carrinho |
+|RF-007| O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização da compra até a entrega | ALTA |
+|RF-008| O sistema deve exibir informações detalhadas sobre cada produto, incluindo preço, descrição e imagem | Alta |
+|RF-009| O sistema deve oferecer a opção de entrega em domicílio ou retirada na loja | Alta |
+|RF-010| O sistema deve ser responsivo, garantindo uma experiência de usuário consistente em dispositivos móveis e desktops | Alta |
+
 
 ### Requisitos Funcionais API
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-| RF-008| A API deverá fornecer um endpoint GET para retornar todos os produtos cadastrados | Alta|
-| RF-009| A API deverá fornecer um endpoint POST para criar um novo produto | Alta|
-| RF-010| A API deverá fornecer um endpoint PUT para atualizar o produto | Alta|
-| RF-011| A API deverá fornecer um endpoint DELETE para excluir um produto | Alta|
-| RF-012| A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados | Alta|
-| RF-013| A API deverá fornecer um endpoint GET para retornar detalhes de um pedido | Alta|
-| RF-014| A API deverá fornecer um endpoint POST para criar um novo pedido | Alta|
-| RF-015| A API deverá fornecer um endpoint GET para retornar dados do usuário | Alta|
-| RF-016| A API deverá fornecer um endpoint PUT para atualizar dados do usuário |Alta| 
-| RF-017| A API deverá fornecer um endpoint POST para autenticar o login do usuário | Alta|
-| RF-018| A API deverá fornecer um endpoint POST para cadastrar um usuário no banco | Alta|
+| RF-011| A API deverá fornecer um endpoint GET para retornar detalhes de um pedido | Alta|
+| RF-012| A API deverá fornecer um endpoint POST para criar um novo pedido | Alta|
+| RF-013| A API deverá fornecer um endpoint GET para retornar dados do usuário | Alta|
+| RF-014| A API deverá fornecer um endpoint PUT para atualizar dados do usuário |Alta| 
+| RF-015| A API deverá fornecer um endpoint POST para autenticar o login do usuário | Alta|
+| RF-016| A API deverá fornecer um endpoint POST para cadastrar um usuário no banco | Alta|
 
 ### Requisitos Funcionais Aplicação Mobile
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-| RF-019| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
-| RF-020| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
-| RF-021| Os usuários devem poder adicionar produtos ao carrinho | Alta |
-| RF-022| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
-| RF-023| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
-| RF-024| Os usuários devem poder finalizar os pedidos | Alta |
+| RF-017| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
+| RF-018| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
+| RF-019| Os usuários devem poder adicionar produtos ao carrinho | Alta |
+| RF-020| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
+| RF-021| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
+| RF-022| Os usuários devem poder finalizar os pedidos | Alta |
 
 ### Requisitos não Funcionais Web e Mobile
 
