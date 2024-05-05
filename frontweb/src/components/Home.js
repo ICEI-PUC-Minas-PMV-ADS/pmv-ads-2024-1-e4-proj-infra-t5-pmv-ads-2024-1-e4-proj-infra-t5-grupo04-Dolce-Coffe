@@ -6,6 +6,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Cookies from 'js-cookie';
 
 
 
@@ -61,7 +62,14 @@ function QuartaSec({ handleAddToCart }) {
   useEffect(() => {
     async function fetchProdutos() {
       try {
-        const response = await axios.get('https://dolce-coffee-api.onrender.com/home');
+        const token = Cookies.get('token');
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        };
+    
+        const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
         setProdutos(response.data.arrayProdutos);
         setLoading(false);
       } catch (error) {

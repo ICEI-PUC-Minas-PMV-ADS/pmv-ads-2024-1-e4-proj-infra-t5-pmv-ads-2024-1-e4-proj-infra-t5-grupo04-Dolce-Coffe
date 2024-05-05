@@ -341,7 +341,18 @@ h2 {
 }
 
 
+.bg-secundario{
+  background-color: #EADDD1;
+}
 
+
+.bg-card{
+  background-color: #FFF7E1;
+}
+
+.text-secundario{
+  color: #402913;
+}
 
 
 
