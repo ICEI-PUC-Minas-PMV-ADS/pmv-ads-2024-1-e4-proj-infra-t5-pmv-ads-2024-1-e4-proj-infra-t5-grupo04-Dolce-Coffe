@@ -63,8 +63,13 @@ function MainSection() {
 function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
   const [sliderIndex, setSliderIndex] = useState(0);
+=======
+  const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
+  const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
+>>>>>>> 247e7ac46bfe3bd2492214983f948306968d8c33
   const navigate = useNavigate()
 
   const handleRedirect = () => {

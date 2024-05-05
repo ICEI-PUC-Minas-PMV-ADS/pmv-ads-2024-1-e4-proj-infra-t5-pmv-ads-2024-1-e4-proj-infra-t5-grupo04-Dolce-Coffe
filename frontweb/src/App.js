@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'slick-carousel/slick/slick.css';
@@ -14,7 +13,7 @@ import Modal from './components/Modal';
 
 import Home from './components/Home'
 import Login from './components/Login';
-
+import HistoricoPedidos from './components/HistoricoPedidos';
 
 // function ShoppingCartApp() { 
 
@@ -49,6 +48,7 @@ function App() {
         <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/historico" element={< HistoricoPedidos />} />
         </Routes>
       </div>
     </Router>
