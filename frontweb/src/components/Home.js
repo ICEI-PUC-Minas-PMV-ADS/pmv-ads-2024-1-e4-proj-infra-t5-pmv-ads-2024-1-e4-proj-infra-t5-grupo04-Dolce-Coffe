@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 function Menu() {
   return (
@@ -57,6 +58,12 @@ function QuartaSec({ handleAddToCart }) {
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
   const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
+  const navigate = useNavigate()
+
+  const handleRedirect = () => {
+    navigate('/login')
+  };
+
 
   useEffect(() => {
     async function fetchProdutos() {
@@ -68,12 +75,18 @@ function QuartaSec({ handleAddToCart }) {
           }
         };
     
-        const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
+        // const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
+        const response = await axios.get('http://localhost:5000/home', config);
         setProdutos(response.data.arrayProdutos);
         setLoading(false);
       } catch (error) {
-        console.error('Erro ao buscar produtos', error);
-        setLoading(false);
+        if(error.response && error.response.status === 401){
+          handleRedirect()
+        } else {
+          console.error('Erro ao buscar produtos', error);
+          setLoading(false);
+        }
+     
       }
     }
 

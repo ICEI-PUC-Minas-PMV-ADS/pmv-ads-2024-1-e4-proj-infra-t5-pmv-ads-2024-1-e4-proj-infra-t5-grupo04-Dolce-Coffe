@@ -40,13 +40,13 @@ function Login() {
           <div className="col-md-4">
             <img src="./assets/images/banner-login.jpg" alt="Imagem" className="img-fluid rounded-5" />
           </div>
-
+  
           {/* Div com o formulário de login */}
           <div className="col-md-4  rounded-4">
             <div className="text-center mb-4">
               <h1 className='text-secundario'>Login</h1>
             </div>
-
+  
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <input
@@ -66,13 +66,22 @@ function Login() {
                   onChange={(e) => setSenha(e.target.value)}
                 />
               </div>
+            <div className="d-flex justify-content-between">
               <button type="submit" className="btn btn-primary btn-block">Entrar</button>
+              <button type="button"  className="btn btn-primary btn-block">Cadastrar</button>
+          
+            </div>
             </form>
+            
+        
+            
           </div>
         </div>
       </div>
     </div>
-  );
+  )
+  
+  
 }
 
 export default Login;
