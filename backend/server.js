@@ -59,7 +59,6 @@ app.get('/home', verificaAutenticacao, async (req, res) => {
   //  const userId = req.usuario.id;
   //  const userName = req.usuario.nome;
   //  const userRole = req.usuario.role.toUpperCase();
-    console.log('teste')
     const arrayProdutos = await produtos.getProdutos();
     res.json({ /*userId, userName, userRole,*/ arrayProdutos });
   } catch (error) {
