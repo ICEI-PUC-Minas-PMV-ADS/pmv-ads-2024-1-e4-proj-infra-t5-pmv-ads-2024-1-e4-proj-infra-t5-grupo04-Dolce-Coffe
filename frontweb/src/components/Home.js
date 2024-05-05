@@ -75,8 +75,7 @@ function QuartaSec({ handleAddToCart }) {
           }
         };
     
-        // const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
-        const response = await axios.get('http://localhost:5000/home', config);
+        const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
         setProdutos(response.data.arrayProdutos);
         setLoading(false);
       } catch (error) {
