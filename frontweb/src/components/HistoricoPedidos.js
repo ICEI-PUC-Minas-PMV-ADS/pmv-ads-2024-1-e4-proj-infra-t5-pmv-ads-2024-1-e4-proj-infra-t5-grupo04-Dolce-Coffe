@@ -1,8 +1,5 @@
 import React from 'react';
-import './histstyle.css'; // Certifique-se de ter o arquivo de estilo no mesmo diretório
-
-import React from 'react';
-import './style.css'; // Certifique-se de ter o arquivo de estilo no mesmo diretório
+import '../App.css';
 
 function HistoricoPedidos({ pedidos }) {
   return (
