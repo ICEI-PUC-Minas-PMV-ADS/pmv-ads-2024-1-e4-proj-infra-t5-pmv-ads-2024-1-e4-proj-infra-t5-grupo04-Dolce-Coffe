@@ -1,4 +1,4 @@
-# Especificações do Projeto
+aça# Especificações do Projeto
 
 A definição do problema e os pontos mais relevantes a serem tratados neste projeto foram consolidados através de discussões e estudos realizados pelos membros da equipe . Os detalhes levantados nesse processo foram agrupados na forma de personas e histórias de usuários, com o objetivo de compreender melhor as necessidades e desejos dos clientes para melhorar a experiência na cafeteria..
 
@@ -95,9 +95,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir que os clientes criem uma conta | ALTA | 
+|RF-001| O sistema deve permitir que os clientes criem uma conta e faça login | ALTA | 
 |RF-002| O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras | Alta |
-|RF-003| O sistema deve permitir que os clientes concluam a partir do carrinho | Alta |
+|RF-003| O sistema deve permitir que os clientes concluam a compra a partir do carrinho | Alta |
 |RF-004| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, cardápio, histórico de pedidos, meu perfil | Alta|
 |RF-005| O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho | Alta| 
 |RF-006| O sistema deve permitir excluir produtos do carrinho |
