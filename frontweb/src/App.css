@@ -269,9 +269,20 @@ h2 {
   color: #000;
 }
 
-.btn-secundary {
-  background-color: #FF8484}
+.btn-secondary {
+  background-color: #FF8484;
+  border-color: #fff;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin-top: 80px; 
+}
 
+.btn-secondary:hover {
+  background-color: #FF8484;
+  border-color: #000;
+  color: #000;
+}
 
 .container {
   max-width: 1140px; /* Defina a largura máxima do contêiner */
