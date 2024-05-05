@@ -285,12 +285,13 @@ h2 {
 }
 
 .container {
-  max-width: 1140px; /* Defina a largura máxima do contêiner */
-  margin-right: auto; /* Alinhar à direita automaticamente */
-  margin-left: auto; /* Alinhar à esquerda automaticamente */
-  padding-right: 15px; /* Adicionar preenchimento à direita */
-  padding-left: 15px; /* Adicionar preenchimento à esquerda */
+  max-width: 1500px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 }
+
 .row.justify-content-between {
   display: flex;
   flex-wrap: wrap;
@@ -298,19 +299,22 @@ h2 {
   margin-right: -15px;
   margin-left: -15px;
   margin-top: 20px; /* Adicionando uma margem superior de 20 pixels */
+  margin-bottom: 20px; 
+  
 }
 
+
 .card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 50px solid #ccc;
+  border-radius: 90px;
   background-color: #D9D9D9;
   color: #000000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   width: 100%;
   padding: 16px;
-  max-width: 18rem; /* Corrigi a sintaxe para "max-width" */
-  margin-top: 60px;
+  max-width: 50rem; /* Corrigi a sintaxe para "max-width" */
+  margin-top: 10px;
 }
 .card-body {
   display: flex;
@@ -336,8 +340,8 @@ h2 {
   color: #D9D9D9; /* Definindo a cor do ícone de navegação para branco */
 }
 .slick-prev:hover, .slick-next:hover {
-  background-color: blue; /* Alterando a cor de fundo quando passa o mouse sobre os botões */
-  color: white; /* Definindo a cor do ícone de navegação para branco */
+  background-color: #FF8484;
+  color: #FF8484; 
 }
 
 

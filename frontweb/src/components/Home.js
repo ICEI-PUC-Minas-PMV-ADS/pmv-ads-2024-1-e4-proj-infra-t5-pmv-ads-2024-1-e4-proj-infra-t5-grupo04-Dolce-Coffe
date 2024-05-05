@@ -7,8 +7,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
-
 function Menu() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
@@ -53,7 +51,7 @@ function MainSection() {
   );
 }
 
-function QuartaSec({ handleAddToCart }) {
+function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
@@ -74,7 +72,13 @@ function QuartaSec({ handleAddToCart }) {
   }, []);
 
   const handleClickCategoria = (categoria) => {
-    setCategoriaAtiva(categoria); // Apenas seta a categoria ativa
+    if (categoriaAtiva === categoria) {
+      setCategoriaAtiva(null);
+      setCategoria(null);
+    } else {
+      setCategoriaAtiva(categoria);
+      setCategoria(categoria);
+    }
   };
 
   const sliderSettings = {
@@ -83,9 +87,7 @@ function QuartaSec({ handleAddToCart }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-
   };
-
 
   return (
     <section className="bg-secondary bg-light text-dark">
