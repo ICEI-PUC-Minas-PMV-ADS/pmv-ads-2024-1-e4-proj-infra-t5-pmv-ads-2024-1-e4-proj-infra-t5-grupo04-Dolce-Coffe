@@ -26,8 +26,7 @@ function HistoricoPedidos() {
           }
         };
 
-        //const response = await axios.get('https://dolce-coffee-api.onrender.com/pedidos', config);
-        const response = await axios.get('http://localhost:5000/pedidos', config);
+        const response = await axios.get('https://dolce-coffee-api.onrender.com/pedidos', config);
         setPedidos(response.data.arrayPedidos);
 
       } catch (error) {
