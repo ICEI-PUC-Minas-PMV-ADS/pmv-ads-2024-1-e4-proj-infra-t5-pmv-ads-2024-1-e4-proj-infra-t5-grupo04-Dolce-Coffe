@@ -9,35 +9,38 @@ import 'slick-carousel/slick/slick-theme.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 
+
 function Menu() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
-      <div className="container">
-        <div className="logo">
-          <img src="./logo192.png" alt="logo" />
-          <h3><span>Dolce</span>Coffee</h3>
-        </div>
-        <ul className="list-menu">
-          <li>
-            <Link to="/historico" className="nav-link text-white" href="/pedidos">
-              Pedidos
-            </Link>
-          </li>
-          <li>
-            <Link to="/carrinho" className="nav-link text-white" href="/carrinho">
-              Carrinho
-              <i className="bi bi-cart3" onClick={() => window.location.href = '/carrinho'}></i>
-            </Link>
-          </li>
-          <li>
-            <Link to="/perfil" className="nav-link text-white" href="/perfil">
-              Perfil
-              <i className="bi bi-person-circle" onClick={() => window.location.href = '/perfil'}></i>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav >
+<nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
+  <div className="container">
+    <div className="logo">
+      <img src="./logo192.png" alt="logo" />
+      <h3><span>Dolce</span>Coffee</h3>
+    </div>
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <ul className="nav-link">
+      <li>
+        <Link to="https://dolce-coffee-api.onrender.com/pedidos" className="nav-link text-white">
+          Pedidos
+        </Link>
+      </li>
+      <li>
+        <Link to="https://dolce-coffee-api.onrender.com/carrinho" className="nav-link text-white" onClick={() => window.location.href = '/carrinho'}>
+          <i className="bi bi-cart3"></i>
+        </Link>
+      </li>
+      <li>
+        <Link to="https://dolce-coffee-api.onrender.com/login" className="nav-link text-white" onClick={() => window.location.href = '/login'}>
+          <i className="bi bi-person-circle"></i>
+        </Link>
+      </li>
+    </ul>
+  </div>
+</nav>
+  
   )
 }
 
@@ -60,8 +63,13 @@ function MainSection() {
 function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
+  const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
+  const [sliderIndex, setSliderIndex] = useState(0);
+=======
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
   const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
+>>>>>>> 247e7ac46bfe3bd2492214983f948306968d8c33
   const navigate = useNavigate()
 
   const handleRedirect = () => {
@@ -77,18 +85,18 @@ function QuartaSec({ handleAddToCart }) {
             Authorization: `Bearer ${token}`
           }
         };
-    
+
         const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
         setProdutos(response.data.arrayProdutos);
         setLoading(false);
       } catch (error) {
-        if(error.response && error.response.status === 401){
+        if (error.response && error.response.status === 401) {
           handleRedirect()
         } else {
           console.error('Erro ao buscar produtos', error);
           setLoading(false);
         }
-     
+
       }
     }
 
@@ -97,7 +105,7 @@ function QuartaSec({ handleAddToCart }) {
 
   const handleClickCategoria = (categoria) => {
     setCategoriaAtiva(categoria);
-    setSliderIndex(0); 
+    setSliderIndex(0);
   };
 
   const sliderSettings = {
@@ -106,7 +114,7 @@ function QuartaSec({ handleAddToCart }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    afterChange: (index) => setSliderIndex(index), 
+    afterChange: (index) => setSliderIndex(index),
   };
 
   return (
