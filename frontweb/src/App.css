@@ -318,19 +318,23 @@ h2 {
   align-items: center;
 }
 
-.slick-prev,
-.slick-next {
-  font-size: 24px;
-  color: black;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+/* Para slick.css */
+.slick-slider {
+  background-color: #D9D9D9;
 }
 
-.slick-prev:hover,
-.slick-next:hover {
-  color: #6D4613; /* Cor de destaque ao passar o mouse sobre os botões */
+/* Para slick-theme.css */
+.slick-prev, .slick-next {
+  background-color: #D9D9D9;
+  color: #D9D9D9; /* Definindo a cor do ícone de navegação para branco */
 }
+.slick-prev:hover, .slick-next:hover {
+  background-color: blue; /* Alterando a cor de fundo quando passa o mouse sobre os botões */
+  color: white; /* Definindo a cor do ícone de navegação para branco */
+}
+
+
+
 
 
 

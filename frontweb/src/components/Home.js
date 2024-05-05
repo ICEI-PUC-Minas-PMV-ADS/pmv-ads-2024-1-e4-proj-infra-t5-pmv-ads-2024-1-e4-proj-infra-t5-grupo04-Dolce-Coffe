@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function Menu() {
   return (
@@ -48,7 +51,7 @@ function MainSection() {
   );
 }
 
-function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
+function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
@@ -69,14 +72,19 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
   }, []);
 
   const handleClickCategoria = (categoria) => {
-    if (categoriaAtiva === categoria) {
-      setCategoriaAtiva(null);
-      setCategoria(null);
-    } else {
-      setCategoriaAtiva(categoria);
-      setCategoria(categoria);
-    }
+    setCategoriaAtiva(categoria); // Apenas seta a categoria ativa
   };
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+
+  };
+  
+  
 
   return (
     <section className="bg-secondary bg-light text-dark">
@@ -111,7 +119,7 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
           </div>
         </div>
         {categoriaAtiva && (
-          <div className="row mt-4">
+          <Slider {...sliderSettings}>
             {produtos
               .filter((produto) => produto.tipo === categoriaAtiva)
               .map((produto) => (
@@ -126,14 +134,14 @@ function QuartaSec({ categoria, setCategoria, handleAddToCart }) {
                       </div>
                       <div className="icon-container">
                         <button onClick={() => handleAddToCart(produto)} className="btn btn-secondary">
-                          <i className="bi bi-bag-heart-fill"></i> 
+                          <i className="bi bi-bag-heart-fill"></i>
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-          </div>
+          </Slider>
         )}
       </div>
     </section>
