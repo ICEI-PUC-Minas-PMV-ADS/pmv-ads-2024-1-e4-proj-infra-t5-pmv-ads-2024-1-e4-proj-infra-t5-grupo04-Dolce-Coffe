@@ -39,16 +39,9 @@ Nesse sentido, o teste irá usar usuários reais para execução de determinadas
 | Passos 	| - Acessar o navegador <br> - Acessar a tela de login <br> -Verificar se o site possui clareza nas escritas de acordo com a palet de cores escolhida. |
 |Critério de Êxito | - Contraste e clareza nas informações contidas na página. |
 
-| **Caso de Teste** 	| **CT-05 – Acesso Protegido** 
+| **Caso de Teste** 	| **CT-05 – Compatibilidade**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-05 A aplicação deve ser protegida contra acesso não autorizado. . |
-| Objetivo do Teste 	| Verificar segurança de acesso. |
-| Passos 	| - Acessar o navegador <br> - Realizar login com um e-mail cadastrado <br> - Inserir outra senha para verificar se erro de usuario e senha será exibido. |
-|Critério de Êxito | - Negar acesso e indicar erro em caso de informações não verificadas. |
-
-| **Caso de Teste** 	| **CT-06 – Compatibilidade**	|
-|:---:	|:---:	|
-|Requisito Associado | RNF-06 O site deve ser compatível com os principais navegadores da atualidade (Google Chrome, Opera, Firefox, Microsoft Edge). . |
+|Requisito Associado | RNF-05 O site deve ser compatível com os principais navegadores da atualidade (Google Chrome, Opera, Firefox, Microsoft Edge). . |
 | Objetivo do Teste 	| Verificar URL de acesso em todos os navegadores atuais. |
 | Passos 	| - Acessar os navegadores <br> - Informar URL nos navegadores <br> -Confirmar Acessos sem erros. |
 |Critério de Êxito | - Realizar acesso online por diferentes navegadores. |
