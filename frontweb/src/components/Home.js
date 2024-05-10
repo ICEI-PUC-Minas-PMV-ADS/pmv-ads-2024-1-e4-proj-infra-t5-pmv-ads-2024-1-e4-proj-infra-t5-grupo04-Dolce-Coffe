@@ -63,12 +63,12 @@ function MainSection() {
 function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
+  const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
   const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/login')
+    navigate('/login');
   };
 
   useEffect(() => {
@@ -86,12 +86,11 @@ function QuartaSec({ handleAddToCart }) {
         setLoading(false);
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          handleRedirect()
+          handleRedirect();
         } else {
           console.error('Erro ao buscar produtos', error);
           setLoading(false);
         }
-
       }
     }
 
@@ -100,14 +99,14 @@ function QuartaSec({ handleAddToCart }) {
 
   const handleClickCategoria = (categoria) => {
     setCategoriaAtiva(categoria);
-    setSliderIndex(0);
+    setSliderIndex(0); // Resetar o slider quando a categoria é alterada
   };
 
   const sliderSettings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     afterChange: (index) => setSliderIndex(index),
   };
@@ -116,6 +115,7 @@ function QuartaSec({ handleAddToCart }) {
     <section className="bg-secondary bg-light text-dark">
       <div className="container">
         <div className="row justify-content-between">
+          {/* Botões de Categoria */}
           <div className="col-md-4 text-center">
             <button
               type="button"
@@ -144,8 +144,11 @@ function QuartaSec({ handleAddToCart }) {
             </button>
           </div>
         </div>
-        {categoriaAtiva && (
+
+        {/* Renderização do Slider */}
+        {categoriaAtiva && produtos.length > 0 && (
           <Slider {...sliderSettings} initialSlide={sliderIndex}>
+            {/* Mapear e renderizar os produtos filtrados */}
             {produtos
               .filter((produto) => produto.tipo === categoriaAtiva)
               .map((produto) => (
@@ -174,9 +177,9 @@ function QuartaSec({ handleAddToCart }) {
   );
 }
 
+
 function Home() {
   const handleAddToCart = (produto) => {
-    // Implemente a lógica para adicionar o produto ao carrinho aqui
     console.log('Produto adicionado ao carrinho:', produto);
   };
 
