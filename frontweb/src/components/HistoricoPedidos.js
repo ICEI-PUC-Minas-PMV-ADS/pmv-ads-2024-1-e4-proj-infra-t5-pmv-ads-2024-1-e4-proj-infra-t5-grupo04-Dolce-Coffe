@@ -81,6 +81,9 @@ function HistoricoPedidos() {
             ))}
           </tbody>
         </table>
+        <section className="order-finalization">
+        <a href="/"><button className="return-home">Página Inicial</button></a>
+      </section>
       </main>
     </div>
   );

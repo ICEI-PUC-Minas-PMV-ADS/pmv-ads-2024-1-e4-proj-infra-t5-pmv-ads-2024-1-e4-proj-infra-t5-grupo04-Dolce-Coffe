@@ -164,7 +164,7 @@
 }
 
 .container {
-  max-width: 1500px;
+  max-width: 2300px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 15px;
@@ -182,18 +182,18 @@
   
 }
 
-
 .card {
-  border: 50px solid #ccc;
-  border-radius: 90px;
+  border: 10px solid #ccc;
+  border-radius: 50px;
   background-color: #D9D9D9;
   color: #000000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
   display: flex;
-  width: 100%;
-  padding: 16px;
-  max-width: 50rem; 
+  width: 80%;
+  padding: 5px;
+  max-width: 30rem; 
   margin-top: 10px;
+  left: 50px;
 }
 .card-body {
   display: flex;
@@ -206,20 +206,27 @@
   width: 100%; 
   object-fit: cover; 
   object-position: center;
+  border-radius: 30px;
 }
 
 .slick-slider {
+  max-width: 90%; 
+  margin: 0 auto; 
   background-color: #D9D9D9;
 }
 
-.slick-prev, .slick-next {
-  background-color: #D9D9D9;
-  color: #D9D9D9; 
+
+.slick-prev,
+.slick-next {
+  background-color: #ccc; 
+  border-radius: 50px;
 }
+
+
 .slick-prev:hover, .slick-next:hover {
   background-color: #FF8484;
-  color: #FF8484; 
 }
+
 
 .bg-secundario{
   background-color: #EADDD1;
@@ -232,12 +239,6 @@
 
 .text-secundario{
   color: #402913;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 header {
@@ -276,3 +277,202 @@ th {
   background-color: #ffe6e6;
 }
 
+/*Carrinho*/
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+.summary {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #ebe5e5;
+}
+
+.summary table {
+  width: 100%;
+}
+
+.summary table th,
+.summary table td {
+  text-align: left;
+  padding: 8px 0;
+}
+
+.summary table th {
+  width: 50%;
+}
+
+.summary .total {
+  font-weight: bold;
+  color: #333; 
+}
+
+.payment-methods {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.payment-methods p {
+  margin-bottom: 40px;
+}
+
+.payment-methods button i {
+  margin-right: 10px;
+}
+
+.payment-methods button {
+  padding: 10px 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  background-color: #45a049;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.payment-methods button:hover {
+  opacity: 0.8;
+}
+
+.order-finalization {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+  background-color: #FE7E47; 
+  color: #1B1D1E;
+  border: 2px solid #FE7E47; 
+  border-radius: 20px;
+  padding: 15px 80px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+}
+
+.cancel-button {
+  background-color: #D9D9D9; 
+  border: 2px solid #D9D9D9; 
+}
+
+.confirm-button:hover,
+.cancel-button:hover {
+  opacity: 0.5;
+}
+
+
+.product {
+  display: flex;
+  align-items: center;
+}
+
+.product img {
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.product .info {
+  flex: 1;
+}
+
+.product .title {
+  font-weight: bold;
+}
+
+.product .price {
+  font-size: 16px;
+  color: #666;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+}
+
+.qty button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.qty button i {
+  font-size: 20px;
+  color: #333;
+}
+
+.qty span {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.total-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ebe5e5; 
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.total-section h2 {
+  margin: 0; 
+}
+
+.total-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; 
+}
+
+/*Finaliza Pedido*/
+
+.summary table th,
+.summary table td {
+  text-align: left;
+  padding: 8px 0;
+  background-color: transparent; 
+  color: #1B1D1E;
+}
+
+
+.finalize-order {
+  background-color: #FE7E47;
+  color: #1B1D1E;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 15px 80px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.finalize-order:hover {
+  opacity: 0.5;
+}
+
+.return-home {
+  background-color: #D9D9D9;
+  color: #1B1D1E;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 15px 80px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.return-home:hover {
+  opacity: 0.5;
+}

@@ -64,7 +64,7 @@ function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
-  const [sliderIndex, setSliderIndex] = useState(0); // Estado para controlar o slide ativo
+  const [sliderIndex, setSliderIndex] = useState(0); 
   const navigate = useNavigate()
 
   const handleRedirect = () => {
@@ -176,7 +176,6 @@ function QuartaSec({ handleAddToCart }) {
 
 function Home() {
   const handleAddToCart = (produto) => {
-    // Implemente a lógica para adicionar o produto ao carrinho aqui
     console.log('Produto adicionado ao carrinho:', produto);
   };
 
