@@ -6,38 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Slider from 'react-slick';
 import './App.css'
-import Modal from './components/Modal';
 
 
 import Home from './components/Home'
 import Login from './components/Login';
 import HistoricoPedidos from './components/HistoricoPedidos';
+import Carrinho from './components/Carrinho';
+import FinalizarPedido from './components/FinalizarPedido';
 
-// function ShoppingCartApp() { 
-
-//   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-
-
-//   const openCartModal = () => {
-//     setIsCartModalOpen(true);
-//   };
-
-//   // const closeCartModal = () => {
-//   setIsCartModalOpen(false);
-// };
-
-// return (
-//   <div>
-//     <Menu openCartModal={openCartModal} /> 
-//     <MainSection />
-//     <QuartaSec />
-//     <Footer />
-//     <Modal isOpen={isCartModalOpen} onClose={closeCartModal} /> 
-//   </div>
-// );
-//}
 
 
 function App() {
@@ -49,7 +26,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/historico" element={< HistoricoPedidos />} />
-          <Route path="/carrinho" element={< Modal />} />
+          <Route path="/carrinho" element={< Carrinho />} />
+          <Route path="/finalizarpedido" element={< FinalizarPedido />} />
         </Routes>
       </div>
     </Router>
