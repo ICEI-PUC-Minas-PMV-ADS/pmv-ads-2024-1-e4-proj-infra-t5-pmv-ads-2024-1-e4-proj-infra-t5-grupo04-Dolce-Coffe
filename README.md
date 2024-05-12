@@ -1,4 +1,7 @@
-# Dolce Coffe
+<h1 style="display: flex; align-items: center;">
+  Dolce Coffe 
+</h1> <img src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/4fa8d051-223f-4761-a4e9-9335005ba504" alt="Logo" width="100" style="margin-right: 20px; vertical-align: middle; ">
+
 
 `Análise e Desenvolvimento de Sistemas`
 
