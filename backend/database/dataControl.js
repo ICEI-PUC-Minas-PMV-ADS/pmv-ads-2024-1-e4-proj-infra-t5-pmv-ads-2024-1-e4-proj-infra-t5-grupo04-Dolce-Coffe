@@ -40,16 +40,15 @@ class CRUD {
 
   async cadastraUsuario(nome, sobrenome, email, senha) {
     try {
-
-      const verificaEmail = await this.collection.findOne({email})
-      if(email){
-        return { status: 400, message: 'Email já cadastrado' };
+      const verificaEmail = await this.collection.findOne({ email });
+      if (verificaEmail) {
+        throw new Error('Email já cadastrado');
       }
-      const senhaHash = await bcrypt.hash(senha, 10)
-      await this.collection.insertOne({ nome, sobrenome, email, senha: senhaHash })
+      const senhaHash = await bcrypt.hash(senha, 10);
+      await this.collection.insertOne({ nome, sobrenome, email, senha: senhaHash });
       return { status: 200, message: 'Usuário cadastrado com sucesso' };
-    } catch (eror) {
-      throw { status: 500, message: 'Erro ao cadastrar usuário', error };
+    } catch (error) {
+      throw new Error(`Erro ao cadastrar usuário: ${error.message}`);
     }
   }
 

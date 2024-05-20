@@ -19,9 +19,9 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
-      const response = await axios.post('https://dolce-coffee-api.onrender.com/cadastrar', {
+       const response = await axios.post('https://dolce-coffee-api.onrender.com/cadastrar', {
         nome,
         sobrenome,
         email,
@@ -53,20 +53,20 @@ function Login() {
               <div className='d-flex justify-content-between'>
                 <div className="mb-3">
                   <input
-                    type="email"
+                    type="name"
                     className="form-control"
                     placeholder="Insira seu nome"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
                   <input
-                    type="email"
+                    type="surname"
                     className="form-control"
                     placeholder="Insira seu sobrenome"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={sobrenome}
+                    onChange={(e) => setSobrenome(e.target.value)}
                   />
                 </div>
               </div>

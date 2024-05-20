@@ -62,16 +62,14 @@ app.post('/login', async (req, res) => {
 app.post('/cadastrar', async (req, res) => {
   try {
     const { nome, sobrenome, email, senha } = req.body;
-
-    await cadastro.cadastrar(nome,sobrenome,email,senha)
-
-    res.status(200).json({message:'Usuario Cadastradp'});
+    const response = await cadastro.cadastraUsuario(nome, sobrenome, email, senha);
+    res.status(response.status).json({ message: response.message });
   } catch (error) {
     if (error.message === 'Email já cadastrado') {
       res.status(400).json({ error: error.message });
     } else {
       console.error('Erro ao cadastrar', error);
-      res.status(500).json({ error: 'Erro ao Cadastrar' });
+      res.status(500).json({ error: 'Erro ao cadastrar usuário' });
     }
   }
 });
