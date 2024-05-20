@@ -27,6 +27,7 @@ const db = new Database()
 let login
 let produtos
 let pedidos
+let cadastro
 
 
 app.listen(port, async() => {
@@ -36,6 +37,7 @@ app.listen(port, async() => {
   login = new CRUD(db, 'usuarios');
   produtos = new CRUD(db,'produtos')
   pedidos = new CRUD(db,'pedidos')
+  cadastro = new CRUD(db,'usuarios')
 })
 
 
@@ -55,6 +57,24 @@ app.post('/login', async (req, res) => {
   }
 });
 
+
+
+app.post('/cadastrar', async (req, res) => {
+  try {
+    const { nome, sobrenome, email, senha } = req.body;
+
+    await cadastro.cadastrar(nome,sobrenome,email,senha)
+
+    res.status(200).json({message:'Usuario Cadastradp'});
+  } catch (error) {
+    if (error.message === 'Email já cadastrado') {
+      res.status(400).json({ error: error.message });
+    } else {
+      console.error('Erro ao cadastrar', error);
+      res.status(500).json({ error: 'Erro ao Cadastrar' });
+    }
+  }
+});
 
 
 app.get('/home', verificaAutenticacao, async (req, res) => {
