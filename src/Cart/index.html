@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/src/Cart/styles.css"/>
+    <title>Carrinho de Compras</title>
+</head>
+
+<body>
+    <header>
+        <span class="bi bi-cart"><b>Carrinho</b></span>
+    </header>
+    <main>
+        <section class="summary">
+            <h2>Itens no Carrinho</h2>
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+
+                <tbody id="produtos">
+                    <!-- <tr>
+                        <td>
+                            <div class="product">
+                                <img src="https://picsum.photos/90/90">
+                                <div class="info">
+                                    <div class="title">Nome do Produto</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>R$ 120</td>
+                        <td>
+                            <div class="qtd">
+                                <button><i class="bi bi-trash3-fill"></i></button>
+                                <span>2</span>
+                                <button><i class="bi bi-plus"></i></button>
+                            </div>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+
+        </section>
+        <hr>
+        <section class="total-section">
+            <h2>Total:</h2>
+            <div class="total-price" >R$ <span id="total-price">240,00</span></div>
+        </section>
+
+        <section class="order-finalization">
+            <a href="/src/Finalizar-pedido/index.html" onclick="finalizar();" class="confirm-button">Continuar</a>
+            <a href="/src/Home/index.html" class="cancel-button">Cancelar</a>
+        </section>
+
+        <script src="cart.js"></script>~
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</body>
+</html>
