@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 
-function Menu() {
+function Menu({ totalItems }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
       <div className="container">
@@ -27,12 +27,12 @@ function Menu() {
             </Link>
           </li>
           <li>
-            <Link to="/carrinho" className="nav-link text-white" onClick={() => window.location.href = '/carrinho'}>
-              <i className="bi bi-cart3"></i>
+            <Link to="/carrinho" className="nav-link text-white">
+              <i className="bi bi-cart3"></i> {totalItems > 0 && <span className="badge bg-primary">{totalItems}</span>}
             </Link>
           </li>
           <li>
-            <Link to="/login" className="nav-link text-white" onClick={() => window.location.href = '/login'}>
+            <Link to="/login" className="nav-link text-white">
               <i className="bi bi-person-circle"></i>
             </Link>
           </li>
@@ -59,10 +59,12 @@ function MainSection() {
 }
 
 function QuartaSec({ handleAddToCart }) {
+  const [sliderIndex, setSliderIndex] = useState(0); 
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
-  const [sliderIndex, setSliderIndex] = useState(0);
+  const [mensagem, setMensagem] = useState('');
+  const [totalItems, setTotalItems] = useState(0); // Estado para manter o número total de itens no carrinho
   const navigate = useNavigate();
 
   const handleRedirect = () => {
@@ -112,9 +114,14 @@ function QuartaSec({ handleAddToCart }) {
   const addToCart = (produto) => {
     localStorage.setItem(`produto_${produto._id}`, JSON.stringify(produto));
     handleAddToCart(produto);
-    alert("Produto adicionado ao carrinho!");
+    setMensagem('Produto adicionado ao carrinho: ' + produto.nome);
+
+    setTimeout(() => {
+      setMensagem('');
+    }, 3000);
+    // Atualiza o número total de itens no carrinho
+    setTotalItems(prevTotalItems => prevTotalItems + 1);
   };
-  
 
   return (
     <section className="bg-secondary bg-light text-dark">
@@ -174,22 +181,27 @@ function QuartaSec({ handleAddToCart }) {
           </Slider>
         )}
       </div>
+      {mensagem && <div className="alert alert-success" role="alert">{mensagem}</div>}
     </section>
   );
 }
 
 function Home() {
+  const [totalItems, setTotalItems] = useState(0); // Adicionando estado para total de itens
+
   const handleAddToCart = (produto) => {
     console.log('Produto adicionado ao carrinho:', produto);
+    setTotalItems(prevTotalItems => prevTotalItems + 1); // Incrementando o total de itens
   };
 
   return (
     <div>
-      <Menu />
+      <Menu totalItems={totalItems} /> {/* Passando totalItems como propriedade */}
       <MainSection />
       <QuartaSec handleAddToCart={handleAddToCart} />
     </div>
   );
 }
+
 
 export default Home;

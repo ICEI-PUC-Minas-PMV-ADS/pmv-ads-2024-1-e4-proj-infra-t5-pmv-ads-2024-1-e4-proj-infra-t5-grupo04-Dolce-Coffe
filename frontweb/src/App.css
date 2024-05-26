@@ -437,18 +437,28 @@ main {
 
 .produto-container {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+  justify-content: space-between; /* Distribui os elementos igualmente */
+  align-items: center; /* Alinha os itens verticalmente */
+  margin-bottom: 20px; /* Espaçamento inferior entre os itens */
 }
 
 .produto-info {
-  flex: 1;
-  margin-right: 20px;
+  flex: 1; /* Ocupa o espaço restante */
 }
+
+.produto-info p {
+  margin-bottom: 5px; /* Espaçamento inferior entre os parágrafos */
+}
+
+.produto-title {
+  font-weight: bold; /* Texto em negrito */
+}
+
 
 .produto-image img {
   max-width: 100px; 
   height: auto;
+  margin-right: 100px; 
 }
 
 

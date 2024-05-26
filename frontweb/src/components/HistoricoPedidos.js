@@ -4,15 +4,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-
-
 function HistoricoPedidos() {
-  const [pedidos, setPedidos] = useState([])
-
-  const navigate = useNavigate()
+  const [pedidos, setPedidos] = useState([]);
+  const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/login')
+    navigate('/login');
   };
 
   useEffect(() => {
@@ -28,15 +25,12 @@ function HistoricoPedidos() {
 
         const response = await axios.get('https://dolce-coffee-api.onrender.com/pedidos', config);
         setPedidos(response.data.arrayPedidos);
-
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          handleRedirect()
+          handleRedirect();
         } else {
           console.error('Erro ao buscar pedidos', error);
-
         }
-
       }
     }
 
@@ -82,8 +76,8 @@ function HistoricoPedidos() {
           </tbody>
         </table>
         <section className="order-finalization">
-        <a href="/"><button className="return-home">Página Inicial</button></a>
-      </section>
+          <a href="/"><button className="return-home">Página Inicial</button></a>
+        </section>
       </main>
     </div>
   );
