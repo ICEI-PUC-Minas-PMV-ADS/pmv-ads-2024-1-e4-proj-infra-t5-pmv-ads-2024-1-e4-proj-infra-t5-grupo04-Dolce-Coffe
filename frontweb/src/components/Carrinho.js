@@ -109,7 +109,7 @@ function Cart() {
                   </div>
 
                 </p>
-                <p>Valor: R$ {produto.valor ? (produto.valor * (produto.quantidade || 1)).toFixed(2) : '0.00'}</p> {/* Calcula o valor total do produto */}
+                <p>Valor: R$ {produto.valor ? (produto.valor * (produto.quantidade || 1)).toFixed(2) : '0.00'}</p> 
               </div>
               <div className="produto-image">
                 <img src={produto.url_foto} alt={produto.nome} />

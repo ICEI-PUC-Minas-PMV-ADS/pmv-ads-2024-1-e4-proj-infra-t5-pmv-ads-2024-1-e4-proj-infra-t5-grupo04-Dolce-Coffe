@@ -437,21 +437,21 @@ main {
 
 .produto-container {
   display: flex;
-  justify-content: space-between; /* Distribui os elementos igualmente */
-  align-items: center; /* Alinha os itens verticalmente */
-  margin-bottom: 20px; /* Espaçamento inferior entre os itens */
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
 }
 
 .produto-info {
-  flex: 1; /* Ocupa o espaço restante */
+  flex: 1;
 }
 
 .produto-info p {
-  margin-bottom: 5px; /* Espaçamento inferior entre os parágrafos */
+  margin-bottom: 5px; 
 }
 
 .produto-title {
-  font-weight: bold; /* Texto em negrito */
+  font-weight: bold; 
 }
 
 

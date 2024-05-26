@@ -50,7 +50,9 @@ function MainSection() {
           <div className="col-md-6">
             <h3>Confira Nosso</h3>
             <h1>Cardápio Completo</h1>
-            <p>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, cada xícara oferece uma experiência única. Explore conosco e desfrute de uma jornada de café incomparável.</p>
+            <p>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, 
+              cada xícara oferece uma experiência única. 
+              Explore conosco e desfrute de uma jornada de café incomparável.</p>
           </div>
         </div>
       </div>
@@ -64,7 +66,7 @@ function QuartaSec({ handleAddToCart }) {
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
   const [mensagem, setMensagem] = useState('');
-  const [totalItems, setTotalItems] = useState(0); // Estado para manter o número total de itens no carrinho
+  const [totalItems, setTotalItems] = useState(0); 
   const navigate = useNavigate();
 
   const handleRedirect = () => {
@@ -119,7 +121,6 @@ function QuartaSec({ handleAddToCart }) {
     setTimeout(() => {
       setMensagem('');
     }, 3000);
-    // Atualiza o número total de itens no carrinho
     setTotalItems(prevTotalItems => prevTotalItems + 1);
   };
 
@@ -187,16 +188,16 @@ function QuartaSec({ handleAddToCart }) {
 }
 
 function Home() {
-  const [totalItems, setTotalItems] = useState(0); // Adicionando estado para total de itens
+  const [totalItems, setTotalItems] = useState(0); 
 
   const handleAddToCart = (produto) => {
     console.log('Produto adicionado ao carrinho:', produto);
-    setTotalItems(prevTotalItems => prevTotalItems + 1); // Incrementando o total de itens
+    setTotalItems(prevTotalItems => prevTotalItems + 1); 
   };
 
   return (
     <div>
-      <Menu totalItems={totalItems} /> {/* Passando totalItems como propriedade */}
+      <Menu totalItems={totalItems} /> 
       <MainSection />
       <QuartaSec handleAddToCart={handleAddToCart} />
     </div>
