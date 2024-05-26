@@ -1,104 +1,123 @@
-var produtos = [];
-var valorTotal = 0;
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../App.css';
 
-document.addEventListener('DOMContentLoaded', function() {
+function Cart() {
+  const [produtos, setProdutos] = useState([]);
+  const [valorTotal, setValorTotal] = useState(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const produtosLocalStorage = [];
+    let total = 0;
 
     for (let index = 0; index < localStorage.length; index++) {
-        const element = localStorage.key(index);
+      const element = localStorage.key(index);
 
-        if(element.includes("produto_")){
+      if (element.includes("produto_")) {
+        const id_produto = element.substring(8);
+        const quantidade_produto = parseInt(localStorage.getItem(element));
 
-            console.log(element)
+        const produto = {
+          id_produto: id_produto,
+          quantidade: quantidade_produto
+        };
 
-            id_produto = element.substring(8);
-            quantidade_produto = localStorage.getItem(element);
+        const valorProduto = 30.00;
+        const valorProdutoXQuantidade = valorProduto * quantidade_produto;
+        total += valorProdutoXQuantidade;
 
-            var produto = {
-                "id_produto": id_produto,
-                "quantidade": quantidade_produto
-            };
-
-            valorProduto = 30.00;
-            valorProdutoXQuantidade = valorProduto * quantidade_produto;
-            valorTotal += valorProdutoXQuantidade;
-
-            produtos.push(produto);
-
-            document.getElementById("produtos").innerHTML += "<tr>"+
-                                                                "<td>" +
-                                                                    "<div class='product'>" +
-                                                                        "<img src='https://picsum.photos/90/90'>" +
-                                                                        "<div class='info'>" +
-                                                                        "<div class='title'>Nome do 'Produto_"+id_produto+"'</div>" +
-                                                                        "</div>" +
-                                                                    "</div>" +
-                                                                "</td>" +
-                                                                "<td>R$ <span id='precoProduto_"+id_produto+"'>"+valorProduto+"</span></td>" +
-                                                                "<td>"+
-                                                                    "<div class='qty'>"+
-                                                                        "<button id='buttonDiminuirProduto' onclick='excluirProduto("+id_produto+")'><i class='bi bi-trash3-fill'></i></button>"+
-                                                                        "<button onclick='subtrairProduto("+id_produto+")'><i class='bi bi-dash'></i></button>"+
-                                                                        "<span id='quantidadeProduto_"+id_produto+"'>"+quantidade_produto+"</span>"+
-                                                                        "<button onclick='aumentarProduto("+id_produto+")'><i class='bi bi-plus'></i></button>"+
-                                                                    "</div>"+
-                                                                "</td>"+
-                                                            "</tr>";
-        }
+        produtosLocalStorage.push(produto);
+      }
     }
 
-    document.getElementById("total-price").innerHTML = valorTotal;
-    console.log(produtos);
-});
+    setProdutos(produtosLocalStorage);
+    setValorTotal(total);
+  }, []);
 
-function excluirProduto(id_produto){
-    localStorage.removeItem("produto_"+id_produto);
-
-    setTimeout(function(){
-        location.reload();
+  const excluirProduto = (id_produto) => {
+    localStorage.removeItem("produto_" + id_produto);
+    setTimeout(() => {
+      window.location.reload();
     }, 1000);
     console.log("excluir");
-}
+  }
 
-function subtrairProduto(id_produto){
-    let quantidade = parseInt(localStorage.getItem("produto_"+id_produto));
-    localStorage.removeItem("produto_"+id_produto);
+  const subtrairProduto = (id_produto) => {
+    let quantidade = parseInt(localStorage.getItem("produto_" + id_produto));
+    localStorage.removeItem("produto_" + id_produto);
 
-    if(quantidade > 1){
-        quantidade -= 1
-        somaTotal(id_produto, "subtrair");
+    if (quantidade > 1) {
+      quantidade -= 1
+      somaTotal(id_produto, "subtrair");
     }
-    
-    localStorage.setItem('produto_'+id_produto, quantidade);
-    document.getElementById("quantidadeProduto_"+id_produto).innerHTML = quantidade;
-     
-}
 
-function aumentarProduto(id_produto){
-    let quantidade = parseInt(localStorage.getItem("produto_"+id_produto));
-    localStorage.removeItem("produto_"+id_produto);
+    localStorage.setItem('produto_' + id_produto, quantidade);
+    document.getElementById("quantidadeProduto_" + id_produto).innerHTML = quantidade;
+
+  }
+
+  const aumentarProduto = (id_produto) => {
+    let quantidade = parseInt(localStorage.getItem("produto_" + id_produto));
+    localStorage.removeItem("produto_" + id_produto);
 
     quantidade += 1
-    localStorage.setItem('produto_'+id_produto, quantidade);
+    localStorage.setItem('produto_' + id_produto, quantidade);
 
-    document.getElementById("quantidadeProduto_"+id_produto).innerHTML = quantidade;
+    document.getElementById("quantidadeProduto_" + id_produto).innerHTML = quantidade;
 
     somaTotal(id_produto, "somar");
-}
+  }
 
-function somaTotal(id_produto, operacao){
-    var preco = parseFloat($("#precoProduto_"+id_produto).text());
-    var precoTotal = parseFloat($("#total-price").text());
-    
-    if(operacao == "subtrair"){
-        document.getElementById("total-price").innerHTML = precoTotal - preco;
+  const somaTotal = (id_produto, operacao) => {
+    var preco = parseFloat(document.getElementById("precoProduto_" + id_produto).textContent);
+    var precoTotal = parseFloat(valorTotal);
+
+    if (operacao === "subtrair") {
+      setValorTotal(precoTotal - preco);
     }
-    else{
-        document.getElementById("total-price").innerHTML = precoTotal + preco;
+    else {
+      setValorTotal(precoTotal + preco);
     }
 
+  }
+
+  const handleFinalizeOrder = () => {
+    // Aqui você pode adicionar a lógica para finalizar o pedido
+    // Por exemplo, enviar os detalhes do pedido para o servidor
+    navigate("/FinalizarPedido");
+  }
+
+  return (
+    <div>
+      <header>
+        <span className="bi bi-cart"><b>Carrinho</b></span>
+      </header>
+      <main>
+        <section className="summary">
+          <h2>Itens no Carrinho</h2>
+          {produtos.map((produto) => (
+            <div key={produto.id_produto}>
+              <p>Produto: {produto.id_produto}</p>
+              <p>Quantidade: {produto.quantidade}</p>
+              <button onClick={() => excluirProduto(produto.id_produto)}>Remover</button>
+              <button onClick={() => subtrairProduto(produto.id_produto)}>Subtrair</button>
+              <button onClick={() => aumentarProduto(produto.id_produto)}>Adicionar</button>
+            </div>
+          ))}
+        </section>
+        <hr />
+        <section className="total-section">
+          <h2>Total:</h2>
+          <div className="total-price">R$ {valorTotal.toFixed(2)}</div>
+        </section>
+      </main>
+      <section className="order-finalization">
+        <button className="finalize-order" onClick={handleFinalizeOrder}>Finalizar Pedido</button>
+        <a href="/"><button className="return-home">Página Inicial</button></a>
+      </section>
+    </div>
+  );
 }
 
-function finalizar(){
-    var precoTotal = parseFloat($("#total-price").text());
-    localStorage.setItem('produtoPrecoTotal', precoTotal);
-}
+export default Cart;
