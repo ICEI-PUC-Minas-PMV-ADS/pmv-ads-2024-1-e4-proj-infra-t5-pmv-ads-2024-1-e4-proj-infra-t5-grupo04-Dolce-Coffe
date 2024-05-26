@@ -9,39 +9,37 @@ import 'slick-carousel/slick/slick-theme.css';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 
-
 function Menu() {
   return (
-<nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
-  <div className="container">
-    <div className="logo">
-      <img src="./logo192.png" alt="logo" />
-      <h3><span>Dolce</span>Coffee</h3>
-    </div>
-    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <ul className="nav-link">
-      <li>
-        <Link to="/historico" className="nav-link text-white">
-          Pedidos
-        </Link>
-      </li>
-      <li>
-        <Link to="/carrinho" className="nav-link text-white" onClick={() => window.location.href = '/carrinho'}>
-          <i className="bi bi-cart3"></i>
-        </Link>
-      </li>
-      <li>
-        <Link to="/login" className="nav-link text-white" onClick={() => window.location.href = '/login'}>
-          <i className="bi bi-person-circle"></i>
-        </Link>
-      </li>
-    </ul>
-  </div>
-</nav>
-  
-  )
+    <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
+      <div className="container">
+        <div className="logo">
+          <img src="./logo192.png" alt="logo" />
+          <h3><span>Dolce</span>Coffee</h3>
+        </div>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <ul className="nav-link">
+          <li>
+            <Link to="/historico" className="nav-link text-white">
+              Pedidos
+            </Link>
+          </li>
+          <li>
+            <Link to="/carrinho" className="nav-link text-white" onClick={() => window.location.href = '/carrinho'}>
+              <i className="bi bi-cart3"></i>
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="nav-link text-white" onClick={() => window.location.href = '/login'}>
+              <i className="bi bi-person-circle"></i>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
 function MainSection() {
@@ -63,12 +61,12 @@ function MainSection() {
 function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
-  const [sliderIndex, setSliderIndex] = useState(0); 
-  const navigate = useNavigate()
+  const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate('/login')
+    navigate('/login');
   };
 
   useEffect(() => {
@@ -86,12 +84,11 @@ function QuartaSec({ handleAddToCart }) {
         setLoading(false);
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          handleRedirect()
+          handleRedirect();
         } else {
           console.error('Erro ao buscar produtos', error);
           setLoading(false);
         }
-
       }
     }
 
@@ -111,6 +108,13 @@ function QuartaSec({ handleAddToCart }) {
     slidesToScroll: 1,
     afterChange: (index) => setSliderIndex(index),
   };
+
+  const addToCart = (produto) => {
+    localStorage.setItem(`produto_${produto._id}`, JSON.stringify(produto));
+    handleAddToCart(produto);
+    alert("Produto adicionado ao carrinho!");
+  };
+  
 
   return (
     <section className="bg-secondary bg-light text-dark">
@@ -159,7 +163,7 @@ function QuartaSec({ handleAddToCart }) {
                         <p className="card-text">{produto.desc}</p>
                       </div>
                       <div className="icon-container">
-                        <button onClick={() => handleAddToCart(produto)} className="btn btn-secondary">
+                        <button onClick={() => addToCart(produto)} className="btn btn-secondary">
                           <i className="bi bi-bag-heart-fill"></i>
                         </button>
                       </div>

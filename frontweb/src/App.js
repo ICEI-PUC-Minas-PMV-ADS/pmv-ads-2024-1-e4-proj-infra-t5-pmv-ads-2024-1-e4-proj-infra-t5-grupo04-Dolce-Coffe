@@ -14,7 +14,6 @@ import Login from './components/Login';
 import Cadastro from './components/Cadastro'
 import HistoricoPedidos from './components/HistoricoPedidos';
 import Carrinho from './components/Carrinho';
-import FinalizarPedido from './components/FinalizarPedido';
 
 
 
@@ -29,7 +28,6 @@ function App() {
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/historico" element={< HistoricoPedidos />} />
           <Route path="/carrinho" element={< Carrinho />} />
-          <Route path="/finalizarpedido" element={< FinalizarPedido />} />
         </Routes>
       </div>
     </Router>
