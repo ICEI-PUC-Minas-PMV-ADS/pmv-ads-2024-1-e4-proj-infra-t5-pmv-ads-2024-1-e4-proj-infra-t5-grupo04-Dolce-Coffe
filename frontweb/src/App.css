@@ -89,12 +89,12 @@
 }
 
 .main-section {
-  height: 80vh;
+  width: 100vw;
+  height: 50vh;
   background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), url('https://images.pexels.com/photos/15076694/pexels-photo-15076694/free-photo-of-coffee.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.pnj');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -203,10 +203,10 @@
 
 .card-img {
   height: 250px;
-  width: 100%; 
+  width: 95%; 
   object-fit: cover; 
   object-position: center;
-  border-radius: 30px;
+  border-radius: 60px;
 }
 
 .slick-slider {
@@ -549,4 +549,71 @@ main {
 #delivery-selected {
   margin-top: 10px;
   font-weight: bold;
+}
+
+/* Estilos para o modal de adição ao carrinho */
+.modal-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 70%; /* Defina a largura desejada */
+  max-width: 500px; /* Defina a largura máxima */
+  z-index: 1050; /* Ajuste o valor do z-index conforme necessário */
+  margin-top: 10px;
+}
+
+.modal-content {
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.modal-header .close {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.modal-header .close:hover {
+  opacity: 1;
+}
+
+.modal-body {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+.modal-body p {
+  margin: 0;
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - 1rem);
+}
+
+.modal.fade.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-backdrop {
+  opacity: 0.5 !important;
 }
