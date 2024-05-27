@@ -285,7 +285,6 @@ header {
   padding: 10px 20px;
   text-align: center;
 }
-
 main {
   padding: 20px;
 }
@@ -313,7 +312,6 @@ main {
 
 .summary .total {
   font-weight: bold;
-  color: #333; 
 }
 
 .payment-methods {
@@ -344,9 +342,9 @@ main {
   opacity: 0.8;
 }
 
+
 .order-finalization {
   text-align: center;
-  margin-top: 20px;
 }
 
 .confirm-button,
@@ -437,15 +435,34 @@ main {
   color: #333; 
 }
 
-/*Finaliza Pedido*/
-
-.summary table th,
-.summary table td {
-  text-align: left;
-  padding: 8px 0;
-  background-color: transparent; 
-  color: #1B1D1E;
+.produto-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
 }
+
+.produto-info {
+  flex: 1;
+}
+
+.produto-info p {
+  margin-bottom: 5px; 
+}
+
+.produto-title {
+  font-weight: bold; 
+}
+
+
+.produto-image img {
+  max-width: 100px; 
+  height: auto;
+  margin-right: 100px; 
+}
+
+
+/*Finaliza Pedido*/
 
 .finalize-order {
   background-color: #FE7E47;

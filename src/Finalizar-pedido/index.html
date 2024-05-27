@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="/src/Finalizar-pedido/style.css"/>
     <title>Resumo do Pedido</title>
 </head>
@@ -16,7 +17,7 @@
                 <tbody>
                     <tr>
                         <th>Subtotal:</th>
-                        <td>R$ 240,00</td>
+                        <td>R$ <span id="Subtotal">240,00</span></td>
                     </tr>
                     <tr>
                         <th>Taxa de Entrega:</th>
@@ -24,11 +25,11 @@
                     </tr>
                     <tr>
                         <th>Quantidade de Produtos:</th>
-                        <td>2</td>
+                        <td><span id="QuantidadeTotal">2</span></td>
                     </tr>
                     <tr class="total">
                         <th>Total da Compra:</th>
-                        <td>R$ 240,00</td>
+                        <td>R$ <span id="PrecoTotal">240,00</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -42,10 +43,11 @@
             <div id="selected-option"></div>            
         </section>
         <section class="order-finalization">
-            <button class="finalize-order">Finalizar Pedido</button>
+            <button class="finalize-order" onclick="finalizarPedido()">Finalizar Pedido</button>
             <a href="/src/Home/index.html"><button class="return-home">Voltar para a Home</button></a>
         </section>
     </main>
     <script src="/src/Finalizar-pedido/f-pedido.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
 </body>
 </html>

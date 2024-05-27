@@ -15,6 +15,10 @@ function Login() {
     navigate('/home')
   };
 
+  const handleCadastro = () => {
+    navigate('/cadastro')
+  }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -68,7 +72,7 @@ function Login() {
               </div>
             <div className="d-flex justify-content-between">
               <button type="submit" className="btn btn-primary btn-block">Entrar</button>
-              <button type="button"  className="btn btn-primary btn-block">Cadastrar</button>
+              <button type="button" onClick={handleCadastro} className="btn btn-primary btn-block">Cadastrar</button>
           
             </div>
             </form>

@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="/src/Home/style.css">
 
 </head>
@@ -21,7 +24,7 @@
             <ul class="list-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#">Cárdapio</a></li>
-                <li><a href="/src/Cart/index.html" id="cartButton"><i class="bi bi-cart"></i></a></li>
+                <li><a href="/src/Cart/index.html" id="cartButton"><i class="bi bi-cart"></i></a><span id="numberCart"></span></li>
                 <li><a href="/src/Perfil/tela-de-login.html" id="perfilButton"><i class="bi bi-person-circle"></i></a></li>
             </ul>
             
@@ -40,7 +43,6 @@
             <h2>Cárdapio Completo </h2>
         </div>
     </section>
-    
 
     <div class="btnOpcao">
         <button class="Cafés Quentes">Cafés Quentes</button>
@@ -48,6 +50,83 @@
         <button class="Para Comer">Para Comer</button>
     </div>
 
+    <div class="my-slider">
+        <div class="container">
+            <img class="image" src="../img/cafe1.png">
+            <div class="middle">
+                <div class="text">
+                    <p>Preço: R$20,00</p>
+                    <button class="btn-adicionar" onclick="addCart(1)">Adicionar no Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <img class="image" src="../img/bolo_laraja.png">
+            <div class="middle">
+                <div class="text">
+                    <p>Preço: R$30,00</p>
+                    <button class="btn-adicionar" onclick="addCart(2)">Adicionar no Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <img class="image" src="../img/bolo_chocolate.png">
+            <div class="middle">
+                <div class="text">
+                    <p>Preço: R$35,00</p>
+                    <button class="btn-adicionar" onclick="addCart(3)">Adicionar no Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <img class="image" src="../img/boloFrutasVermelhas.jpg">
+            <div class="middle">
+                <div class="text">
+                    <p>Preço: R$40,00</p>
+                    <button class="btn-adicionar" onclick="addCart(4)">Adicionar no Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <img class="image" src="../img/paes.jpg">
+            <div class="middle">
+                <div class="text">
+                    <p>Preço: R$25,00</p>
+                    <button class="btn-adicionar" onclick="addCart(5)">Adicionar no Carrinho</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <img class="image" src="../img/cafe_xicara.jpg">
+            <div class="middle">
+                <div class="text">
+                    <p>Preço: R$15,00</p>
+                    <button class="btn-adicionar" onclick="addCart(6)">Adicionar no Carrinho</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module">
+        var slider = tns({
+          container: '.my-slider',
+          items: 3, // Quantidade de itens que são exibidos ao mesmo tempo
+          slideBy: 'page',
+        //   autoplay: true,
+          mouseDrag: true, // Seta se o carousel pode ser rotacionado com o movimento de clicar e arrastar do mouse
+          autoplayButtonOutput: false, // Seta visibilidade do botão de auto play
+          controls: false, // seta visibilidade das setas de controle
+          nav: false // Seta visibilidade da navegação (3 pontinhos)
+        });
+    </script>
+
+    <script src="/src/Home/js.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
 </body>
 
 </html>
+
