@@ -50,9 +50,7 @@ function MainSection() {
           <div className="col-md-6">
             <h3>Confira Nosso</h3>
             <h1>Cardápio Completo</h1>
-            <p>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, 
-              cada xícara oferece uma experiência única. 
-              Explore conosco e desfrute de uma jornada de café incomparável.</p>
+            <p>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, cada xícara oferece uma experiência única. Explore conosco e desfrute de uma jornada de café incomparável.</p>
           </div>
         </div>
       </div>
@@ -192,7 +190,7 @@ function Home() {
 
   const handleAddToCart = (produto) => {
     console.log('Produto adicionado ao carrinho:', produto);
-    setTotalItems(prevTotalItems => prevTotalItems + 1); 
+    setTotalItems(prevTotalItems => prevTotalItems + 1);
   };
 
   return (

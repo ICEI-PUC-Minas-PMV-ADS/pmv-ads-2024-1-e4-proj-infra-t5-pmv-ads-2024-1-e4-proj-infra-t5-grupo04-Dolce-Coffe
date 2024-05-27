@@ -439,11 +439,11 @@ main {
   display: flex;
   justify-content: space-between; 
   align-items: center; 
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .produto-info {
-  flex: 1;
+  flex: 1; 
 }
 
 .produto-info p {
@@ -493,30 +493,6 @@ main {
   opacity: 0.5;
 }
 
-.selected-option {
-  margin-top: 20px;
-  text-align: center; 
-}
-
-.selected-option p {
-  margin-bottom: 10px;
-}
-
-.selected-option button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin-right: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.selected-option button:hover {
-  background-color: #0056b3;
-}
-
 #selected-option {
   margin-top: 10px;
   font-weight: bold;
@@ -550,5 +526,3 @@ main {
   margin-top: 10px;
   font-weight: bold;
 }
-
-
