@@ -1,4 +1,4 @@
-# Especificações do Projeto
+aça# Especificações do Projeto
 
 A definição do problema e os pontos mais relevantes a serem tratados neste projeto foram consolidados através de discussões e estudos realizados pelos membros da equipe . Os detalhes levantados nesse processo foram agrupados na forma de personas e histórias de usuários, com o objetivo de compreender melhor as necessidades e desejos dos clientes para melhorar a experiência na cafeteria..
 
@@ -95,60 +95,51 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| O sistema deve permitir que os clientes criem uma conta | ALTA | 
-|RF-002| O sistema deve permitir que os gerentes cadastrem e atualizem informações de produtos, como descrições, preços e imagens | MÉDIA |
-| RF-003| O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras | Alta |
-| RF-004| O sistema deve permitir que os clientes concluam a compra quando direcionado para o carrinho | Alta |
-| RF-005| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, gerenciar cardápio, histórico de pedidos, meu perfil | Alta|
-| RF-006| O sistema deve permitir iniciar o pedido ou cancelar na própria tela de pedidos pendentes na home | Alta| 
-| RF-007| O sistema deve permitir excluir pedidos do carrinho |
-| RF-008 | O sistema deve possibilitar aos clientes a visualização completa dos produtos incluindo informações detalhadas dos ingredientes | ALTA |
-| RF-009 | O sistema deve permitir que os clientes acompanhem em tempo real o status de seus pedidos, desde o momento da realização até a entrega | ALTA |
-| RF-010 | O sistema deve permitir que os gerentes gerenciem os estoques de produtos, incluindo a definição de quantidades mínimas e máximas | MÉDIA |
-|RF-011| O sistema deve permitir que os clientes visualizem o horário de funcionamento da cafeteria, com a possibilidade de programar pedidos com antecedência, de acordo com o horário de abertura e fechamento | MÉDIA |
-|RF-012| O sistema deve permitir que os clientes visualizem o histórico de compras anteriores, facilitando a repetição de pedidos ou a identificação de produtos favoritos | BAIXA |
-
+|RF-001| O sistema deve permitir que os clientes criem uma conta e faça login | ALTA | 
+|RF-002| O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras | Alta |
+|RF-003| O sistema deve permitir que os clientes concluam a compra a partir do carrinho | Alta |
+|RF-004| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, cardápio, histórico de pedidos, meu perfil | Alta|
+|RF-005| O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho | Alta| 
+|RF-006| O sistema deve permitir excluir produtos do carrinho |
+|RF-007| O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização da compra até a entrega | ALTA |
+|RF-008| O sistema deve exibir informações detalhadas sobre cada produto, incluindo preço, descrição e imagem | Alta |
+|RF-009| O sistema deve oferecer a opção de entrega em domicílio ou retirada na loja | Alta |
 
 ### Requisitos Funcionais API
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-| RF-008| A API deverá fornecer um endpoint GET para retornar todos os produtos cadastrados | Alta|
-| RF-009| A API deverá fornecer um endpoint POST para criar um novo produto | Alta|
-| RF-010| A API deverá fornecer um endpoint PUT para atualizar o produto | Alta|
-| RF-011| A API deverá fornecer um endpoint DELETE para excluir um produto | Alta|
-| RF-012| A API deverá fornecer um endpoint GET para retornar todos os pedidos cadastrados | Alta|
-| RF-013| A API deverá fornecer um endpoint GET para retornar detalhes de um pedido | Alta|
-| RF-014| A API deverá fornecer um endpoint POST para criar um novo pedido | Alta|
-| RF-015| A API deverá fornecer um endpoint GET para retornar dados do usuário | Alta|
-| RF-016| A API deverá fornecer um endpoint PUT para atualizar dados do usuário |Alta| 
-| RF-017| A API deverá fornecer um endpoint POST para autenticar o login do usuário | Alta|
-| RF-018| A API deverá fornecer um endpoint POST para cadastrar um usuário no banco | Alta|
+| RF-010| A API deverá fornecer um endpoint GET para retornar detalhes de um pedido | Alta|
+| RF-011| A API deverá fornecer um endpoint POST para criar um novo pedido | Alta|
+| RF-012| A API deverá fornecer um endpoint GET para retornar dados do usuário | Alta|
+| RF-013| A API deverá fornecer um endpoint PUT para atualizar dados do usuário |Alta| 
+| RF-014| A API deverá fornecer um endpoint POST para autenticar o login do usuário | Alta|
+| RF-015| A API deverá fornecer um endpoint POST para cadastrar um usuário no banco | Alta|
 
 ### Requisitos Funcionais Aplicação Mobile
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-| RF-019| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
-| RF-020| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
-| RF-021| Os usuários devem poder adicionar produtos ao carrinho | Alta |
-| RF-022| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
-| RF-023| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
-| RF-024| Os usuários devem poder finalizar os pedidos | Alta |
+| RF-016| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
+| RF-017| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
+| RF-018| Os usuários devem poder adicionar produtos ao carrinho | Alta |
+| RF-019| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
+| RF-020| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
+| RF-021| Os usuários devem poder finalizar os pedidos | Alta |
 
 ### Requisitos não Funcionais Web e Mobile
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve criptografar a senha do usuário | Alta| 
+|RNF-001| O sistema deve ser fácil de usar, intuitivo e ter uma interface amigável para os usuários | Alta| 
 |RNF-002| O sistema web ser compatível com os principais navegadores da web, como Chrome e Edge | Média|
-|RNF-003| O sistema web deve ter interface responsiva, adaptando-se automaticamente a diferentes tamanhos de tela | Alta|
+|RNF-003| O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas. | Alta|
 |RNF-004| O sistema deve listar os pedidos organizados em blocos com as informações dos pedidos | Média |
 |RNF-005| O sistema front-end Web deve ser desenvolvido na linguagem JavaScript com utilização do framework React.js | Alta|
 |RNF-006| O sistema front-end Mobile deve ser desenvolvido na linguagem React Native| Alta |
 |RNF-007| O sistema front-end Mobile deve ser compatível com sistema operacional Android e iOS | Baixa|
-|RNF-008| As interfaces precisam estar compatíveis com práticas de acessibilidade | Média |
-|RNF-009| 	Os sitemas devem ser compatíveis com a LGPD, Lei Geral de Proteção de Dados | Baixa|
+|RNF-008| O sistema deve ser publicado em um ambiente acessível publicamente na Internet | Média |
+|RNF-009| Os sitemas devem ser compatíveis com a LGPD, Lei Geral de Proteção de Dados | Baixa|
 |RNF-010| A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida| Alta |
 |RNF-011| O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade| |
 |RNF-012| A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | Média |
