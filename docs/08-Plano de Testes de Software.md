@@ -67,9 +67,3 @@
 |Critério de Êxito | - O cliente conseguiu escolher a forma de entrega. |
 |  	|  	|
 
-| **Caso de Teste** 	| **CT-09 – tipo de entrega do pedido**	|
-|:---:	|:---:	|
-|Requisito Associado | RF-09 - O sistema deve oferecer a opção de entrega em domicílio ou retirada na loja. |
-| Passos 	| - Acessar o navegador <br> - Informar o endereço do site (link a ser disponibilizado) <br> Acessar o carinho <br> finalizar o pedido <br> escolher a forma de entrega.|
-|Critério de Êxito | - O cliente conseguiu escolher a forma de entrega. |
-|  	|  	|
