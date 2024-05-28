@@ -1,3 +1,4 @@
+// components/Home.tsx
 import React, { useEffect, useState } from 'react';
 import { View, Text, Button, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import axios from 'axios';
@@ -6,18 +7,18 @@ function Menu() {
   return (
     <View style={styles.navbar}>
       <View style={styles.logo}>
-        <Image source={require('./logo192.png')} style={styles.logoImage} />
+        {/* <Image source={require('.../assets/images/logo192.png')} style={styles.logoImage} /> */}
         <Text style={styles.logoText}>Dolce Coffee</Text>
       </View>
       <View style={styles.navLinks}>
-        <TouchableOpacity style={styles.navLink} onPress={() => window.location.href = '/historico'}>
+        <TouchableOpacity style={styles.navLink} onPress={() => alert('Navegar para histórico')}>
           <Text style={styles.navLinkText}>Pedidos</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navLink} onPress={() => window.location.href = '/carrinho'}>
-          <Text style={styles.navLinkText}><i className="bi bi-cart3"></i></Text>
+        <TouchableOpacity style={styles.navLink} onPress={() => alert('Navegar para carrinho')}>
+          <Text style={styles.navLinkText}>Carrinho</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navLink} onPress={() => window.location.href = '/login'}>
-          <Text style={styles.navLinkText}><i className="bi bi-person-circle"></i></Text>
+        <TouchableOpacity style={styles.navLink} onPress={() => alert('Navegar para login')}>
+          <Text style={styles.navLinkText}>Login</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -30,7 +31,11 @@ function MainSection() {
       <View style={styles.container}>
         <Text style={styles.title}>Confira Nosso</Text>
         <Text style={styles.subtitle}>Cardápio Completo</Text>
-        <Text style={styles.description}>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, cada xícara oferece uma experiência única. Explore conosco e desfrute de uma jornada de café incomparável.</Text>
+        <Text style={styles.description}>
+          Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital.
+          De grãos suaves a sabores intensos, cada xícara oferece uma experiência única.
+          Explore conosco e desfrute de uma jornada de café incomparável.
+        </Text>
       </View>
     </View>
   );
@@ -39,8 +44,7 @@ function MainSection() {
 function QuartaSec({ handleAddToCart }) {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categoriaAtiva, setCategoriaAtiva] = useState('quente'); 
-  const [sliderIndex, setSliderIndex] = useState(0); 
+  const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
 
   useEffect(() => {
     async function fetchProdutos() {
@@ -59,36 +63,45 @@ function QuartaSec({ handleAddToCart }) {
 
   const handleClickCategoria = (categoria) => {
     setCategoriaAtiva(categoria);
-    setSliderIndex(0);
   };
 
   return (
     <View style={styles.quartaSec}>
       <View style={styles.container}>
         <View style={styles.categoryButtons}>
-          <TouchableOpacity style={[styles.categoryButton, categoriaAtiva === 'quente' && styles.activeCategory]} onPress={() => handleClickCategoria('quente')}>
+          <TouchableOpacity
+            style={[styles.categoryButton, categoriaAtiva === 'quente' && styles.activeCategory]}
+            onPress={() => handleClickCategoria('quente')}
+          >
             <Text style={styles.categoryButtonText}>Cafés Quentes</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.categoryButton, categoriaAtiva === 'gelado' && styles.activeCategory]} onPress={() => handleClickCategoria('gelado')}>
+          <TouchableOpacity
+            style={[styles.categoryButton, categoriaAtiva === 'gelado' && styles.activeCategory]}
+            onPress={() => handleClickCategoria('gelado')}
+          >
             <Text style={styles.categoryButtonText}>Cafés Gelados</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.categoryButton, categoriaAtiva === 'comida' && styles.activeCategory]} onPress={() => handleClickCategoria('comida')}>
+          <TouchableOpacity
+            style={[styles.categoryButton, categoriaAtiva === 'comida' && styles.activeCategory]}
+            onPress={() => handleClickCategoria('comida')}
+          >
             <Text style={styles.categoryButtonText}>Para Comer</Text>
           </TouchableOpacity>
         </View>
-        <ScrollView horizontal={true} style={styles.sliderContainer}>
-          {categoriaAtiva && produtos
-            .filter((produto) => produto.tipo === categoriaAtiva)
-            .map((produto) => (
-              <TouchableOpacity key={produto._id} style={styles.card} onPress={() => handleAddToCart(produto)}>
-                <Image source={{ uri: produto.url_foto }} style={styles.cardImage} />
-                <View style={styles.cardContent}>
-                  <Text style={styles.cardTitle}>{produto.nome}</Text>
-                  <Text style={styles.cardText}>Valor: R$ {produto.valor}</Text>
-                  <Text style={styles.cardText}>{produto.desc}</Text>
-                </View>
-              </TouchableOpacity>
-            ))}
+        <ScrollView horizontal style={styles.sliderContainer}>
+          {categoriaAtiva &&
+            produtos
+              .filter((produto) => produto.tipo === categoriaAtiva)
+              .map((produto) => (
+                <TouchableOpacity key={produto._id} style={styles.card} onPress={() => handleAddToCart(produto)}>
+                  <Image source={{ uri: produto.url_foto }} style={styles.cardImage} />
+                  <View style={styles.cardContent}>
+                    <Text style={styles.cardTitle}>{produto.nome}</Text>
+                    <Text style={styles.cardText}>Valor: R$ {produto.valor}</Text>
+                    <Text style={styles.cardText}>{produto.desc}</Text>
+                  </View>
+                </TouchableOpacity>
+              ))}
         </ScrollView>
       </View>
     </View>
