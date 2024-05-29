@@ -15,7 +15,7 @@
 |
 | Avaliação | ✅ O contraste está presente e há bastante clareza nas informações contidas na página. |
 
-| **Caso de Teste** 	| **CT-06 – Compatibilidade**	|
+| **Caso de Teste** 	| **CT-05 – Compatibilidade**	|
 |:---:	|:---:	|
 |Requisito Associado | RNF-06 O site deve ser compatível com os principais navegadores da atualidade (Google Chrome, Opera, Firefox, Microsoft Edge).  |
 | Referência 	| <video src="![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/fc4c2210-a9de-40cd-8872-b7d20d3ea272)
