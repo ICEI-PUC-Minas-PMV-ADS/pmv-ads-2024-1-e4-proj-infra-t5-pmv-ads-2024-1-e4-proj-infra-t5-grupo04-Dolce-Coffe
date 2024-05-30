@@ -1,70 +1,101 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, Button } from 'react-native';
+import { useState } from 'react';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-export default function Login() {
+export default function HomeScreen() {
+  const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('');
+
+  async function Logar(email: string, senha: string) {
+    const credenciais = {
+      email: email,
+      senha: senha
+    };
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmVjNTFlMGNjYjBlNzQ5YTViMzY4ZiIsImVtYWlsIjoidmljdG9yQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTkxMDg1NCwiZXhwIjoxNzE1OTk3MjU0fQ.30cwWe_s_BIV4xbSx1_r7sHbdJBRLciAV4EAOGrP64Y';
+
+    try {
+      const response = await fetch('https://dolce-coffee-api.onrender.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(credenciais)
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro na requisição');
+      }
+
+      const dados = await response.json();
+      console.log(dados);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+    <View style={{ flex: 1 }}>
+      <Image
+        source={require('@/assets/images/banner-login1.jpg')}
+        style={styles.backgroundImage}
+      />
+      <View style={styles.container}>
+        <ThemedText type="title" style={styles.bemVindo}>Bem Vindo</ThemedText>
+        <TextInput
+          style={styles.input}
+          onChangeText={setEmail}
+          value={email}
+          placeholder='Insira seu email'
+          placeholderTextColor="#000" 
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+        <TextInput
+          style={styles.input}
+          onChangeText={setSenha}
+          value={senha}
+          placeholder='Insira sua senha'
+          secureTextEntry={true} 
+          placeholderTextColor="#000" 
+        />
+        <View style={styles.buttonContainer}>
+          <Button title='Entrar' onPress={() => Logar(email, senha)} color="#8B4513" />
+        </View>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 8,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  bemVindo: {
+    textAlign: 'center',
+    marginBottom: 20,
+    color: '#FFF',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+  input: {
+    height: 50, 
+    width: '80%', 
+    marginVertical: 10, 
+    paddingHorizontal: 20, 
+    borderColor: '#FFF', 
+    borderWidth: 1, 
+    borderRadius: 10, 
+    backgroundColor: '#FFF', 
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', 
     position: 'absolute',
+    width: '100%',
+    height: '100%',
+    opacity: 0.9, 
+  },
+  buttonContainer: {
+    width: '80%', 
+    marginVertical: 10,
   },
 });
