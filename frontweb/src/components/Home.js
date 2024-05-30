@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import Slider from 'react-slick';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
 
 function Menu({ totalItems }) {
   return (
@@ -50,9 +49,11 @@ function MainSection() {
           <div className="col-md-6">
             <h3>Confira Nosso</h3>
             <h1>Cardápio Completo</h1>
-            <p>Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital. De grãos suaves a sabores intensos, 
-              cada xícara oferece uma experiência única. 
-              Explore conosco e desfrute de uma jornada de café incomparável.</p>
+            <p>
+              Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital.
+              De grãos suaves a sabores intensos, cada xícara oferece uma experiência única.
+              Explore conosco e desfrute de uma jornada de café incomparável.
+            </p>
           </div>
         </div>
       </div>
@@ -61,20 +62,17 @@ function MainSection() {
 }
 
 function QuartaSec({ handleAddToCart }) {
-  const [sliderIndex, setSliderIndex] = useState(0); 
+  const [sliderIndex, setSliderIndex] = useState(0);
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
   const [mensagem, setMensagem] = useState('');
-  const [totalItems, setTotalItems] = useState(0); 
+  const [showModal, setShowModal] = useState(false);
+  const [totalItems, setTotalItems] = useState(0);
   const navigate = useNavigate();
 
-  const handleRedirect = () => {
-    navigate('/login');
-  };
-
   useEffect(() => {
-    async function fetchProdutos() {
+    const fetchProdutos = async () => {
       try {
         const token = Cookies.get('token');
         const config = {
@@ -82,22 +80,20 @@ function QuartaSec({ handleAddToCart }) {
             Authorization: `Bearer ${token}`
           }
         };
-
         const response = await axios.get('https://dolce-coffee-api.onrender.com/home', config);
         setProdutos(response.data.arrayProdutos);
-        setLoading(false);
       } catch (error) {
         if (error.response && error.response.status === 401) {
-          handleRedirect();
+          navigate('/login');
         } else {
           console.error('Erro ao buscar produtos', error);
-          setLoading(false);
         }
+      } finally {
+        setLoading(false);
       }
-    }
-
+    };
     fetchProdutos();
-  }, []);
+  }, [navigate]);
 
   const handleClickCategoria = (categoria) => {
     setCategoriaAtiva(categoria);
@@ -108,7 +104,7 @@ function QuartaSec({ handleAddToCart }) {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     afterChange: (index) => setSliderIndex(index),
   };
@@ -116,11 +112,11 @@ function QuartaSec({ handleAddToCart }) {
   const addToCart = (produto) => {
     localStorage.setItem(`produto_${produto._id}`, JSON.stringify(produto));
     handleAddToCart(produto);
-    setMensagem('Produto adicionado ao carrinho: ' + produto.nome);
-
+    setMensagem(`Produto adicionado ao carrinho: ${produto.nome}`);
+    setShowModal(true);
     setTimeout(() => {
-      setMensagem('');
-    }, 3000);
+      setShowModal(false);
+    }, 1000);
     setTotalItems(prevTotalItems => prevTotalItems + 1);
   };
 
@@ -128,33 +124,17 @@ function QuartaSec({ handleAddToCart }) {
     <section className="bg-secondary bg-light text-dark">
       <div className="container">
         <div className="row justify-content-between">
-          <div className="col-md-4 text-center">
-            <button
-              type="button"
-              className={`btn btn-primary ${categoriaAtiva === 'quente' ? 'active' : ''}`}
-              onClick={() => handleClickCategoria('quente')}
-            >
-              Cafés Quentes
-            </button>
-          </div>
-          <div className="col-md-4 text-center">
-            <button
-              type="button"
-              className={`btn btn-primary ${categoriaAtiva === 'gelado' ? 'active' : ''}`}
-              onClick={() => handleClickCategoria('gelado')}
-            >
-              Cafés Gelados
-            </button>
-          </div>
-          <div className="col-md-4 text-center">
-            <button
-              type="button"
-              className={`btn btn-primary ${categoriaAtiva === 'comida' ? 'active' : ''}`}
-              onClick={() => handleClickCategoria('comida')}
-            >
-              Para Comer
-            </button>
-          </div>
+          {['quente', 'gelado', 'comida'].map((categoria) => (
+            <div className="col-md-4 text-center" key={categoria}>
+              <button
+                type="button"
+                className={`btn btn-primary ${categoriaAtiva === categoria ? 'active' : ''}`}
+                onClick={() => handleClickCategoria(categoria)}
+              >
+                {`Cafés ${categoria.charAt(0).toUpperCase() + categoria.slice(1)}`}
+              </button>
+            </div>
+          ))}
         </div>
         {categoriaAtiva && (
           <Slider {...sliderSettings} initialSlide={sliderIndex}>
@@ -165,11 +145,10 @@ function QuartaSec({ handleAddToCart }) {
                   <div className="card">
                     <img src={produto.url_foto} className="card-img" alt={produto.nome} />
                     <div className="card-body">
-                      <div>
-                        <h5 className="card-title">{produto.nome}</h5>
-                        <p className="card-text">Valor: R$ {produto.valor}</p>
-                        <p className="card-text">{produto.desc}</p>
-                      </div>
+                      <h5 className="card-title">{produto.nome}</h5>
+                      <p className="card-text">
+                        Valor: <br /> R$ {produto.valor}
+                      </p>
                       <div className="icon-container">
                         <button onClick={() => addToCart(produto)} className="btn btn-secondary">
                           <i className="bi bi-bag-heart-fill"></i>
@@ -179,30 +158,43 @@ function QuartaSec({ handleAddToCart }) {
                   </div>
                 </div>
               ))}
+              
           </Slider>
         )}
       </div>
-      {mensagem && <div className="alert alert-success" role="alert">{mensagem}</div>}
+      {showModal && (
+        <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1">
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title"></h5>
+              </div>
+              <div className="modal-body text-center">
+                <p>{mensagem}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }
 
 function Home() {
-  const [totalItems, setTotalItems] = useState(0); 
+  const [totalItems, setTotalItems] = useState(0);
 
   const handleAddToCart = (produto) => {
-    console.log('Produto adicionado ao carrinho:', produto);
-    setTotalItems(prevTotalItems => prevTotalItems + 1); 
+    setTotalItems(prevTotalItems => prevTotalItems + 1);
   };
 
   return (
     <div>
-      <Menu totalItems={totalItems} /> 
+      <Menu totalItems={totalItems} />
       <MainSection />
       <QuartaSec handleAddToCart={handleAddToCart} />
     </div>
   );
 }
-
 
 export default Home;

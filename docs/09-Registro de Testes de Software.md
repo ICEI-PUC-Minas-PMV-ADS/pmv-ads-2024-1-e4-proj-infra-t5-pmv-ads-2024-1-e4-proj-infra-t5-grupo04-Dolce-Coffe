@@ -8,8 +8,6 @@
 | Avaliação 	|✅ Cadastro de perfil realizado com sucesso. Login realizado com sucesso. |
 |  	|  	|
 
-
-
 | **Caso de Teste** 	| **CT-02 – Cardápio** 	|
 |:---:	|:---:	|
 | Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/96b8c82a-4a6d-4473-ae19-146e09c0549d" title="CT-02"> |
@@ -17,12 +15,25 @@
 | Avaliação 	|✅ Cardápio exibi as informações necessarias. |
 |  	|  	|
 
-
-
-| **Caso de Teste** 	| **CT-03 – Pedidos** 	|
+| **Caso de Teste** 	| **CT-03 – Adicionar produtos ao carrinho /CT-04 – Excluir produto do carrinho /CT-05 – Finalizar compra a partir do carrinho de compras /CT-06 – Iniciar pedido e cancelar** 	|
 |:---:	|:---:	|
-| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/d309a584-eb67-460a-9015-84e18d82c3af" title="CT-03"> |
-|	Requisito Associado 	| RF-03 O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização até a entrega. |
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/0667e418-b418-4ef2-9a77-c337a4a45a7a" title="CT-03 CT-04 CT-05 CT-06"> |
+|	Requisito Associado 	| RF-03  O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras/ RF-04 -O sistema deve permitir excluir pedidos do carrinho/ RF-05 - O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho /RF-06 - O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho. |
+| Avaliação 	|✅ Tela de carrinho funciona |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-07 – O sistema deve oferecer a opção de entrega e forma de pagamento** 	|
+|:---:	|:---:	|
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/ece28e9c-7e3d-4eb3-88ff-841a836cc844" title="CT-06"> |
+|	Requisito Associado 	|RF-07- O sistema deve oferecer a opção de entrega e pagamento. |
+| Avaliação 	|✅ Tela de escolha de entrega e pagamento funciona  |
+|  	|  	|
+
+
+| **Caso de Teste** 	| **CT-08 – Pedidos** 	|
+|:---:	|:---:	|
+| Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/1ec747d2-99a7-48a3-be66-d0f9922ee71d" title="CT-07"> |
+|	Requisito Associado 	| RF-08 - O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização até a entrega |
 | Avaliação 	|✅ Tela de pedidos funciona |
 |  	|  	|
 
@@ -45,15 +56,55 @@ Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos c
 |Requisito Associado | RF-02	-O sistema deve permitir que os gerentes cadastrem e atualizem informações de produtos, como descrições, preços e imagens. |
 | Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue efetuar o cadastro e atualização dos produtos. |
 | Contexto de personas 	| Relacionado à necessidade da  Rosimeire Borges que deseja uma plataforma onde visualiza informações detalhadas dos produtos no cardápio .|
-|Critério de Êxito | - Cardápio exibi as informações necessarias.. |
+|Critério de Êxito | - Cardápio exibi as informações necessarias. |
 |  	|  	|
 
-| **Caso de Teste** 	| **CT-03 – Pedido**	|
+| **Caso de Teste** 	| **CT-03 – Adicionar produtos ao carrinho**	|
 |:---:	|:---:	|
-|Requisito Associado | RF-03	-O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização até a entrega |
+|Requisito Associado |RF-03  O sistema deve permitir que os clientes adicionem produtos a um carrinho de compras/ RF-04 -O sistema deve permitir excluir pedidos do carrinho |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue adicionar produto ao carrinho. |
+| Contexto de personas 	| Relacionado à necessidade da Raquel Silva que deseja criar um carrinho com os produtos desejados |
+|Critério de Êxito | - Produtos adicionados com sucesso. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-04 – Excluir produto do carrinho**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-04 -O sistema deve permitir excluir pedidos do carrinho |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue excluir pedido do carrinho |
+| Contexto de personas 	| Relacionado à necessidade do Raquel Silva que deseja uma plataforma onde consiga excluir produtos do carrinho |
+|Critério de Êxito | - Exclusão dos produtos realizado com sucesso  |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-05 – Finalizar compra a partir do carrinho de compras**	|
+|:---:	|:---:	|
+|Requisito Associado |RF-05 - O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue finalizar a compra |
+| Contexto de personas 	| Relacionado à necessidade do Fernanda Mendes que deseja uma plataforma onde consiga finalizar a compra de maneira rápida |
+|Critério de Êxito | - Compras finalizadas com sucesso  |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-06 – Iniciar pedido e cancelar**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-06 - O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue iniciar e cancelar pedidos |
+| Contexto de personas 	| Relacionado à necessidade do Raquel Silva que deseja uma plataforma onde consiga iniciar e cancelar o pedido |
+|Critério de Êxito | - Compras iniciadas e canceladas com sucesso  |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-07 – O sistema deve oferecer a opção de entrega e forma de pagamentoo**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-07- O sistema deve oferecer a opção de entrega e pagamento |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue efetuar o cadastro e atualização dos produtos. |
+| Contexto de personas 	| Relacionado à necessidade do Alberto Guimarães que deseja uma plataforma onde acesse o histórico de compras para referência futura |
+|Critério de Êxito | - Escolha da opção de entrega e pagamento selecionado com sucesso |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-08 – Pedidos**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-08 - O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização até a entrega |
 | Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue efetuar o cadastro e atualização dos produtos. |
 | Contexto de personas 	| Relacionado à necessidade do Alberto Guimarães que deseja uma plataforma onde acompanha o status de entrega de pedidos feitos online |
-|Critério de Êxito | - Tela de pedidos funciona  |
+|Critério de Êxito | - Pedidos salvos com sucesso |
 |  	|  	|
 
 

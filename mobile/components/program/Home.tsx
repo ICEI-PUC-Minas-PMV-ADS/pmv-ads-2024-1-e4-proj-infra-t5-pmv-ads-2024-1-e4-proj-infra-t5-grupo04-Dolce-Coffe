@@ -1,34 +1,26 @@
 // components/Home.tsx
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import axios from 'axios';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
-function Menu() {
-  return (
-    <View style={styles.navbar}>
-      <View style={styles.logo}>
-        {/* <Image source={require('.../assets/images/logo192.png')} style={styles.logoImage} /> */}
-        <Text style={styles.logoText}>Dolce Coffee</Text>
-      </View>
-      <View style={styles.navLinks}>
-        <TouchableOpacity style={styles.navLink} onPress={() => alert('Navegar para histórico')}>
-          <Text style={styles.navLinkText}>Pedidos</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navLink} onPress={() => alert('Navegar para carrinho')}>
-          <Text style={styles.navLinkText}>Carrinho</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navLink} onPress={() => alert('Navegar para login')}>
-          <Text style={styles.navLinkText}>Login</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+interface Produto {
+  _id: string;
+  nome: string;
+  valor: number;
+  desc: string;
+  tipo: string;
+  url_foto: string;
+}
+
+interface QuartaSecProps {
+  handleAddToCart: (produto: Produto) => void;
 }
 
 function MainSection() {
   return (
     <View style={styles.mainSection}>
-      <View style={styles.container}>
+      <View >
         <Text style={styles.title}>Confira Nosso</Text>
         <Text style={styles.subtitle}>Cardápio Completo</Text>
         <Text style={styles.description}>
@@ -41,15 +33,19 @@ function MainSection() {
   );
 }
 
-function QuartaSec({ handleAddToCart }) {
-  const [produtos, setProdutos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [categoriaAtiva, setCategoriaAtiva] = useState('quente');
+function QuartaSec({ handleAddToCart }: QuartaSecProps) {
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [categoriaAtiva, setCategoriaAtiva] = useState<string>('quente');
 
   useEffect(() => {
     async function fetchProdutos() {
       try {
-        const response = await axios.get('https://dolce-coffee-api.onrender.com/home');
+        const response = await axios.get('https://dolce-coffee-api.onrender.com/home', {
+          headers: {
+            Authorization: 'Bearer SEU_TOKEN_AQUI', // Substitua SEU_TOKEN_AQUI pelo seu token real
+          },
+        });
         setProdutos(response.data.arrayProdutos);
         setLoading(false);
       } catch (error) {
@@ -61,7 +57,7 @@ function QuartaSec({ handleAddToCart }) {
     fetchProdutos();
   }, []);
 
-  const handleClickCategoria = (categoria) => {
+  const handleClickCategoria = (categoria: string) => {
     setCategoriaAtiva(categoria);
   };
 
@@ -109,13 +105,12 @@ function QuartaSec({ handleAddToCart }) {
 }
 
 function Home() {
-  const handleAddToCart = (produto) => {
+  const handleAddToCart = (produto: Produto) => {
     console.log('Produto adicionado ao carrinho:', produto);
   };
 
   return (
-    <View style={styles.container}>
-      <Menu />
+    <View >
       <MainSection />
       <QuartaSec handleAddToCart={handleAddToCart} />
     </View>
@@ -123,29 +118,26 @@ function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   navbar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: 'darkblue',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: hp('1%'),
+    paddingHorizontal: wp('5%'),
   },
   logo: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   logoImage: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
+    width: wp('7%'),
+    height: hp('7%'),
+    marginRight: wp('2%'),
   },
   logoText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: wp('5%'),
     fontWeight: 'bold',
   },
   navLinks: {
@@ -153,46 +145,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   navLink: {
-    marginLeft: 20,
+    marginLeft: wp('4%'),
   },
   navLinkText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: wp('4%'),
   },
   mainSection: {
     backgroundColor: 'lightblue',
-    padding: 20,
+
   },
   title: {
-    fontSize: 24,
+    fontSize: wp('6%'),
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: hp('1%'),
   },
   subtitle: {
-    fontSize: 18,
-    marginBottom: 16,
+    fontSize: wp('5%'),
+    marginBottom: hp('2%'),
   },
   description: {
-    marginBottom: 16,
+    marginBottom: hp('2%'),
+    fontSize: wp('4%'),
   },
   quartaSec: {
     backgroundColor: 'lightgray',
-    padding: 20,
+    padding: hp('2%'),
   },
   categoryButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: hp('2%'),
   },
   categoryButton: {
     backgroundColor: 'blue',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: hp('1.5%'),
+    paddingHorizontal: wp('4%'),
     borderRadius: 5,
   },
   categoryButtonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: wp('4%'),
     fontWeight: 'bold',
   },
   activeCategory: {
@@ -202,12 +195,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   card: {
-    marginRight: 10,
+    marginRight: wp('2%'),
     borderWidth: 1,
     borderColor: 'gray',
     borderRadius: 5,
-    width: 150,
-    height: 200,
+    width: wp('40%'),
+    height: hp('30%'),
   },
   cardImage: {
     width: '100%',
@@ -217,15 +210,15 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 5,
   },
   cardContent: {
-    padding: 10,
+    padding: wp('2%'),
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: wp('4%'),
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: hp('0.5%'),
   },
   cardText: {
-    fontSize: 14,
+    fontSize: wp('3.5%'),
   },
 });
 

@@ -31,10 +31,10 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | Rosimeire Borges   | Deseja uma plataforma onde visualiza informações detalhadas dos produtos no cardápio | Tomar decisões de compra mais informadas e satisfatórias |
 | Rosimeire Borges   | Deseja uma plataforma onde o cliente consiga criar um cadastro no site | Para garantir a precisão das informações do seu dia a dia. |
 |  Fernanda Mendes   | Deseja ter acesso a informações sobre o produto de forma clara e acessível | Para conhecer melhor a marca e os produtos ofertados |
-|Fernanda Mendes     | Deseja uma plataforma onde localiza e ordena os produtos desejados facilmente | Para facilitar a experiência de compra e economizar tempo |
+|Fernanda Mendes     | Deseja uma plataforma onde consiga finalizar a compra de maneira rápida | Para facilitar a experiência de compra e economizar tempo |
 |Alberto Guimarães   | Deseja uma plataforma onde acompanha o status de entrega de pedidos feitos online | Para planejar a retirada dos pedidos e garantir conveniência |
 |Alberto Guimarães   | Deseja uma plataforma onde acesse o histórico de compras para referência futura | Para lembrar das preferências de compra e repetir pedidos anteriores |
-|Raquel Silva        | Deseja uma plataforma onde avalie e deixe feedback sobre as bebidas e alimentos consumidos | Para compartilhar experiências e contribuir para a melhoria contínua da cafeteria |
+|Raquel Silva        | Deseja uma plataforma onde consiga excluir produtos do carrinho | Para caso mude de ideia |
 | Raquel Silva | Deseja criar um carrinho com os produtos desejados | Para finalizar a compra com mais rapidez |
 
 

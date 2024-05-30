@@ -6,7 +6,7 @@ function Cart() {
   const [produtos, setProdutos] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
   const [deliveryOption, setDeliveryOption] = useState('');
-
+  const [notification, setNotification] = useState(false);
   const navigate = useNavigate();
 
   const calcularValorTotal = (produtos) => {
@@ -25,7 +25,10 @@ function Cart() {
       const key = localStorage.key(index);
       if (key.includes("produto_")) {
         const produto = JSON.parse(localStorage.getItem(key));
-        produto.valorTotal = produto.valor || 0; 
+        produto.valorTotal = produto.valor || 0;
+        if (!produto.quantidade || produto.quantidade === 0) {
+          produto.quantidade = 1;
+        }
         produtosLocalStorage.push(produto);
       }
     }
@@ -44,17 +47,33 @@ function Cart() {
     setDeliveryOption(option);
   }
 
+  const limparCarrinho = () => {
+    setProdutos([]); // Limpar o carrinho
+    localStorage.clear(); // Limpar os dados no armazenamento local
+    navigate('/historico'); // Redirecionar para a página de histórico imediatamente
+  };
+  
+
   const handleFinalizeOrder = () => {
-    const numeroPedido = Math.floor(Math.random() * 10000) + 1;
-    alert(`Pedido gerado com sucesso! Nº ${numeroPedido}`);
-  }
+    if (selectedOption && deliveryOption) {
+      const numeroPedido = Math.floor(Math.random() * 10000) + 1;
+      alert(`Pedido gerado com sucesso! Nº ${numeroPedido}`);
+      limparCarrinho();
+    } else {
+      setNotification(true);
+      setTimeout(() => {
+        setNotification(false);
+      }, 1000);
+    }
+  };
+  
 
   const aumentarQuantidade = (id_produto) => {
     const novosProdutos = produtos.map(produto => {
       if (produto._id === id_produto) {
         const novaQuantidade = (produto.quantidade || 0) + 1;
         produto.quantidade = novaQuantidade;
-        produto.valorTotal = produto.valor * novaQuantidade; 
+        produto.valorTotal = produto.valor * novaQuantidade;
       }
       return produto;
     });
@@ -66,21 +85,21 @@ function Cart() {
       if (produto._id === id_produto) {
         const novaQuantidade = produto.quantidade - 1;
         if (novaQuantidade <= 0) {
-          return null; 
+          return null;
         } else {
           produto.quantidade = novaQuantidade;
-          produto.valorTotal = produto.valor * novaQuantidade; 
+          produto.valorTotal = produto.valor * novaQuantidade;
         }
       }
       return produto;
-    }).filter(Boolean); 
+    }).filter(Boolean);
     setProdutos(novosProdutos);
   };
 
   const removerProduto = (id_produto) => {
     const novosProdutos = produtos.filter(produto => produto._id !== id_produto);
     setProdutos(novosProdutos);
-    localStorage.removeItem(`produto_${id_produto}`); 
+    localStorage.removeItem(`produto_${id_produto}`);
   };
 
   return (
@@ -94,7 +113,7 @@ function Cart() {
           <hr style={{ marginBottom: "20px" }} />
           {produtos.map((produto) => (
             <div key={produto._id} className="produto-container">
-              
+
               <div className="produto-info">
                 <p>Produto: {produto.nome}</p>
                 <p>Quantidade:
@@ -109,7 +128,7 @@ function Cart() {
                   </div>
 
                 </p>
-                <p>Valor: R$ {produto.valor ? (produto.valor * (produto.quantidade || 1)).toFixed(2) : '0.00'}</p> 
+                <p>Valor: R$ {produto.valor ? (produto.valor * (produto.quantidade || 1)).toFixed(2) : '0.00'}</p>
               </div>
               <div className="produto-image">
                 <img src={produto.url_foto} alt={produto.nome} />
@@ -118,8 +137,6 @@ function Cart() {
                 </button>
               </div>
             </div>
-
-
           ))}
         </section>
         <hr />
@@ -142,6 +159,22 @@ function Cart() {
         )}
         {deliveryOption && (
           <div id="delivery-selected">{deliveryOption}</div>
+        )}
+        {notification && (
+         
+
+          <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Aviso</h5>
+                </div>
+                <div className="modal-body text-center">
+                  <p>Por favor, selecione a forma de pagamento e a forma de entrega.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         )}
       </main>
       <section className="order-finalization">

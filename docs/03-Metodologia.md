@@ -9,7 +9,7 @@ Algumas plataformas estão sendo empregadas para o desenvolvimento do projeto, a
 | :---         |     :---:      |          ---: |
 | Repositório de código fonte  |  GitHub| https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe |
 | Documentos do projeto   | Google Docs     | https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/tree/main/docs |
-|    Projetos de interface e Wireframes       |  Figma     | https://www.figma.com/ |
+|    Projetos de interface e Wireframes       |  Figma     | [https://www.figma.com/](https://www.figma.com/design/6FA94FonqutrCwsJojZE9x/Dolce-Coffe?node-id=0-1&t=3pdf1sUqfBaYqvgO-0) |
 |    Gerenciamento do Projeto | GitHub Projects      |  https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/787/views/6 |   
 |     Controle de versão |    Git      | https://git-scm.com/  |   
 
