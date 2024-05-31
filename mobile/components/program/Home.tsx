@@ -1,6 +1,5 @@
-// components/Home.tsx
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Image } from 'react-native';
 import axios from 'axios';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
@@ -19,17 +18,21 @@ interface QuartaSecProps {
 
 function MainSection() {
   return (
-    <View style={styles.mainSection}>
-      <View >
+    <ImageBackground
+      source={{
+        uri: 'https://images.pexels.com/photos/15076694/pexels-photo-15076694/free-photo-of-coffee.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.pnj',
+      }}
+      style={styles.mainSection}
+      imageStyle={styles.imageBackground}
+    >
+      <View style={styles.overlay}>
         <Text style={styles.title}>Confira Nosso</Text>
         <Text style={styles.subtitle}>Cardápio Completo</Text>
         <Text style={styles.description}>
           Descubra nossa variedade de cafés premium e bebidas artesanais em nosso cardápio digital.
-          De grãos suaves a sabores intensos, cada xícara oferece uma experiência única.
-          Explore conosco e desfrute de uma jornada de café incomparável.
         </Text>
       </View>
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -43,7 +46,7 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
       try {
         const response = await axios.get('https://dolce-coffee-api.onrender.com/home', {
           headers: {
-            Authorization: 'Bearer SEU_TOKEN_AQUI', // Substitua SEU_TOKEN_AQUI pelo seu token real
+            Authorization: 'Bearer SEU_TOKEN_AQUI',
           },
         });
         setProdutos(response.data.arrayProdutos);
@@ -68,18 +71,21 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
           <TouchableOpacity
             style={[styles.categoryButton, categoriaAtiva === 'quente' && styles.activeCategory]}
             onPress={() => handleClickCategoria('quente')}
+            activeOpacity={0.10} 
           >
             <Text style={styles.categoryButtonText}>Cafés Quentes</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.categoryButton, categoriaAtiva === 'gelado' && styles.activeCategory]}
             onPress={() => handleClickCategoria('gelado')}
+            activeOpacity={0.10} 
           >
             <Text style={styles.categoryButtonText}>Cafés Gelados</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.categoryButton, categoriaAtiva === 'comida' && styles.activeCategory]}
             onPress={() => handleClickCategoria('comida')}
+            activeOpacity={0.10} 
           >
             <Text style={styles.categoryButtonText}>Para Comer</Text>
           </TouchableOpacity>
@@ -118,59 +124,42 @@ function Home() {
 }
 
 const styles = StyleSheet.create({
-  navbar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: 'darkblue',
-    paddingVertical: hp('1%'),
-    paddingHorizontal: wp('5%'),
-  },
-  logo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  logoImage: {
-    width: wp('7%'),
-    height: hp('7%'),
-    marginRight: wp('2%'),
-  },
-  logoText: {
-    color: 'white',
-    fontSize: wp('5%'),
-    fontWeight: 'bold',
-  },
-  navLinks: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  navLink: {
-    marginLeft: wp('4%'),
-  },
-  navLinkText: {
-    color: 'white',
-    fontSize: wp('4%'),
+  homeContainer: {
+    flex: 1,
   },
   mainSection: {
-    backgroundColor: 'lightblue',
-
+    width: '100%',
+    height: hp('50%'),
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  imageBackground: {
+    resizeMode: 'cover',
+  },
+  overlay: {
+    backgroundColor: 'rgba(10, 10, 10, 0.8)',
+    padding: wp('5%'),
+    width: '100%',
   },
   title: {
-    fontSize: wp('6%'),
+    fontSize: wp('5%'),
     fontWeight: 'bold',
     marginBottom: hp('1%'),
+    color: '#fff',
   },
   subtitle: {
-    fontSize: wp('5%'),
-    marginBottom: hp('2%'),
+    fontSize: wp('4%'),
+    marginBottom: hp('1%'),
+    color: '#fff',
   },
   description: {
-    marginBottom: hp('2%'),
-    fontSize: wp('4%'),
+    marginBottom: hp('1%'),
+    fontSize: wp('3%'),
+    color: '#fff',
   },
   quartaSec: {
     backgroundColor: 'lightgray',
-    padding: hp('2%'),
+    padding: hp('1%'),
   },
   categoryButtons: {
     flexDirection: 'row',
@@ -178,10 +167,10 @@ const styles = StyleSheet.create({
     marginBottom: hp('2%'),
   },
   categoryButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#8B4513',
     paddingVertical: hp('1.5%'),
-    paddingHorizontal: wp('4%'),
-    borderRadius: 5,
+    paddingHorizontal: wp('3%'),
+    borderRadius: 8,
   },
   categoryButtonText: {
     color: 'white',
@@ -189,11 +178,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   activeCategory: {
-    backgroundColor: 'darkblue',
+    backgroundColor: '#666',
   },
+  
   sliderContainer: {
     flexDirection: 'row',
   },
+  
   card: {
     marginRight: wp('2%'),
     borderWidth: 1,

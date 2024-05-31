@@ -183,17 +183,18 @@
 }
 
 .card {
-  border: 10px solid #ccc;
-  border-radius: 50px;
+  border: 7px solid #ccc;
+  border-radius: 45px;
   background-color: #D9D9D9;
   color: #000000;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
   display: flex;
   width: 80%;
-  padding: 5px;
+  padding: 2px;
   max-width: 30rem; 
   margin-top: 10px;
-  left: 50px;
+  transition: transform 0.3s;
+  left: 30px;
 }
 .card-body {
   display: flex;
@@ -201,13 +202,49 @@
   align-items: center;
 }
 
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
 .card-img {
   height: 250px;
-  width: 95%; 
+  width: 100%; 
   object-fit: cover; 
   object-position: center;
-  border-radius: 60px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; 
 }
+
+.white-bg {
+  background-color: #fff;
+}
+
+.card-body.white-bg {
+  background-color: #fff;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px; 
+  padding: 20px;
+}
+
 
 .slick-slider {
   max-width: 90%; 
@@ -558,17 +595,17 @@ main {
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 70%; /* Defina a largura desejada */
-  max-width: 500px; /* Defina a largura máxima */
-  z-index: 1050; /* Ajuste o valor do z-index conforme necessário */
+  width: 50%;
+  max-width: 500px;
+  z-index: 1050;
   margin-top: 10px;
 }
 
 .modal-content {
-  border-radius: 10px;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  background-color: #f8f9fa; 
+  padding: 30px; 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .modal-header {
@@ -582,7 +619,7 @@ main {
 .modal-header .close {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #000;
+  color: #555; 
   opacity: 0.6;
   cursor: pointer;
 }
@@ -594,8 +631,8 @@ main {
 .modal-body {
   text-align: center;
   font-size: 1rem;
-  color: #333;
-  margin-top: 10px;
+  color: #555;
+  margin-top: 10px; 
 }
 
 .modal-body p {
