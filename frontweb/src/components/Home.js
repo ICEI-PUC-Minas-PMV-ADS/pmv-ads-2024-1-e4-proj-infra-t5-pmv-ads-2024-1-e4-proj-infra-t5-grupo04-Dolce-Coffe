@@ -142,21 +142,22 @@ function QuartaSec({ handleAddToCart }) {
               .filter((produto) => produto.tipo === categoriaAtiva)
               .map((produto) => (
                 <div key={produto._id} className="col-md-4 mb-4">
-                  <div className="card">
-                    <img src={produto.url_foto} className="card-img" alt={produto.nome} />
-                    <div className="card-body">
-                      <h5 className="card-title">{produto.nome}</h5>
-                      <p className="card-text">
-                        Valor: <br /> R$ {produto.valor}
-                      </p>
-                      <div className="icon-container">
-                        <button onClick={() => addToCart(produto)} className="btn btn-secondary">
-                          <i className="bi bi-bag-heart-fill"></i>
-                        </button>
-                      </div>
+                <div className="card">
+                  <img src={produto.url_foto} className="card-img" alt={produto.nome} />
+                  <div className="card-body white-bg">
+                    <h5 className="card-title">{produto.nome}</h5>
+                    <p className="card-text">
+                      Valor: <br /> R$ {produto.valor}
+                    </p>
+                    <div className="icon-container">
+                      <button onClick={() => addToCart(produto)} className="btn btn-secondary">
+                        <i className="bi bi-bag-heart-fill"></i>
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
+              
               ))}
               
           </Slider>
