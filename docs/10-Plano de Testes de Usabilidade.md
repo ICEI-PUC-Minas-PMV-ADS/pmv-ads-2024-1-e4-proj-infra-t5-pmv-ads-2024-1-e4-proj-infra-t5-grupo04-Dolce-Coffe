@@ -10,14 +10,14 @@ Nesse sentido, o teste irá usar usuários reais para execução de determinadas
 ## **Segue tabela com cada caso de teste**:
 #
  
-| **Caso de Teste** 	| **CT-01 – Acesso a Plataforma** 	|
+| **Caso de Teste** 	| **CT-01 – Acesso a Plataforma Web e Mobile** 	|
 |:---:	|:---:	|
 |	Requisito Associado 	| RNF-01 - A aplicação deve ser de fácil acesso. |
 | Objetivo do Teste 	| Verificar se o usuário consegue acessar a plataforma de maneira rapida e fácil. |
 | Passos 	| - Acessar o navegador com a URL do site <br> -Verificar o funcionamento da tela de login e seu desempenho no momento do cadastro. |
 |Critério de Êxito | - Realizar cadastro e login sem dificuldades. |
 
-| **Caso de Teste** 	| **CT-02 – Responsividade**	|
+| **Caso de Teste** 	| **CT-02 – Responsividade Web e Mobile**	|
 |:---:	|:---:	|
 |Requisito Associado | RNF-03	- O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas. |
 | Objetivo do Teste 	| Verificar se o site possui responsividade nos disposivitos mobile e desktop. |
@@ -32,17 +32,20 @@ Nesse sentido, o teste irá usar usuários reais para execução de determinadas
 |Critério de Êxito | - Abrir o site corretamente.|
 
 
-| **Caso de Teste** 	| **CT-04 – Contraste e Design**	|
+| **Caso de Teste** 	| **CT-04 – Contraste e Design Web e Mobile**	|
 |:---:	|:---:	|
 |Requisito Associado | RNF-01 A aplicação deve ter bom nível de contraste entre os elementos da tela e um design simples.  |
 | Objetivo do Teste 	| Verificar se o site possui um design simples e harmôico para o tema escolhido.
 | Passos 	| - Acessar o navegador <br> - Acessar a tela de login <br> -Verificar se o site possui clareza nas escritas de acordo com a palet de cores escolhida. |
 |Critério de Êxito | - Contraste e clareza nas informações contidas na página. |
 
-| **Caso de Teste** 	| **CT-05 – Compatibilidade**	|
+
+| **Caso de Teste** 	| **CT-05 – Compatibilidade Web e Mobile**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-02  O sistema web ser compatível com os principais navegadores da web, como Chrome e Edge |
+|Requisito Associado | RNF-02  O sistema web ser compatível com os principais navegadores da web, como Chrome e Edge / RNF-06 - O sistema front-end Mobile deve ser compatível com sistema operacional Android  |
 | Objetivo do Teste 	| Verificar URL de acesso em todos os navegadores atuais. |
 | Passos 	| - Acessar os navegadores <br> - Informar URL nos navegadores <br> -Confirmar Acessos sem erros. |
-|Critério de Êxito | - Realizar acesso online por diferentes navegadores. |
+|Critério de Êxito | - Realizar acesso online por diferentes navegadores e acesso ao sistema operacional Android|
+
+
 
