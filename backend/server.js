@@ -15,7 +15,7 @@ const CRUD = require('./database/dataControl');
 
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '*',
   credentials: true,
 }));
 
@@ -89,7 +89,7 @@ app.get('/home', verificaAutenticacao, async (req, res) => {
 
 app.get('/pedidos',verificaAutenticacao,async (req, res) => {
   try {
-    const token = req.cookies.token
+    const token = req.cookies.token || req.headers.authorization && req.headers.authorization.split(' ')[1];
     const userId = jwt.verify(token,'dolce-token')
     const arrayPedidos = await pedidos.getPedidos(userId.id);
     res.json({ arrayPedidos });
