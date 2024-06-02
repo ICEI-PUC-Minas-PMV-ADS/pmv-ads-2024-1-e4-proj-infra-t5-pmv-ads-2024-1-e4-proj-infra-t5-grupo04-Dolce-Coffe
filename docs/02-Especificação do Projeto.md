@@ -123,9 +123,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RF-016| Os usuários devem poder fazer cadastro e login usando suas credenciais, como e-mail e senha | Alta |
 | RF-017| A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos | Alta |
 | RF-018| Os usuários devem poder adicionar produtos ao carrinho | Alta |
-| RF-019| Os usuários devem poder acessar o carrinho, verificando os produtos listando escolhidos | Alta |
-| RF-020| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
-| RF-021| Os usuários devem poder finalizar os pedidos | Alta |
+| RF-019| Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto | Alta |
+| RF-020| Os usuários devem poder finalizar os pedidos | Alta |
 
 ### Requisitos não Funcionais Web e Mobile
 
