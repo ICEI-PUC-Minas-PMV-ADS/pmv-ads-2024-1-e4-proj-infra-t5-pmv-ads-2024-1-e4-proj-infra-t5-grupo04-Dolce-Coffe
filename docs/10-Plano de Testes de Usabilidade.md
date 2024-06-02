@@ -1,4 +1,4 @@
-# Plano de Testes de Usabilidade
+# Plano de Testes de Usabilidade - Web e Mobile
 
 O teste de usabilidade tem como objetivo a verificação da funcionalidade da interface da plataforma. Isto é, o teste será realizado através de ferramentas que vão permitir o usuário à execução de determinadas tarefas. Dessa forma é possível obter uma análise de usabilidade e das principais dificuldades do sistema. Portanto, o teste tem como propósito garantir uma melhor experiência para o usuário.
 
@@ -19,14 +19,14 @@ Nesse sentido, o teste irá usar usuários reais para execução de determinadas
 
 | **Caso de Teste** 	| **CT-02 – Responsividade**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-02	-A aplicação deverá ser responsiva permitindo a visualização em um celular de forma adequada. |
+|Requisito Associado | RNF-03	- O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas. |
 | Objetivo do Teste 	| Verificar se o site possui responsividade nos disposivitos mobile e desktop. |
 | Passos 	| - Acessar URL em ambos dispositivos <br> - Navegar na plataforma e analisar desempenho.  |
 |Critério de Êxito | - Adaptação e responsividade do site para diferentes tamanhos de tela. |
 
 | **Caso de Teste** 	| **CT-03 – Publicamente Acessível**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-03 O site deve ser publicado em um ambiente acessível publicamente na Internet (GitHub) . |
+|Requisito Associado | RNF-07 - O site deve ser publicado em um ambiente acessível publicamente na Internet (GitHub) . |
 | Objetivo do Teste 	| Verificar se o site está publicamente acessivel na Internet. |
 | Passos 	| - Abrir o navegador <br> -Acessar o URL do site. |
 |Critério de Êxito | - Abrir o site corretamente.|
@@ -34,17 +34,15 @@ Nesse sentido, o teste irá usar usuários reais para execução de determinadas
 
 | **Caso de Teste** 	| **CT-04 – Contraste e Design**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-04 A aplicação deve ter bom nível de contraste entre os elementos da tela e um design simples.  |
+|Requisito Associado | RNF-01 A aplicação deve ter bom nível de contraste entre os elementos da tela e um design simples.  |
 | Objetivo do Teste 	| Verificar se o site possui um design simples e harmôico para o tema escolhido.
 | Passos 	| - Acessar o navegador <br> - Acessar a tela de login <br> -Verificar se o site possui clareza nas escritas de acordo com a palet de cores escolhida. |
 |Critério de Êxito | - Contraste e clareza nas informações contidas na página. |
 
 | **Caso de Teste** 	| **CT-05 – Compatibilidade**	|
 |:---:	|:---:	|
-|Requisito Associado | RNF-05 O site deve ser compatível com os principais navegadores da atualidade (Google Chrome, Opera, Firefox, Microsoft Edge). . |
+|Requisito Associado | RNF-02  O sistema web ser compatível com os principais navegadores da web, como Chrome e Edge |
 | Objetivo do Teste 	| Verificar URL de acesso em todos os navegadores atuais. |
 | Passos 	| - Acessar os navegadores <br> - Informar URL nos navegadores <br> -Confirmar Acessos sem erros. |
 |Critério de Êxito | - Realizar acesso online por diferentes navegadores. |
-
-# Plano de Testes de Usabilidade Mobile
 
