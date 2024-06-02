@@ -11,18 +11,18 @@
 | **Caso de Teste** 	| **CT-04 – Contraste e Design**	|
 |:---:	|:---:	|
 |Requisito Associado | RNF-04 A aplicação deve ter bom nível de contraste entre os elementos da tela e um design simples.  |
-| Referência 	| ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/16bb7f4b-5477-4e3b-a848-0c32c6cf1410)
-|
+| Referência 	| ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/16bb7f4b-5477-4e3b-a848-0c32c6cf1410)|
 | Avaliação | ✅ O contraste está presente e há bastante clareza nas informações contidas na página. |
 
 | **Caso de Teste** 	| **CT-05 – Compatibilidade**	|
 |:---:	|:---:	|
 |Requisito Associado | RNF-06 O site deve ser compatível com os principais navegadores da atualidade (Google Chrome, Opera, Firefox, Microsoft Edge).  |
-| Referência 	| <video src="![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/fc4c2210-a9de-40cd-8872-b7d20d3ea272)
- |
+| Referência 	| <video src="![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/fc4c2210-a9de-40cd-8872-b7d20d3ea272)|
 | Avaliação | ✅ O site abriu e funcionou corretamente com os principais navegadores usados. |
 
 # Registro de Testes de Usabilidade Mobile
+
+
 
 ## Relatório
 Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos com sucesso e que tudo transcorreu de forma positiva. 
