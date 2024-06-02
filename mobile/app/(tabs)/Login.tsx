@@ -1,24 +1,34 @@
-import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, Button } from 'react-native';
+import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, Button,TouchableWithoutFeedback,Keyboard  } from 'react-native';
 import { useState } from 'react';
 import { ThemedText } from '@/components/ThemedText';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function HomeScreen() {
   const [senha, setSenha] = useState('');
   const [email, setEmail] = useState('');
+
+
+const salvaToken = async(token:string) => {
+  try{
+    await AsyncStorage.setItem('@auth_token',token)
+  }catch(error){
+    console.error('Falha ao salvar o token', error)
+  }
+}
+
+
 
   async function Logar(email: string, senha: string) {
     const credenciais = {
       email: email,
       senha: senha
     };
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmVjNTFlMGNjYjBlNzQ5YTViMzY4ZiIsImVtYWlsIjoidmljdG9yQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxNTkxMDg1NCwiZXhwIjoxNzE1OTk3MjU0fQ.30cwWe_s_BIV4xbSx1_r7sHbdJBRLciAV4EAOGrP64Y';
 
     try {
       const response = await fetch('https://dolce-coffee-api.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(credenciais)
       });
@@ -27,14 +37,19 @@ export default function HomeScreen() {
         throw new Error('Erro na requisição');
       }
 
-      const dados = await response.json();
-      console.log(dados);
+      const data = await response.json();
+      if (data) {
+        await salvaToken(data.token)
+        console.log(`Token Salvo: ${data.token}`)
+      }
+ 
     } catch (err) {
       console.error(err);
     }
   }
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={{ flex: 1 }}>
       <Image
         source={require('@/assets/images/banner-login1.jpg')}
@@ -62,6 +77,7 @@ export default function HomeScreen() {
         </View>
       </View>
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
