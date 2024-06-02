@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Image } from 'react-native';
-import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 interface Produto {
@@ -41,24 +41,52 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState<string>('quente');
 
-  useEffect(() => {
-    async function fetchProdutos() {
-      try {
-        const response = await axios.get('https://dolce-coffee-api.onrender.com/home', {
-          headers: {
-            Authorization: 'Bearer SEU_TOKEN_AQUI',
-          },
-        });
-        setProdutos(response.data.arrayProdutos);
-        setLoading(false);
-      } catch (error) {
-        console.error('Erro ao buscar produtos', error);
-        setLoading(false);
-      }
-    }
+    useEffect(() => {
 
-    fetchProdutos();
-  }, []);
+        const fetchProdutos = async () => {
+            try {
+                const token = await getToken()
+                if (token) {
+                    await getProdutos(token)
+                }
+            } catch (error) {
+                console.error('Erro ao buscar pedidos', error)
+            }
+        }
+
+        const getToken = async () => {
+            try {
+                const token = await AsyncStorage.getItem('@auth_token');
+                return token;
+            } catch (e) {
+                console.error('Falha ao recuperar o token', e);
+            }
+        }
+
+        const getProdutos = async (token: string) => {
+            try {
+                const response = await fetch('https://dolce-coffee-api.onrender.com/home', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`,
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
+
+                const data = await response.json();
+                setProdutos(data.arrayProdutos);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchProdutos();
+
+    }, []);
 
   const handleClickCategoria = (categoria: string) => {
     setCategoriaAtiva(categoria);
@@ -90,6 +118,7 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
             <Text style={styles.categoryButtonText}>Para Comer</Text>
           </TouchableOpacity>
         </View>
+        {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.sliderContainer}>  verificar como ocultar a barra de scroll*/} 
         <ScrollView horizontal style={styles.sliderContainer}>
           {categoriaAtiva &&
             produtos
@@ -104,7 +133,7 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
                   </View>
                 </TouchableOpacity>
               ))}
-        </ScrollView>
+        </ScrollView> 
       </View>
     </View>
   );
@@ -183,6 +212,7 @@ const styles = StyleSheet.create({
   
   sliderContainer: {
     flexDirection: 'row',
+    overflow: 'hidden',
   },
   
   card: {
