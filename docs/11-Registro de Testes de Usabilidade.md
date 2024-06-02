@@ -22,5 +22,7 @@
  |
 | Avaliação | ✅ O site abriu e funcionou corretamente com os principais navegadores usados. |
 
+# Registro de Testes de Usabilidade Mobile
+
 ## Relatório
 Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos com sucesso e que tudo transcorreu de forma positiva. 
