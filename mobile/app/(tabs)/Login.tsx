@@ -1,4 +1,4 @@
-import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, Button } from 'react-native';
+import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, Button,TouchableWithoutFeedback,Keyboard  } from 'react-native';
 import { useState } from 'react';
 import { ThemedText } from '@/components/ThemedText';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -49,6 +49,7 @@ const salvaToken = async(token:string) => {
   }
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={{ flex: 1 }}>
       <Image
         source={require('@/assets/images/banner-login1.jpg')}
@@ -76,6 +77,7 @@ const salvaToken = async(token:string) => {
         </View>
       </View>
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
