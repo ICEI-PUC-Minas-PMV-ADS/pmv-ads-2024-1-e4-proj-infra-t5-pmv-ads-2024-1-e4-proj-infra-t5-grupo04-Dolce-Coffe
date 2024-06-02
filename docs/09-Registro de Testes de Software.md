@@ -36,12 +36,6 @@
 |	Requisito Associado 	| RF-08 - O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização até a entrega |
 | Avaliação 	|✅ Tela de pedidos funciona |
 |  	|  	|
-
-
-
-## Relatório
-
-Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos com sucesso e que tudo transcorreu de forma positiva. Nossos esforços e planejamento resultaram em resultados promissores e atingiram os objetivos propostos.
  
 | **Caso de Teste** 	| **CT-01 – Cadastrar perfil** 	|
 |:---:	|:---:	|
@@ -121,11 +115,11 @@ Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos c
 | **Caso de Teste** 	| **CT-10 – Cardápio** 	|
 |:---:	|:---:	|
 | Vídeo | <video src="VIDEO AQUI" title="..."> |
-|	Requisito Associado 	| RF-17 -A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos|
+|	Requisito Associado 	| RF-17 - A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos|
 | Avaliação 	|✅ Cardápio exibi as informações necessarias. |
 |  	|  	|
 
-| **Caso de Teste** 	| **CT-11 – Adicionar produtos ao carrinho ** 	|
+| **Caso de Teste** 	| **CT-11 – Adicionar produtos ao carrinho e excluir** 	|
 |:---:	|:---:	|
 | Vídeo | <video src="VIDEO AQUI" title="..."> |
 |	Requisito Associado 	| RF-018 Os usuários devem poder adicionar produtos ao carrinho/ RF-19 Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto |
@@ -138,3 +132,42 @@ Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos c
 |	Requisito Associado 	| RF-020 -Os usuários devem poder finalizar os pedidos  |
 | Avaliação 	|✅ Tela de finalização funciona|
 |  	|  	|
+
+
+| **Caso de Teste** 	| **CT-09 – Cadastrar perfil** 	|
+|:---:	|:---:	|
+|	Requisito Associado 	| RF-016 - Cadastro e login usando credenciais. |
+| Objetivo do Teste 	| Verificar se o usuário consegue se cadastrar na aplicação. |
+| Contexto de personas 	| Relacionado à necessidade da  Rosimeire Borges que deseja uma plataforma onde o cliente consiga criar um cadastro no site |
+|Critério de Êxito | - O cadastro/login foi realizado com sucesso. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-10 – Cardapio**	|
+|:---:	|:---:	|
+|Requisito Associado | RF-17 - A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produto|
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue efetuar o cadastro e atualização dos produtos. |
+| Contexto de personas 	| Relacionado à necessidade da  Rosimeire Borges que deseja uma plataforma onde visualiza informações detalhadas dos produtos no cardápio .|
+|Critério de Êxito | - Cardápio exibi as informações necessarias. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-11 – Adicionar produtos ao carrinho e excluir**	|
+|:---:	|:---:	|
+|Requisito Associado |RF-18 - Os usuários devem poder adicionar produtos ao carrinho/ RF-19 Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue adicionar produto ao carrinho. |
+| Contexto de personas 	| Relacionado à necessidade da Raquel Silva que deseja criar um carrinho com os produtos desejados |
+|Critério de Êxito | - Produtos adicionados com sucesso. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-12 – Finalizar compra a partir do carrinho de compras**	|
+|:---:	|:---:	|
+|Requisito Associado |RF-20 - Os usuários devem poder finalizar os pedidos  |
+| Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue finalizar a compra |
+| Contexto de personas 	| Relacionado à necessidade do Fernanda Mendes que deseja uma plataforma onde consiga finalizar a compra de maneira rápida |
+|Critério de Êxito | - Compras finalizadas com sucesso  |
+|  	|  	|
+
+
+
+## Relatório
+
+Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos com sucesso e que tudo transcorreu de forma positiva. Nossos esforços e planejamento resultaram em resultados promissores e atingiram os objetivos propostos.
