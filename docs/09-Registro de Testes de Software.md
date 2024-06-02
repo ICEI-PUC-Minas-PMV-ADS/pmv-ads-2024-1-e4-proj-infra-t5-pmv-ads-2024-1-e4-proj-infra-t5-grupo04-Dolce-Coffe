@@ -4,7 +4,7 @@
 | **Caso de Teste** 	| **CT-01 – Cadastro e login usando credenciais.** 	|
 |:---:	|:---:	|
 | Vídeo | <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/93801572/6ce8f239-775a-425f-bfb7-a0448324f3b0" title="CT-01"> |
-|	Requisito Associado 	| RF-01 - RF-01 - O sistema deve permitir que os clientes criem uma conta e faça login. |
+|	Requisito Associado 	| RF-01 - O sistema deve permitir que os clientes criem uma conta e faça login. |
 | Avaliação 	|✅ Cadastro de perfil realizado com sucesso. Login realizado com sucesso. |
 |  	|  	|
 
@@ -110,3 +110,31 @@ Diante dos resultados obtidos, podemos afirmar que os testes foram concluídos c
 
 # Registro de Testes de Software Mobile
 
+| **Caso de Teste** 	| **CT-09 – Cadastro e login usando credenciais.** 	|
+|:---:	|:---:	|
+| Vídeo | <video src=" VIDEO AQUI" title="..."> |
+|	Requisito Associado 	| RF-016 - O sistema deve permitir que os clientes criem uma conta e faça login. |
+| Avaliação 	|✅ Cadastro de perfil realizado com sucesso. Login realizado com sucesso. |
+|  	|  	|
+
+
+| **Caso de Teste** 	| **CT-10 – Cardápio** 	|
+|:---:	|:---:	|
+| Vídeo | <video src="VIDEO AQUI" title="..."> |
+|	Requisito Associado 	| RF-17 -A aplicação deverá possuir uma tela de cardápio, possibilitando a visualização dos produtos|
+| Avaliação 	|✅ Cardápio exibi as informações necessarias. |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-11 – Adicionar produtos ao carrinho ** 	|
+|:---:	|:---:	|
+| Vídeo | <video src="VIDEO AQUI" title="..."> |
+|	Requisito Associado 	| RF-018 Os usuários devem poder adicionar produtos ao carrinho/ RF-19 Os usuários devem poder editar os produtos escolhidos, o que inclui: exclusão do produto, aumentar quantidade do produto e diminuir quantidade do produto |
+| Avaliação 	|✅ Tela de carrinho funciona |
+|  	|  	|
+
+| **Caso de Teste** 	| **CT-12 – Adicionar produtos ao carrinho ** 	|
+|:---:	|:---:	|
+| Vídeo | <video src="VIDEO AQUI" title="..."> |
+|	Requisito Associado 	| RF-020 -Os usuários devem poder finalizar os pedidos  |
+| Avaliação 	|✅ Tela de finalização funciona|
+|  	|  	|
