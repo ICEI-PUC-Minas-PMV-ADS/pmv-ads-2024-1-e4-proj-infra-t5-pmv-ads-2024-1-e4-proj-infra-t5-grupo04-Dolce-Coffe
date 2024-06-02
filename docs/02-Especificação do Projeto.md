@@ -131,21 +131,19 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser fácil de usar, intuitivo e ter uma interface amigável para os usuários | Alta| 
+|RNF-001| A aplicação deve ter bom nível de contraste entre os elementos da tela e um design simples, Web  Mobile. | Alta| 
 |RNF-002| O sistema web ser compatível com os principais navegadores da web, como Chrome e Edge | Média|
 |RNF-003| O sistema deve ser responsivo permitindo a visualização em diferentes tamanhos de telas. | Alta|
-|RNF-004| O sistema deve listar os pedidos organizados em blocos com as informações dos pedidos | Média |
-|RNF-005| O sistema front-end Web deve ser desenvolvido na linguagem JavaScript com utilização do framework React.js | Alta|
-|RNF-006| O sistema front-end Mobile deve ser desenvolvido na linguagem React Native| Alta |
-|RNF-007| O sistema front-end Mobile deve ser compatível com sistema operacional Android e iOS | Baixa|
-|RNF-008| O sistema deve ser publicado em um ambiente acessível publicamente na Internet | Média |
-|RNF-009| Os sitemas devem ser compatíveis com a LGPD, Lei Geral de Proteção de Dados | Baixa|
-|RNF-010| A API deve ser altamente responsiva, com tempos de resposta médios inferiores a 500 milissegundos, para garantir uma experiência de usuário rápida| Alta |
-|RNF-011| O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade| |
-|RNF-012| A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | Média |
-|RNF-013| Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | Alta |
-|RNF-014| A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | Alta |
-|RNF-015| O sistema back-end API deve ser desenvolvida na linguagem node.js| Alta |
+|RNF-004| O sistema front-end Web deve ser desenvolvido na linguagem JavaScript com utilização do framework React.js | Alta|
+|RNF-005| O sistema front-end Mobile deve ser desenvolvido na linguagem React Native| Alta |
+|RNF-006| O sistema front-end Mobile deve ser compatível com sistema operacional Android  | Baixa|
+|RNF-007| O site deve ser publicado em um ambiente acessível publicamente na Internet (GitHub) .| Média |
+|RNF-008| Os sitemas devem ser compatíveis com a LGPD, Lei Geral de Proteção de Dados | Baixa|
+|RNF-010| O código da API deve ser testado de forma abrangente e seguir as melhores práticas de codificação para garantir robustez e confiabilidade| |
+|RNF-011| A API deve oferecer controle de versão para que as alterações futuras não quebrem a compatibilidade com os clientes existentes | Média |
+|RNF-012| Deve ser implementado um sistema de cache para reduzir a carga do servidor e melhorar o desempenho da API. | Alta |
+|RNF-013| A API deve ser capaz de suportar diferentes protocolos de comunicação, como HTTP e HTTPS, para atender às diversas necessidades dos clientes. | Alta |
+|RNF-014| O sistema back-end API deve ser desenvolvida na linguagem node.js| Alta |
 
 ## Restrições
 
