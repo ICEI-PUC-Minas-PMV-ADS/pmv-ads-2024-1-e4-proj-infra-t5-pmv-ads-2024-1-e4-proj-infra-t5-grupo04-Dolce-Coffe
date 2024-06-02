@@ -46,4 +46,5 @@ Nesse sentido, o teste irá usar usuários reais para execução de determinadas
 | Passos 	| - Acessar os navegadores <br> - Informar URL nos navegadores <br> -Confirmar Acessos sem erros. |
 |Critério de Êxito | - Realizar acesso online por diferentes navegadores. |
 
+# Plano de Testes de Usabilidade
 
