@@ -22,6 +22,20 @@
 
 # Registro de Testes de Usabilidade Mobile
 
+| **Caso de Teste** 	| **CT-02 – Responsividade**	|
+|:---:	|:---:	|
+|Requisito Associado | RNF-02 -A aplicação deverá ser responsiva permitindo a visualização em um celular de forma adequada. |
+| Referência | ![Imagem do WhatsApp de 2024-06-02 à(s) 22 37 46_d90115dd](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/89558202/71526c77-f915-4154-9c58-9377c17db334)
+
+| Avaliação | ✅ O aplicativo abriu corretamente e com a tela responsiva no aparelho mobile.|
+
+| **Caso de Teste** 	| **CT-04 – Contraste e Design**	|
+|:---:	|:---:	|
+|Requisito Associado | RNF-04 A aplicação deve ter bom nível de contraste entre os elementos da tela e um design simples.  |
+| Referência 	| ![Imagem do WhatsApp de 2024-06-02 à(s) 22 37 46_d90115dd](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/89558202/71526c77-f915-4154-9c58-9377c17db334)
+| Referência 	| ![Imagem do WhatsApp de 2024-06-02 à(s) 22 38 12_ca230559](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/89558202/5da7b234-2b04-4856-a216-396966990861)
+
+| Avaliação | ✅ O contraste está presente e há bastante clareza nas informações contidas na página. |
 
 
 ## Relatório
