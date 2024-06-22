@@ -131,8 +131,8 @@
 
 
 | **Caso de Teste** 	| **CT-12 – Finalizar compra a partir do carrinho de compras**	|
-|:---:	|:---:	|| Vídeo | ![Imagem do WhatsApp de 2024-06-02 à(s) 22 37 02_5a51b57e](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/89558202/e030b83d-29a7-4de3-bd35-2760ecec5428)
-
+|:---:	|:---:	|
+| Vídeo | ![Imagem do WhatsApp de 2024-06-02 à(s) 22 37 02_5a51b57e](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe/assets/89558202/e030b83d-29a7-4de3-bd35-2760ecec5428)
 <video src="VIDEO AQUI" title="..."> ||Requisito Associado |RF-20 - Os usuários devem poder finalizar os pedidos  |
 | Objetivo do Teste 	| Verificar se o usuário *Usuario* consegue finalizar a compra |
 | Contexto de personas 	| Relacionado à necessidade do Fernanda Mendes que deseja uma plataforma onde consiga finalizar a compra de maneira rápida |
