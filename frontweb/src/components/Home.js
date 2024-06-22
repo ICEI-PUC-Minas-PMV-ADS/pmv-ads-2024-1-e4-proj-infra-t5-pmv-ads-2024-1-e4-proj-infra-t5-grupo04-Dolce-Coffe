@@ -4,13 +4,14 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import Slider from 'react-slick';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 function Menu({ totalItems }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-overlay-dark content">
+    <nav className="navbar navbar-expand-lg navbar-light custom-navbar content">
       <div className="container">
         <div className="logo">
           <img src="./logo192.png" alt="logo" />
@@ -19,27 +20,28 @@ function Menu({ totalItems }) {
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <ul className="nav-link">
-          <li>
-            <Link to="/historico" className="nav-link text-white">
-              Pedidos
-            </Link>
-          </li>
-          <li>
-            <Link to="/carrinho" className="nav-link text-white">
-              <i className="bi bi-cart3"></i> {totalItems > 0 && <span className="badge bg-primary">{totalItems}</span>}
-            </Link>
-          </li>
-          <li>
-            <Link to="/login" className="nav-link text-white">
-              <i className="bi bi-person-circle"></i>
-            </Link>
-          </li>
-        </ul>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link to="/historico" className="nav-link text-white">Pedidos</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/carrinho" className="nav-link text-white">
+                <i className="bi bi-cart3"></i> {totalItems > 0 && <span className="badge bg-primary">{totalItems}</span>}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link text-white">
+                <i className="bi bi-person-circle"></i>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );
 }
+
 
 function MainSection() {
   return (
@@ -107,7 +109,27 @@ function QuartaSec({ handleAddToCart }) {
     slidesToShow: 4,
     slidesToScroll: 1,
     afterChange: (index) => setSliderIndex(index),
-  };
+    responsive: [
+      {
+        breakpoint: 1287,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };  
 
   const addToCart = (produto) => {
     localStorage.setItem(`produto_${produto._id}`, JSON.stringify(produto));
