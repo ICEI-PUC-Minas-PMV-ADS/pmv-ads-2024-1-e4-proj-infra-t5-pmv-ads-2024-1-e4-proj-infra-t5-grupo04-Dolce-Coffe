@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 //const path = require('path');
 const verificaAutenticacao = require('./middleware/autenticaToken');
 const jwt = require('jsonwebtoken');
+const path = require('path');
+
 
 const port = process.env.PORT || 5000;
 app.use(cookieParser());
