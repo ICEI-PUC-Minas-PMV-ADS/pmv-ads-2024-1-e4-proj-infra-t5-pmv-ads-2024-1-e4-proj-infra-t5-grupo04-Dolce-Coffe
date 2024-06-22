@@ -75,7 +75,7 @@ app.post('/cadastrar', async (req, res) => {
 });
 
 
-app.get('/home', verificaAutenticacao, async (req, res) => {
+app.get('/home', async (req, res) => {
   try {
     const arrayProdutos = await produtos.getProdutos();
     res.json({ arrayProdutos });
