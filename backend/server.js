@@ -10,6 +10,9 @@ const port = process.env.PORT || 5000;
 app.use(cookieParser());
 
 
+app.use('/public', express.static(path.join(__dirname,'public')));
+
+
 const Database = require('./database/bancodedados')
 const CRUD = require('./database/dataControl');
 
