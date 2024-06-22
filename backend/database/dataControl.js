@@ -81,6 +81,19 @@ class CRUD {
   }
 
 
+  async postPedido(pedido) {
+
+    try {
+      const inserePedido = await this.collection.insertOne( pedido );
+
+      return inserePedido
+
+    } catch (error) {
+      throw error;
+    }
+
+  }
+
 
 
 }

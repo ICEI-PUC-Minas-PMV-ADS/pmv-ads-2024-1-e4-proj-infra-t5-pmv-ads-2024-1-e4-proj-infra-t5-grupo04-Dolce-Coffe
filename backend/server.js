@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 app.use(cookieParser());
 
 
-app.use('/public', express.static(path.join(__dirname,'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 
 const Database = require('./database/bancodedados')
@@ -35,14 +35,14 @@ let pedidos
 let cadastro
 
 
-app.listen(port, async() => {
+app.listen(port, async () => {
   console.log("Servidor iniciado na porta:", port)
   await db.connect()
 
   login = new CRUD(db, 'usuarios');
-  produtos = new CRUD(db,'produtos')
-  pedidos = new CRUD(db,'pedidos')
-  cadastro = new CRUD(db,'usuarios')
+  produtos = new CRUD(db, 'produtos')
+  pedidos = new CRUD(db, 'pedidos')
+  cadastro = new CRUD(db, 'usuarios')
 })
 
 
@@ -92,14 +92,46 @@ app.get('/home', async (req, res) => {
 
 
 
-app.get('/pedidos',verificaAutenticacao,async (req, res) => {
+app.get('/pedidos', verificaAutenticacao, async (req, res) => {
   try {
     const token = req.cookies.token || req.headers.authorization && req.headers.authorization.split(' ')[1];
-    const userId = jwt.verify(token,'dolce-token')
+    const userId = jwt.verify(token, 'dolce-token')
     const arrayPedidos = await pedidos.getPedidos(userId.id);
     res.json({ arrayPedidos });
-    
+
   } catch (error) {
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 });
+
+
+
+
+app.post('/pedidos', async (req, res) => {
+
+  try {
+    const token = req.cookies.token || req.headers.authorization && req.headers.authorization.split(' ')[1];
+
+    //Pega e formata a data
+    const date = new Date
+    const dia = date.getDate();
+    const mes = date.getMonth() + 1; // Adicionamos 1 pois os meses são indexados de 0 a 11
+    const ano = date.getFullYear();
+
+    const data = `${dia}-${mes}-${ano}`
+
+    const { _id: user_id } = await jwt.decode(token)
+    const pedido = req.body
+
+    const {produtos, valor_total} = pedido
+
+    const pedidoData = { data, user_id, produtos, valor_total }
+
+    const enviaPedido = await pedidos.postPedido(pedidoData)
+
+    res.status(200).json({ message: 'Pedido recebido com sucesso' });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+
+})
