@@ -115,15 +115,17 @@ app.post('/pedidos', async (req, res) => {
     //Pega e formata a data
     const date = new Date
     const dia = date.getDate();
-    const mes = date.getMonth() + 1; // Adicionamos 1 pois os meses são indexados de 0 a 11
+    const mes = date.getMonth() + 1; 
     const ano = date.getFullYear();
 
     const data = `${dia}-${mes}-${ano}`
 
-    const { _id: user_id } = await jwt.decode(token)
+    const { id: user_id } = await jwt.decode(token)
     const pedido = req.body
 
     const {produtos, valor_total} = pedido
+
+    console.log(pedido)
 
     const pedidoData = { data, user_id, produtos, valor_total }
 
