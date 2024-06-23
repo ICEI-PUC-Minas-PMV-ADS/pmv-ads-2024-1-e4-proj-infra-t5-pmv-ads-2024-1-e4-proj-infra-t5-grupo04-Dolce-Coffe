@@ -11,6 +11,7 @@ export default function Carrinho() {
 
   const [carrinho, setCarrinho] = useState()
 
+  const [pedido,setPedido] = useState()
 
   const { sendOrder } = useContext(AuthContext)
 
@@ -26,32 +27,52 @@ export default function Carrinho() {
 
   useEffect(() => {
     const fetchProdutos = async () => {
-      const carrinho = await AsyncStorage.getItem('carrinho');
+      try {
+        const carrinho = await AsyncStorage.getItem('carrinho');
 
-      const carrinhoObjetos = JSON.parse(carrinho);
-
-      const carrinhoProcessado = {}
-
-      carrinhoObjetos.forEach(objeto => {
-        const { nome, valor } = objeto; // Obtém nome e valor de cada objeto
-
-        // Se já existe uma entrada para esse nome no contador, incrementa a quantidade
-        if (carrinhoProcessado[nome]) {
-          carrinhoProcessado[nome].quantidade++;
-        } else {
-          // Se não existe, cria uma nova entrada inicializando a quantidade com 1
-          carrinhoProcessado[nome] = {
-            nome,
-            valor,
-            quantidade: 1
-          };
+        if (!carrinho) {
+          console.log('Carrinho vazio');
+          return;
         }
 
-        const resultadoArray = Object.values(carrinhoProcessado);
-        setCarrinho(resultadoArray)
+        const carrinhoObjetos = JSON.parse(carrinho);
+        const carrinhoProcessado = {};
 
-      });
+        let valorTotal = 0;
 
+        carrinhoObjetos.forEach(objeto => {
+          const { nome, valor } = objeto; // Obtém nome e valor de cada objeto
+
+          // Se já existe uma entrada para esse nome no contador, incrementa a quantidade
+          if (carrinhoProcessado[nome]) {
+            carrinhoProcessado[nome].qtd++;
+          } else {
+            // Se não existe, cria uma nova entrada inicializando a quantidade com 1
+            carrinhoProcessado[nome] = {
+              nome,
+              valor,
+              qtd: 1
+            };
+          }
+        });
+
+        const produtosArray = Object.values(carrinhoProcessado);
+
+        // Calcula o valor total
+        produtosArray.forEach(produto => {
+          valorTotal += produto.valor * produto.qtd;
+        });
+
+        const resultadoFinal = {
+          produtos: produtosArray,
+          valor_total: valorTotal
+        };
+
+        setCarrinho(resultadoFinal.produtos); // Atualiza o estado do carrinho
+        setPedido(resultadoFinal)
+      } catch (error) {
+        console.error('Erro ao processar o carrinho:', error);
+      }
     };
 
     fetchProdutos();
@@ -76,11 +97,12 @@ export default function Carrinho() {
     // Navegar para outra tela pode ser implementado aqui se necessário
   };
 
-  const handleFinalizeOrder = () => {
+  const handleFinalizeOrder = async (pedido: string) => {
     if (selectedOption && deliveryOption) {
       const numeroPedido = Math.floor(Math.random() * 10000) + 1;
       Alert.alert('Pedido gerado com sucesso!', `Nº ${numeroPedido}`);
 
+      sendOrder(pedido)
       // limparCarrinho();
     } else {
       setNotification(true);
@@ -90,17 +112,6 @@ export default function Carrinho() {
     }
   };
 
-
-  const TesteEnvio = async () => {
-    console.log('Enviando pedido...');
-
-    const carrinho = {
-      produtos: [{ nome: 'Super Moccha', quantidade: 1, valor: 15.5 }],
-      valor_total: 20
-    };
-
-    await sendOrder(carrinho); // Chama sendOrder com o objeto carrinho
-  };
 
 
 
@@ -142,9 +153,6 @@ export default function Carrinho() {
     <ScrollView style={{ flex: 1 }}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Carrinho</Text>
-        <TouchableOpacity onPress={TesteEnvio} style={{ marginTop: '50%', padding: 3, backgroundColor: 'green' }}>
-          <Text style={{ fontSize: 20, color: 'white' }}>TESTAR REQUISICAO</Text>
-        </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <Text style={styles.title}>Itens no Carrinho</Text>
@@ -235,7 +243,7 @@ export default function Carrinho() {
         </View>
       )}
       <View style={styles.orderFinalization}>
-        <Button title="Finalizar Pedido" onPress={handleFinalizeOrder} color="#8B4513" />
+        <Button title="Finalizar Pedido" onPress={() => handleFinalizeOrder(pedido)} color="#8B4513" />
       </View>
     </ScrollView>
   );

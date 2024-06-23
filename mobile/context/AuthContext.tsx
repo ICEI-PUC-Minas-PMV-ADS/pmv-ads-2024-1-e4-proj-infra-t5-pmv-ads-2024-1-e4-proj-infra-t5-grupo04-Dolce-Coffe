@@ -13,12 +13,13 @@ type SignInData = {
 
 type Produtos = {
     nome: String,
-    quantidade: Number,
+    qtd: Number,
     valor: String
 }
 
 type OrderData = {
-    pedido: Produtos[];
+    produtos: Produtos[]
+    valor_total: Number
 }
 
 type AuthContextType = {
@@ -60,25 +61,40 @@ export function AuthProvider({ children }) {
 
     }
 
-    async function sendOrder(pedido : OrderData) {
-
-        console.log('SEU PEDIDO =>>',pedido)
-
-        const token = await AsyncStorage.getItem('@auth_token')
 
 
-        const res = await fetch('http://localhost:5000/pedidos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ pedido }),
+    const sendOrder = async ({ produtos, valor_total }: OrderData) => {
+
+        const token = await AsyncStorage.getItem('@auth_token');
+
+        // Transform the produtos array into an object with numeric keys
+        const produtosObj = {};
+        produtos.forEach((produto, index) => {
+            produtosObj[index] = produto;
         });
 
-        const data = await res.json();
-        console.log('Resposta do servidor:', data);
-    }
+        const pedido = { produtos: produtosObj, valor_total };
+
+        console.log(JSON.stringify(pedido));
+        console.log(token)
+
+        try {
+            const res = await fetch('https://dolce-coffee-api.onrender.com/pedidos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(pedido),
+            });
+
+            const data = await res.json();
+            console.log('Resposta do servidor:', data);
+
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
 
 
