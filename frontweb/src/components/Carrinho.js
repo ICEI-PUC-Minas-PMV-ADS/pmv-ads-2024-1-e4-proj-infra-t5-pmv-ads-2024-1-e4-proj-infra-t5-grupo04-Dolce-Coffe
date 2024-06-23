@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
+import '../App.css'
+import Cookies from 'js-cookie'
+
 
 function Cart() {
   const [produtos, setProdutos] = useState([]);
@@ -52,13 +54,54 @@ function Cart() {
     localStorage.clear(); // Limpar os dados no armazenamento local
     navigate('/historico'); // Redirecionar para a página de histórico imediatamente
   };
-  
 
-  const handleFinalizeOrder = () => {
+  const handleFinalizeOrder = async (produtos) => {
     if (selectedOption && deliveryOption) {
       const numeroPedido = Math.floor(Math.random() * 10000) + 1;
       alert(`Pedido gerado com sucesso! Nº ${numeroPedido}`);
       limparCarrinho();
+
+      const agrupados = produtos.reduce((acc, produto) => {
+        const { nome, valor } = produto;
+        if (!acc[nome]) {
+          acc[nome] = { nome, valor, qtd: 0, valor_total: 0 };
+        }
+        acc[nome].qtd += 1;
+        acc[nome].valor_total += valor;
+        return acc;
+      }, {});
+
+      const produtosAgrupados = Object.values(agrupados);
+
+      // Calculando o valor total de todos os produtos
+      const valor_total = produtosAgrupados.reduce((total, produto) => total += produto.valor_total, 0);
+
+      // Montando o resultado final
+      const resultado = {
+        produtos: produtosAgrupados,
+        valor_total
+      };
+
+      const token = Cookies.get('token')
+
+
+      try {
+        const res = await fetch('https://dolce-coffee-api.onrender.com/pedidos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(resultado),
+        });
+
+        const data = await res.json();
+        console.log('Resposta do servidor:', data);
+
+      } catch (error) {
+        console.log(error);
+      }
+
     } else {
       setNotification(true);
       setTimeout(() => {
@@ -66,7 +109,7 @@ function Cart() {
       }, 1000);
     }
   };
-  
+
 
   const aumentarQuantidade = (id_produto) => {
     const novosProdutos = produtos.map(produto => {
@@ -161,7 +204,7 @@ function Cart() {
           <div id="delivery-selected">{deliveryOption}</div>
         )}
         {notification && (
-         
+
 
           <div className="modal fade show" style={{ display: 'block' }} tabIndex="-1">
             <div className="modal-dialog modal-dialog-centered">
@@ -178,7 +221,7 @@ function Cart() {
         )}
       </main>
       <section className="order-finalization">
-        <button className="finalize-order" onClick={handleFinalizeOrder}>Finalizar Pedido</button>
+        <button className="finalize-order" onClick={() => handleFinalizeOrder(produtos)}>Finalizar Pedido</button>
         <a href="/"><button className="return-home">Página Inicial</button></a>
       </section>
     </div>
