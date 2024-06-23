@@ -66,7 +66,7 @@ export default function Pedidos() {
             </View>
 
             <View style={styles.container}>
-                 {pedidos.map((pedido) => (
+                {pedidos.map((pedido) => (
                     <View style={styles.cardPedido} key={pedido._id}>
                         <View >
                             <Text style={styles.tituloCard}>
@@ -75,22 +75,21 @@ export default function Pedidos() {
                             <Text style={styles.data}>
                                 Realizado em {pedido.data}
                             </Text>
-                            {pedido.produtos.map((produto, idx) => (
-                                <View key={idx} style={styles.itens}>
-                                    <Text style={styles.item}>
-                                        Item: {produto.nome}
-                                    </Text>
-                                    <Text style={styles.quantidade}>
-                                        Quantidade: {produto.qtd}
-                                    </Text>
-                                </View>
-                            ))}
+                            <View style={styles.itens}>
+                                <Text style={styles.item}>
+                                    Item: {pedido.nome}
+                                </Text>
+                                <Text style={styles.quantidade}>
+                                    Quantidade: {pedido.qtd}
+                                </Text>
+                            </View>
+
                             <Text style={styles.valor}>
                                 R$: {pedido.valor_total}
                             </Text>
                         </View>
                     </View>
-                ))} 
+                ))}
 
             </View>
         </View>
