@@ -1,52 +1,23 @@
 import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, Button,TouchableWithoutFeedback,Keyboard  } from 'react-native';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { ThemedText } from '@/components/ThemedText';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '@/context/AuthContext';
 
-export default function HomeScreen() {
+
+export default function Login() {
   const [senha, setSenha] = useState('');
   const [email, setEmail] = useState('');
 
+  const data = {email,senha}
 
-const salvaToken = async(token:string) => {
-  try{
-    await AsyncStorage.setItem('@auth_token',token)
-  }catch(error){
-    console.error('Falha ao salvar o token', error)
-  }
+  const {signIn} = useContext(AuthContext)
+
+  async function handleSignIn(data) {
+    await signIn(data)
 }
 
 
-
-  async function Logar(email: string, senha: string) {
-    const credenciais = {
-      email: email,
-      senha: senha
-    };
-
-    try {
-      const response = await fetch('https://dolce-coffee-api.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credenciais)
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro na requisição');
-      }
-
-      const data = await response.json();
-      if (data) {
-        await salvaToken(data.token)
-        console.log(`Token Salvo: ${data.token}`)
-      }
- 
-    } catch (err) {
-      console.error(err);
-    }
-  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -73,7 +44,7 @@ const salvaToken = async(token:string) => {
           placeholderTextColor="#000" 
         />
         <View style={styles.buttonContainer}>
-          <Button title='Entrar' onPress={() => Logar(email, senha)} color="#8B4513" />
+          <Button title='Entrar' onPress={() => handleSignIn(data)} color="#8B4513" />
         </View>
       </View>
     </View>

@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
+
+
 interface Produto {
   _id: string;
   nome: string;
@@ -11,6 +13,7 @@ interface Produto {
   tipo: string;
   url_foto: string;
 }
+
 
 interface QuartaSecProps {
   handleAddToCart: (produto: Produto) => void;
@@ -41,52 +44,31 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState<string>('quente');
 
-    useEffect(() => {
+  useEffect(() => {
 
-        const fetchProdutos = async () => {
-            try {
-                const token = await getToken()
-                if (token) {
-                    await getProdutos(token)
-                }
-            } catch (error) {
-                console.error('Erro ao buscar pedidos', error)
-            }
+    const getProdutos = async () => {
+      try {
+        const response = await fetch('https://dolce-coffee-api.onrender.com/home', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro na requisição');
         }
 
-        const getToken = async () => {
-            try {
-                const token = await AsyncStorage.getItem('@auth_token');
-                return token;
-            } catch (e) {
-                console.error('Falha ao recuperar o token', e);
-            }
-        }
+        const data = await response.json();
+        setProdutos(data.arrayProdutos);
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-        const getProdutos = async (token: string) => {
-            try {
-                const response = await fetch('https://dolce-coffee-api.onrender.com/home', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`,
-                    }
-                });
+    getProdutos();
 
-                if (!response.ok) {
-                    throw new Error('Erro na requisição');
-                }
-
-                const data = await response.json();
-                setProdutos(data.arrayProdutos);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-
-        fetchProdutos();
-
-    }, []);
+  }, []);
 
   const handleClickCategoria = (categoria: string) => {
     setCategoriaAtiva(categoria);
@@ -99,26 +81,26 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
           <TouchableOpacity
             style={[styles.categoryButton, categoriaAtiva === 'quente' && styles.activeCategory]}
             onPress={() => handleClickCategoria('quente')}
-            activeOpacity={0.10} 
+            activeOpacity={0.10}
           >
             <Text style={styles.categoryButtonText}>Cafés Quentes</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.categoryButton, categoriaAtiva === 'gelado' && styles.activeCategory]}
             onPress={() => handleClickCategoria('gelado')}
-            activeOpacity={0.10} 
+            activeOpacity={0.10}
           >
             <Text style={styles.categoryButtonText}>Cafés Gelados</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.categoryButton, categoriaAtiva === 'comida' && styles.activeCategory]}
             onPress={() => handleClickCategoria('comida')}
-            activeOpacity={0.10} 
+            activeOpacity={0.10}
           >
             <Text style={styles.categoryButtonText}>Para Comer</Text>
           </TouchableOpacity>
         </View>
-        {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.sliderContainer}>  verificar como ocultar a barra de scroll*/} 
+        {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.sliderContainer}>  verificar como ocultar a barra de scroll*/}
         <ScrollView horizontal style={styles.sliderContainer}>
           {categoriaAtiva &&
             produtos
@@ -133,15 +115,30 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
                   </View>
                 </TouchableOpacity>
               ))}
-        </ScrollView> 
+        </ScrollView>
       </View>
     </View>
   );
 }
 
 function Home() {
-  const handleAddToCart = (produto: Produto) => {
-    console.log('Produto adicionado ao carrinho:', produto);
+  
+  const [cart, setCart] = useState<Produto[]>([]);
+
+
+  const handleAddToCart = async (produto: Produto) => {
+    const updatedCart = [...cart, produto];
+
+    setCart(updatedCart);
+
+    console.log('Produto adicionado: ', produto)
+
+    try {
+      await AsyncStorage.setItem('carrinho', JSON.stringify(updatedCart));
+    } catch (error) {
+      console.error('Erro ao salvar o carrinho:', error);
+    }
+
   };
 
   return (
@@ -209,12 +206,12 @@ const styles = StyleSheet.create({
   activeCategory: {
     backgroundColor: '#666',
   },
-  
+
   sliderContainer: {
     flexDirection: 'row',
     overflow: 'hidden',
   },
-  
+
   card: {
     marginRight: wp('2%'),
     borderWidth: 1,

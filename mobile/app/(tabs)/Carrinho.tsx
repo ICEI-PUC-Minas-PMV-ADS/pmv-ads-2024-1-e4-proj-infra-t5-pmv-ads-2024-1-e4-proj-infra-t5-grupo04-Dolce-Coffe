@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Button, Alert, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '@/context/AuthContext';
 
 export default function Carrinho() {
   const [produtos, setProdutos] = useState([]);
@@ -8,9 +9,14 @@ export default function Carrinho() {
   const [deliveryOption, setDeliveryOption] = useState('');
   const [notification, setNotification] = useState(false);
 
-  const calcularValorTotal = (produtos) => {
+  const [carrinho, setCarrinho] = useState()
+
+
+  const { sendOrder } = useContext(AuthContext)
+
+  const calcularValorTotal = (carrinho) => {
     let total = 0;
-    produtos.forEach(produto => {
+    carrinho.forEach(produto => {
       if (produto.valorTotal) {
         total += parseFloat(produto.valorTotal);
       }
@@ -20,20 +26,32 @@ export default function Carrinho() {
 
   useEffect(() => {
     const fetchProdutos = async () => {
-      const produtosLocalStorage = [];
-      const keys = await AsyncStorage.getAllKeys();
-      const result = await AsyncStorage.multiGet(keys);
-      result.forEach(([key, value]) => {
-        if (key.includes("produto_")) {
-          const produto = JSON.parse(value);
-          produto.valorTotal = produto.valor || 0;
-          if (!produto.quantidade || produto.quantidade === 0) {
-            produto.quantidade = 1;
-          }
-          produtosLocalStorage.push(produto);
+      const carrinho = await AsyncStorage.getItem('carrinho');
+
+      const carrinhoObjetos = JSON.parse(carrinho);
+
+      const carrinhoProcessado = {}
+
+      carrinhoObjetos.forEach(objeto => {
+        const { nome, valor } = objeto; // Obtém nome e valor de cada objeto
+
+        // Se já existe uma entrada para esse nome no contador, incrementa a quantidade
+        if (carrinhoProcessado[nome]) {
+          carrinhoProcessado[nome].quantidade++;
+        } else {
+          // Se não existe, cria uma nova entrada inicializando a quantidade com 1
+          carrinhoProcessado[nome] = {
+            nome,
+            valor,
+            quantidade: 1
+          };
         }
+
+        const resultadoArray = Object.values(carrinhoProcessado);
+        setCarrinho(resultadoArray)
+
       });
-      setProdutos(produtosLocalStorage);
+
     };
 
     fetchProdutos();
@@ -41,6 +59,7 @@ export default function Carrinho() {
 
   const handleCreditCardClick = () => {
     setSelectedOption('Cartão de Crédito/Débito');
+    console.log(carrinho)
   };
 
   const handleCashClick = () => {
@@ -52,7 +71,7 @@ export default function Carrinho() {
   };
 
   const limparCarrinho = async () => {
-    setProdutos([]);
+    setCarrinho([]);
     await AsyncStorage.clear();
     // Navegar para outra tela pode ser implementado aqui se necessário
   };
@@ -61,7 +80,8 @@ export default function Carrinho() {
     if (selectedOption && deliveryOption) {
       const numeroPedido = Math.floor(Math.random() * 10000) + 1;
       Alert.alert('Pedido gerado com sucesso!', `Nº ${numeroPedido}`);
-      limparCarrinho();
+
+      // limparCarrinho();
     } else {
       setNotification(true);
       setTimeout(() => {
@@ -69,6 +89,20 @@ export default function Carrinho() {
       }, 1000);
     }
   };
+
+
+  const TesteEnvio = async () => {
+    console.log('Enviando pedido...');
+
+    const carrinho = {
+      produtos: [{ nome: 'Super Moccha', quantidade: 1, valor: 15.5 }],
+      valor_total: 20
+    };
+
+    await sendOrder(carrinho); // Chama sendOrder com o objeto carrinho
+  };
+
+
 
   const aumentarQuantidade = (id_produto) => {
     const novosProdutos = produtos.map(produto => {
@@ -108,10 +142,14 @@ export default function Carrinho() {
     <ScrollView style={{ flex: 1 }}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Carrinho</Text>
+        <TouchableOpacity onPress={TesteEnvio} style={{ marginTop: '50%', padding: 3, backgroundColor: 'green' }}>
+          <Text style={{ fontSize: 20, color: 'white' }}>TESTAR REQUISICAO</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.container}>
         <Text style={styles.title}>Itens no Carrinho</Text>
-        {produtos.map((produto) => (
+        {/* <View style={styles.produtoContainer}> */}
+        {carrinho && carrinho.map((produto, indice) => (
           <View key={produto._id} style={styles.produtoContainer}>
             <View style={styles.produtoInfo}>
               <Text>Produto: {produto.nome}</Text>
@@ -132,6 +170,7 @@ export default function Carrinho() {
           </View>
         ))}
       </View>
+
       <View style={styles.totalContainer}>
         <Text style={styles.totalTitle}>Total:</Text>
         <Text style={styles.totalPrice}>R$ {calcularValorTotal(produtos)}</Text>
