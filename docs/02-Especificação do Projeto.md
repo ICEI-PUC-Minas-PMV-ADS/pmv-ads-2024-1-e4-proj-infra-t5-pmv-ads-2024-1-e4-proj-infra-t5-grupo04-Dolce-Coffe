@@ -1,4 +1,4 @@
-aça# Especificações do Projeto
+# Especificações do Projeto
 
 A definição do problema e os pontos mais relevantes a serem tratados neste projeto foram consolidados através de discussões e estudos realizados pelos membros da equipe . Os detalhes levantados nesse processo foram agrupados na forma de personas e histórias de usuários, com o objetivo de compreender melhor as necessidades e desejos dos clientes para melhorar a experiência na cafeteria..
 
