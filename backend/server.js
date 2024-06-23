@@ -24,10 +24,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use(cors({
-  origin: 'http://localhost:3000', // Especificar o domínio do solicitante
-  credentials: true,
-}));
 
 app.use(express.json());
 
@@ -125,6 +121,8 @@ app.post('/pedidos', async (req, res) => {
 
     const data = `${dia}-${mes}-${ano}`
 
+    const status = true
+
     const { id: user_id } = await jwt.decode(token)
     const pedido = req.body
 
@@ -132,7 +130,7 @@ app.post('/pedidos', async (req, res) => {
 
     console.log(pedido)
 
-    const pedidoData = { data, user_id, produtos, valor_total }
+    const pedidoData = { data, user_id, produtos, valor_total , status}
 
     const enviaPedido = await pedidos.postPedido(pedidoData)
 
