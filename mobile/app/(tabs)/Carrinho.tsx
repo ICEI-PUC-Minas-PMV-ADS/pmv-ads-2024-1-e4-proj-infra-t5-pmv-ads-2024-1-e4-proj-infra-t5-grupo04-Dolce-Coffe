@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Button, Alert, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '@/context/AuthContext';
 
 export default function Carrinho() {
   const [produtos, setProdutos] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
   const [deliveryOption, setDeliveryOption] = useState('');
   const [notification, setNotification] = useState(false);
+  const { sendOrder } = useContext(AuthContext);
 
   const calcularValorTotal = (produtos) => {
     let total = 0;
@@ -20,25 +22,28 @@ export default function Carrinho() {
 
   useEffect(() => {
     const fetchProdutos = async () => {
-      const produtosLocalStorage = [];
-      const keys = await AsyncStorage.getAllKeys();
-      const result = await AsyncStorage.multiGet(keys);
-      result.forEach(([key, value]) => {
-        if (key.includes("produto_")) {
-          const produto = JSON.parse(value);
-          produto.valorTotal = produto.valor || 0;
-          if (!produto.quantidade || produto.quantidade === 0) {
-            produto.quantidade = 1;
-          }
-          produtosLocalStorage.push(produto);
+      try {
+        const carrinho = await AsyncStorage.getItem('carrinho');
+        if (!carrinho) {
+          console.log('Carrinho vazio');
+          return;
         }
-      });
-      setProdutos(produtosLocalStorage);
+        const carrinhoObjetos = JSON.parse(carrinho);
+        const produtosProcessados = carrinhoObjetos.map(produto => {
+          return {
+            ...produto,
+            quantidade: produto.quantidade || 1,
+            valorTotal: produto.valor * (produto.quantidade || 1)
+          };
+        });
+        setProdutos(produtosProcessados); 
+      } catch (error) {
+        console.error('Erro ao processar o carrinho:', error);
+      }
     };
-
     fetchProdutos();
   }, []);
-
+  
   const handleCreditCardClick = () => {
     setSelectedOption('Cartão de Crédito/Débito');
   };
@@ -54,13 +59,32 @@ export default function Carrinho() {
   const limparCarrinho = async () => {
     setProdutos([]);
     await AsyncStorage.clear();
-    // Navegar para outra tela pode ser implementado aqui se necessário
   };
 
-  const handleFinalizeOrder = () => {
+  const handleFinalizeOrder = async () => {
     if (selectedOption && deliveryOption) {
       const numeroPedido = Math.floor(Math.random() * 10000) + 1;
       Alert.alert('Pedido gerado com sucesso!', `Nº ${numeroPedido}`);
+
+      const agrupados = produtos.reduce((acc, produto) => {
+        const { nome, valor } = produto;
+        if (!acc[nome]) {
+          acc[nome] = { nome, valor, qtd: 0, valor_total: 0 };
+        }
+        acc[nome].qtd += 1;
+        acc[nome].valor_total += valor * produto.quantidade;
+        return acc;
+      }, {});
+
+      const produtosAgrupados = Object.values(agrupados);
+      const valor_total = produtosAgrupados.reduce((total, produto) => total += produto.valor_total, 0);
+
+      const resultado = {
+        produtos: produtosAgrupados,
+        valor_total
+      };
+
+      sendOrder(resultado);
       limparCarrinho();
     } else {
       setNotification(true);
@@ -80,15 +104,14 @@ export default function Carrinho() {
       return produto;
     });
     setProdutos(novosProdutos);
+    updateAsyncStorage(novosProdutos);
   };
 
   const diminuirQuantidade = (id_produto) => {
     const novosProdutos = produtos.map(produto => {
       if (produto._id === id_produto) {
         const novaQuantidade = produto.quantidade - 1;
-        if (novaQuantidade <= 0) {
-          return null;
-        } else {
+        if (novaQuantidade > 0) {
           produto.quantidade = novaQuantidade;
           produto.valorTotal = produto.valor * novaQuantidade;
         }
@@ -96,12 +119,17 @@ export default function Carrinho() {
       return produto;
     }).filter(Boolean);
     setProdutos(novosProdutos);
+    updateAsyncStorage(novosProdutos);
   };
 
   const removerProduto = (id_produto) => {
     const novosProdutos = produtos.filter(produto => produto._id !== id_produto);
     setProdutos(novosProdutos);
-    AsyncStorage.removeItem(`produto_${id_produto}`);
+    updateAsyncStorage(novosProdutos);
+  };
+
+  const updateAsyncStorage = async (produtos) => {
+    await AsyncStorage.setItem('carrinho', JSON.stringify(produtos));
   };
 
   return (
@@ -124,7 +152,7 @@ export default function Carrinho() {
                   <Text style={styles.buttonText}>+</Text>
                 </TouchableOpacity>
               </View>
-              <Text>Valor: R$ {produto.valor ? (produto.valor * (produto.quantidade || 1)).toFixed(2) : '0.00'}</Text>
+              <Text>Valor: R$ {produto.valorTotal.toFixed(2)}</Text>
             </View>
             <TouchableOpacity onPress={() => removerProduto(produto._id)} style={styles.removeButton}>
               <Text style={styles.removeButtonText}>Remover</Text>
@@ -145,7 +173,9 @@ export default function Carrinho() {
             selectedOption === 'Cartão de Crédito/Débito' && styles.selectedPaymentButton
           ]}
         >
-          <Text style={[styles.buttonText, selectedOption === 'Cartão de Crédito/Débito' && styles.selectedButtonText]}>Cartão de Crédito/Débito</Text>
+          <Text style={[styles.buttonText, selectedOption === 'Cartão de Crédito/Débito' && styles.selectedButtonText]}>
+            Cartão de Crédito/Débito
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={handleCashClick}
@@ -227,8 +257,8 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 2,
+    shadowRadius: 8,
+    elevation: 5,
   },
   produtoInfo: {
     marginBottom: 10,
@@ -237,86 +267,83 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  quantidadeText: {
+    marginHorizontal: 10,
+    fontSize: 16,
+  },
   button: {
     backgroundColor: '#8B4513',
     padding: 10,
     borderRadius: 5,
-    marginHorizontal: 5,
   },
   buttonText: {
     color: '#fff',
     fontSize: 16,
   },
-  quantidadeText: {
-    padding: 10,
-    backgroundColor: '#f8f9fa',
-    borderRadius: 5,
-    marginHorizontal: 5,
-  },
   removeButton: {
-    marginTop: 10,
-    backgroundColor: '#ff6347',
+    backgroundColor: '#dc3545',
     padding: 10,
     borderRadius: 5,
   },
   removeButtonText: {
     color: '#fff',
-    textAlign: 'center',
+    fontSize: 16,
   },
   totalContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: 20,
     backgroundColor: '#f8f9fa',
+    borderTopWidth: 1,
+    borderColor: '#e9ecef',
   },
   totalTitle: {
     fontSize: 18,
-    marginBottom: 10,
+    fontWeight: 'bold',
   },
   totalPrice: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#28a745',
   },
   paymentMethods: {
     padding: 20,
   },
   paymentButton: {
-    backgroundColor: '#FFA500', // Laranja
-    padding: 15,
-    borderRadius: 10,
+    backgroundColor: '#8B4513',
+    padding: 10,
+    borderRadius: 5,
     marginBottom: 10,
   },
   selectedPaymentButton: {
-    backgroundColor: '#808080', // Cinza
+    backgroundColor: '#28a745',
   },
   selectedOptionContainer: {
     marginTop: 10,
-    padding: 10,
-    backgroundColor: '#f8f9fa',
-    borderRadius: 5,
+  },
+  selectedButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
   deliveryOptions: {
     padding: 20,
   },
   deliveryButton: {
-    backgroundColor: '#008000', // Verde
-    padding: 15,
-    borderRadius: 10,
+    backgroundColor: '#8B4513',
+    padding: 10,
+    borderRadius: 5,
     marginBottom: 10,
   },
   selectedDeliveryButton: {
-    backgroundColor: '#808080', // Cinza
-  },
-  selectedButtonText: {
-    color: '#000', // Preto
+    backgroundColor: '#28a745',
   },
   notification: {
     padding: 20,
-    backgroundColor: '#ffdddd',
-    borderRadius: 10,
-    marginBottom: 20,
+    backgroundColor: '#ffc107',
+    alignItems: 'center',
   },
   orderFinalization: {
     padding: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
 });
+

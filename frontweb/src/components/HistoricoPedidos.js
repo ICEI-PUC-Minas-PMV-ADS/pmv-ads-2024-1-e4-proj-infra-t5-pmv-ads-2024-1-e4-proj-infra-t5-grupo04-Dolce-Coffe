@@ -16,21 +16,24 @@ function HistoricoPedidos() {
     async function fetchPedidos() {
       try {
         const token = Cookies.get('token');
-        const config = {
-          withCredentials: true,
+        const response = await fetch('https://dolce-coffee-api.onrender.com/pedidos', {
+          method: 'GET',
           headers: {
-            Authorization: `Bearer ${token}`
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json' // Definir o tipo de conteúdo
           }
-        };
+        });
 
-        const response = await axios.get('https://dolce-coffee-api.onrender.com/pedidos', config);
-        setPedidos(response.data.arrayPedidos);
-      } catch (error) {
-        if (error.response && error.response.status === 401) {
+        if (response.status === 401) {
           handleRedirect();
+        } else if (response.ok) {
+          const data = await response.json();
+          setPedidos(data.arrayPedidos);
         } else {
-          console.error('Erro ao buscar pedidos', error);
+          console.error('Erro ao buscar pedidos', response.statusText);
         }
+      } catch (error) {
+        console.error('Erro ao buscar pedidos', error);
       }
     }
 
