@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ScrollView, Image, Modal } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-
-
 
 interface Produto {
   _id: string;
@@ -12,8 +10,8 @@ interface Produto {
   desc: string;
   tipo: string;
   url_foto: string;
+  quantidade?: number; 
 }
-
 
 interface QuartaSecProps {
   handleAddToCart: (produto: Produto) => void;
@@ -41,11 +39,9 @@ function MainSection() {
 
 function QuartaSec({ handleAddToCart }: QuartaSecProps) {
   const [produtos, setProdutos] = useState<Produto[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [categoriaAtiva, setCategoriaAtiva] = useState<string>('quente');
 
   useEffect(() => {
-
     const getProdutos = async () => {
       try {
         const response = await fetch('https://dolce-coffee-api.onrender.com/home', {
@@ -67,7 +63,6 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
     };
 
     getProdutos();
-
   }, []);
 
   const handleClickCategoria = (categoria: string) => {
@@ -100,7 +95,6 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
             <Text style={styles.categoryButtonText}>Para Comer</Text>
           </TouchableOpacity>
         </View>
-        {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.sliderContainer}>  verificar como ocultar a barra de scroll*/}
         <ScrollView horizontal style={styles.sliderContainer}>
           {categoriaAtiva &&
             produtos
@@ -122,29 +116,54 @@ function QuartaSec({ handleAddToCart }: QuartaSecProps) {
 }
 
 function Home() {
-  
   const [cart, setCart] = useState<Produto[]>([]);
-
+  const [mensagem, setMensagem] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleAddToCart = async (produto: Produto) => {
-    const updatedCart = [...cart, produto];
-
+    const itemIndex = cart.findIndex(item => item._id === produto._id);
+    let updatedCart;
+  
+    if (itemIndex > -1) {
+      updatedCart = cart.map((item, index) =>
+        index === itemIndex ? { ...item, quantidade: (item.quantidade || 1) + 1 } : item
+      );
+    } else {
+      updatedCart = [...cart, { ...produto, quantidade: 1 }];
+    }
+  
     setCart(updatedCart);
-
-    console.log('Produto adicionado: ', produto)
-
+  
     try {
-      await AsyncStorage.setItem('carrinho', JSON.stringify(updatedCart));
+      await AsyncStorage.setItem('carrinho', JSON.stringify(updatedCart)); 
     } catch (error) {
       console.error('Erro ao salvar o carrinho:', error);
     }
-
+  
+    setMensagem(`Produto adicionado ao carrinho: ${produto.nome}`);
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false);
+    }, 1000);
   };
 
   return (
-    <View >
+    <View style={styles.homeContainer}>
       <MainSection />
       <QuartaSec handleAddToCart={handleAddToCart} />
+      
+      <Modal
+        transparent={true}
+        visible={showModal}
+        animationType="slide"
+        onRequestClose={() => setShowModal(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text>{mensagem}</Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -187,6 +206,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
     padding: hp('1%'),
   },
+  container: {
+    paddingHorizontal: wp('2%'),
+  },
   categoryButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -206,12 +228,10 @@ const styles = StyleSheet.create({
   activeCategory: {
     backgroundColor: '#666',
   },
-
   sliderContainer: {
     flexDirection: 'row',
     overflow: 'hidden',
   },
-
   card: {
     marginRight: wp('2%'),
     borderWidth: 1,
@@ -237,6 +257,19 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: wp('3.5%'),
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    width: wp('80%'),
+    padding: hp('2%'),
+    backgroundColor: 'white',
+    borderRadius: 10,
+    alignItems: 'center',
   },
 });
 
