@@ -24,6 +24,11 @@ app.use(cors({
   credentials: true,
 }));
 
+app.use(cors({
+  origin: 'http://localhost:3000', // Especificar o domínio do solicitante
+  credentials: true,
+}));
+
 app.use(express.json());
 
 const db = new Database()
