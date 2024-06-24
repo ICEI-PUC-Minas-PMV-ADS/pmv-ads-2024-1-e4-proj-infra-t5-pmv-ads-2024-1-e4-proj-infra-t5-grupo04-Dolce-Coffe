@@ -1,0 +1,27 @@
+message: Please cite this software using these metadata.
+title: Dolce Coffe
+authors:
+  - family-names: Gomes de Freitas
+    given-names: Roberta
+  - family-names: Marcelo Dias Souza
+    given-names: Lucas
+  - family-names: Muniz
+    given-names: Vinicio
+  - family-names: Kingma
+    given-names: Victor
+  - family-names: César de Almeida dos Santos
+    given-names: Marlon
+  - family-names: Amorin
+    given-names: Geison
+  - name-suffix: Professor
+    affiliation: PUC Minas
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Felipe de Alves de Oliveira
+    given-names: Pedro
+keywords:
+  - Cardápio
+  - Alimentação
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e4-proj-infra-t5-pmv-ads-2024-1-e4-proj-infra-t5-grupo04-Dolce-Coffe
+version: 1.0.0
+date-released: 2024-01-15
