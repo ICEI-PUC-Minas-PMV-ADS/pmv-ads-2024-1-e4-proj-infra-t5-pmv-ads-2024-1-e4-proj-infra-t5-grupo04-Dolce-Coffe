@@ -101,7 +101,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-004| O menu deverá permitir o usuário navegar entre as seguintes telas: pedidos, cardápio, histórico de pedidos, meu perfil | Alta|
 |RF-005| O sistema deve permitir iniciar o pedido ou cancelar na própria tela do carrinho | Alta| 
 |RF-006| O sistema deve permitir excluir produtos do carrinho |
-|RF-007| O sistema deve permitir que os clientes acompanhem o status de seus pedidos, desde o momento da realização da compra até a entrega | ALTA |
+|RF-007| O sistema deve permitir que os clientes visualize o historico dos pedidos já realizados | ALTA |
 |RF-008| O sistema deve exibir informações detalhadas sobre cada produto, incluindo preço, descrição e imagem | Alta |
 |RF-009| O sistema deve oferecer a opção de entrega em domicílio ou retirada na loja | Alta |
 
